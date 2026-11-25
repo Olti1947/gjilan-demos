@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>D-Dent — Gjilan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#F2F8F6; --ink:#0E3B3A; --muted:#4F6F6C; --accent:#E3735E; --on-accent:#0E3B3A; --panel:#0E5E5A; --on-panel:#F2F8F6;
+  --display:'Young Serif', serif; --body:'Outfit', sans-serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.6; }
+a { color:inherit; }
+a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.demo { background:var(--ink); color:var(--bg); font-size:.875rem; padding:.55rem 1.25rem; text-align:center; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 1.5rem; }
+header.top { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; }
+header.top .logo { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:1.25rem; text-decoration:none; }
+header.top nav a { margin-left:1.25rem; text-decoration:none; color:var(--muted); }
+header.top nav a:hover { color:var(--ink); }
+.hero { display:grid; grid-template-columns:1.25fr 1fr; gap:2rem; align-items:center; padding:3.5rem 0 4.5rem; }
+.kicker { color:var(--muted); font-size:1rem; margin-bottom:1rem; }
+.hero h1 { font-family:var(--display); font-stretch:100%; font-weight:800; font-size:clamp(2.75rem, 7vw, 5.25rem); line-height:.98; letter-spacing:-.01em; }
+.tagline { font-family:var(--display); font-style:italic; font-size:1.35rem; margin-top:1rem; color:var(--muted); }
+.lead { max-width:34rem; margin-top:1.25rem; font-size:1.15rem; }
+.cta { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+.btn { display:inline-block; padding:.85rem 1.35rem; border:2px solid var(--ink); border-radius:999px; text-decoration:none; font-weight:600; }
+.btn.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+.btn:hover { transform:translateY(-1px); }
+.hero svg { width:100%; height:auto; max-height:360px; }
+section { padding:4rem 0; }
+h2 { font-family:var(--display); font-stretch:100%; font-size:clamp(1.9rem, 4vw, 2.75rem); line-height:1.1; margin-bottom:1.75rem; }
+.services ul { list-style:none; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 3rem; }
+.services li { padding:1rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); font-size:1.15rem; }
+.steps { background:var(--panel); color:var(--on-panel); }
+.steps ol { list-style:none; counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:2rem; }
+.steps li { counter-increment:s; font-size:1.15rem; }
+.steps li::before { content:counter(s); display:block; font-family:var(--display); font-stretch:100%; font-size:3rem; line-height:1; color:var(--accent); margin-bottom:.5rem; }
+.gallery .grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem; }
+.gallery .note { color:var(--muted); margin:-1rem 0 1.5rem; }
+.ph-img { aspect-ratio:4/3; border-radius:6px; background:
+  repeating-linear-gradient(135deg, color-mix(in srgb, var(--panel) 14%, transparent) 0 14px, transparent 14px 28px), color-mix(in srgb, var(--panel) 8%, var(--bg)); }
+figcaption { margin-top:.5rem; color:var(--muted); }
+.mock { text-decoration:underline dotted color-mix(in srgb, var(--accent) 80%, var(--ink)); text-decoration-thickness:2px; text-underline-offset:4px; cursor:help; }
+.img { position:relative; aspect-ratio:4/3; border-radius:6px; overflow:hidden; }
+.img svg { display:block; width:100%; height:100%; }
+.tag { position:absolute; left:.6rem; bottom:.6rem; background:rgba(0,0,0,.55); color:#fff; font-size:.75rem; padding:.15rem .5rem; border-radius:999px; }
+.ph { background:color-mix(in srgb, var(--accent) 22%, transparent); border-radius:4px; padding:0 .3em; }
+.contact .grid { display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem; }
+.contact ul { list-style:none; }
+.contact li { display:grid; grid-template-columns:7rem 1fr; padding:.85rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.contact li span:first-child { color:var(--muted); }
+.contact iframe { width:100%; height:320px; border:0; border-radius:6px; }
+footer { padding:2.5rem 0; color:var(--muted); font-size:.9rem; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.callbar { display:none; }
+@media (max-width:760px) {
+  .hero { grid-template-columns:1fr; padding-top:2rem; }
+  .hero svg { max-height:200px; order:-1; }
+  header.top nav { display:none; }
+  .services ul, .contact .grid { grid-template-columns:1fr; }
+  .gallery .grid { grid-template-columns:1fr 1fr; }
+  .callbar { display:flex; position:fixed; left:0; right:0; bottom:0; gap:.5rem; padding:.75rem; background:var(--bg); border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+  .callbar .btn { flex:1; text-align:center; }
+  body { padding-bottom:4.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="demo">Demo e përgatitur falas nga [Emri i ekipit] për D-Dent. Çmimet e nënvizuara me pika dhe fotot janë shembuj që i zëvendësojmë me të dhënat tuaja.</div>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#">D-Dent</a>
+    <nav><a href="#sherbimet">Shërbimet</a><a href="#galeria">Klinika</a><a href="#kontakti">Kontakti</a></nav>
+  </header>
+  <div class="hero">
+    <div>
+      <p class="kicker">Klinikë dentare në Gjilan</p>
+      <h1>D-Dent</h1>
+      
+      <p class="lead">Kujdes për dhëmbët tuaj, nga kontrolla e rregullt deri te buzëqeshja që dëshironi. Caktoni terminin me një telefonatë.</p>
+      <div class="cta"><a class="btn primary" href="#kontakti">Na kontaktoni</a></div>
+    </div>
+    <svg viewBox="0 0 400 300" aria-hidden="true"><circle cx="200" cy="150" r="120" fill="#0E5E5A"/>
+<path d="M130 160 Q200 230 270 160" fill="none" stroke="#F2F8F6" stroke-width="14" stroke-linecap="round"/>
+<circle cx="160" cy="115" r="10" fill="#F2F8F6"/><circle cx="240" cy="115" r="10" fill="#F2F8F6"/>
+<circle cx="320" cy="60" r="18" fill="#E3735E"/></svg>
+  </div>
+</div>
+<section class="services" id="sherbimet"><div class="wrap"><h2>Shërbimet</h2><ul><li>Kontrollë dhe pastrim — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">20 €</span></li><li>Mbushje estetike — nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">25 €</span></li><li>Zbardhim i dhëmbëve — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">120 €</span></li><li>Kurora zirkoni — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">180 €</span></li><li>Implante dentare — nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">450 €</span></li><li>Drejtim i dhëmbëve — konsultë falas</li></ul></div></section>
+<section class="steps"><div class="wrap"><h2>Vizita e parë</h2><ol><li>Caktoni terminin me telefon ose WhatsApp</li><li>Kontrollë dhe plan trajtimi i shpjeguar qartë</li><li>Trajtimi sipas kohës që ju përshtatet</li></ol></div></section>
+<section class="gallery" id="galeria"><div class="wrap"><h2>Klinika</h2><p class="note">Fotot janë ilustrime; i zëvendësojmë me fotot tuaja.</p><div class="grid"><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gd-dent0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2F8F6"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs><rect width="400" height="300" fill="url(#gd-dent0)"/><rect y="215" width="400" height="85" fill="#d9e7e3"/><rect x="60" y="150" width="280" height="70" rx="8" fill="#0E5E5A"/><rect x="60" y="140" width="280" height="14" rx="4" fill="#ffffff"/><line x1="120" y1="0" x2="120" y2="60" stroke="#E3735E" stroke-width="3"/><path d="M92 84 Q120 50 148 84 Z" fill="#E3735E"/><line x1="280" y1="0" x2="280" y2="60" stroke="#E3735E" stroke-width="3"/><path d="M252 84 Q280 50 308 84 Z" fill="#E3735E"/><rect x="300" y="90" width="40" height="50" rx="20" fill="#7fb59c"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Hapësira e pritjes</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gd-dent1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6f2ef"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs><rect width="400" height="300" fill="url(#gd-dent1)"/><rect y="215" width="400" height="85" fill="#cfe0dc"/><line x1="220" y1="0" x2="220" y2="70" stroke="#c9d6d4" stroke-width="3"/><path d="M192 94 Q220 60 248 94 Z" fill="#c9d6d4"/><rect x="110" y="190" width="150" height="28" rx="14" fill="#0E5E5A" transform="rotate(-12 110 190)"/><rect x="240" y="120" width="30" height="80" rx="15" fill="#0E5E5A" transform="rotate(20 255 160)"/><rect x="170" y="210" width="16" height="50" fill="#9fb3b0"/><rect x="140" y="258" width="76" height="10" rx="5" fill="#9fb3b0"/><rect x="300" y="120" width="60" height="95" rx="6" fill="#ffffff" stroke="#c9d6d4" stroke-width="3"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Kabineti</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gd-dent2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E5E5A"/><stop offset="1" stop-color="#2c7f7a"/></linearGradient></defs><rect width="400" height="300" fill="url(#gd-dent2)"/><rect y="215" width="400" height="85" fill="#2c7f7a"/><path d="M92.0 114.0 Q86.0 66.0 122.0 72.0 Q140 80.4 158.0 72.0 Q194.0 66.0 188.0 114.0 Q182.0 162.0 170.0 210.0 Q158.0 222.0 149.6 186.0 Q140 156.0 130.4 186.0 Q122.0 222.0 110.0 210.0 Q98.0 162.0 92.0 114.0 Z" fill="#ffffff"/><path d="M222.0 114.0 Q216.0 66.0 252.0 72.0 Q270 80.4 288.0 72.0 Q324.0 66.0 318.0 114.0 Q312.0 162.0 300.0 210.0 Q288.0 222.0 279.6 186.0 Q270 156.0 260.4 186.0 Q252.0 222.0 240.0 210.0 Q228.0 162.0 222.0 114.0 Z" fill="#ffffff"/><path d="M195 150 h30 M210 135 v30" stroke="#E3735E" stroke-width="6"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Buzëqeshje e re</figcaption></figure></div></div></section>
+<section class="contact" id="kontakti"><div class="wrap"><h2>Na gjeni</h2><div class="grid">
+  <ul><li><span>Telefon</span><span class="ph">numri juaj</span></li><li><span>Adresa</span>Gjilan, Kosovë</li></ul>
+  <iframe title="Harta për D-Dent" loading="lazy" src="https://www.google.com/maps?q=D-Dent%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe>
+</div></div></section>
+<footer><div class="wrap">© 2026 D-Dent, Gjilan. Demo nga [Emri i ekipit].</div></footer>
+<div class="callbar"><a class="btn primary" href="#kontakti">Na kontaktoni</a></div>
+</body>
+</html>

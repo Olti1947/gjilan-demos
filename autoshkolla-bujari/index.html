@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Autoshkolla Bujari — Gjilan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#F4F6F2; --ink:#0F2A1E; --muted:#4A5D52; --accent:#FFD100; --on-accent:#0F2A1E; --panel:#00704A; --on-panel:#FFFFFF;
+  --display:'Overpass', sans-serif; --body:'Overpass', sans-serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.6; }
+a { color:inherit; }
+a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.demo { background:var(--ink); color:var(--bg); font-size:.875rem; padding:.55rem 1.25rem; text-align:center; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 1.5rem; }
+header.top { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; }
+header.top .logo { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:1.25rem; text-decoration:none; }
+header.top nav a { margin-left:1.25rem; text-decoration:none; color:var(--muted); }
+header.top nav a:hover { color:var(--ink); }
+.hero { display:grid; grid-template-columns:1.25fr 1fr; gap:2rem; align-items:center; padding:3.5rem 0 4.5rem; }
+.kicker { color:var(--muted); font-size:1rem; margin-bottom:1rem; }
+.hero h1 { font-family:var(--display); font-stretch:100%; font-weight:800; font-size:clamp(2.75rem, 7vw, 5.25rem); line-height:.98; letter-spacing:-.01em; }
+.tagline { font-family:var(--display); font-style:italic; font-size:1.35rem; margin-top:1rem; color:var(--muted); }
+.lead { max-width:34rem; margin-top:1.25rem; font-size:1.15rem; }
+.cta { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+.btn { display:inline-block; padding:.85rem 1.35rem; border:2px solid var(--ink); border-radius:999px; text-decoration:none; font-weight:600; }
+.btn.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+.btn:hover { transform:translateY(-1px); }
+.hero svg { width:100%; height:auto; max-height:360px; }
+section { padding:4rem 0; }
+h2 { font-family:var(--display); font-stretch:100%; font-size:clamp(1.9rem, 4vw, 2.75rem); line-height:1.1; margin-bottom:1.75rem; }
+.services ul { list-style:none; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 3rem; }
+.services li { padding:1rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); font-size:1.15rem; }
+.steps { background:var(--panel); color:var(--on-panel); }
+.steps ol { list-style:none; counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:2rem; }
+.steps li { counter-increment:s; font-size:1.15rem; }
+.steps li::before { content:counter(s); display:block; font-family:var(--display); font-stretch:100%; font-size:3rem; line-height:1; color:var(--accent); margin-bottom:.5rem; }
+.gallery .grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem; }
+.gallery .note { color:var(--muted); margin:-1rem 0 1.5rem; }
+.ph-img { aspect-ratio:4/3; border-radius:6px; background:
+  repeating-linear-gradient(135deg, color-mix(in srgb, var(--panel) 14%, transparent) 0 14px, transparent 14px 28px), color-mix(in srgb, var(--panel) 8%, var(--bg)); }
+figcaption { margin-top:.5rem; color:var(--muted); }
+.mock { text-decoration:underline dotted color-mix(in srgb, var(--accent) 80%, var(--ink)); text-decoration-thickness:2px; text-underline-offset:4px; cursor:help; }
+.img { position:relative; aspect-ratio:4/3; border-radius:6px; overflow:hidden; }
+.img svg { display:block; width:100%; height:100%; }
+.tag { position:absolute; left:.6rem; bottom:.6rem; background:rgba(0,0,0,.55); color:#fff; font-size:.75rem; padding:.15rem .5rem; border-radius:999px; }
+.ph { background:color-mix(in srgb, var(--accent) 22%, transparent); border-radius:4px; padding:0 .3em; }
+.contact .grid { display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem; }
+.contact ul { list-style:none; }
+.contact li { display:grid; grid-template-columns:7rem 1fr; padding:.85rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.contact li span:first-child { color:var(--muted); }
+.contact iframe { width:100%; height:320px; border:0; border-radius:6px; }
+footer { padding:2.5rem 0; color:var(--muted); font-size:.9rem; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.callbar { display:none; }
+@media (max-width:760px) {
+  .hero { grid-template-columns:1fr; padding-top:2rem; }
+  .hero svg { max-height:200px; order:-1; }
+  header.top nav { display:none; }
+  .services ul, .contact .grid { grid-template-columns:1fr; }
+  .gallery .grid { grid-template-columns:1fr 1fr; }
+  .callbar { display:flex; position:fixed; left:0; right:0; bottom:0; gap:.5rem; padding:.75rem; background:var(--bg); border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+  .callbar .btn { flex:1; text-align:center; }
+  body { padding-bottom:4.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="demo">Demo e përgatitur falas nga [Emri i ekipit] për Autoshkolla Bujari. Çmimet e nënvizuara me pika dhe fotot janë shembuj që i zëvendësojmë me të dhënat tuaja.</div>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#">Autoshkolla Bujari</a>
+    <nav><a href="#sherbimet">Kategoritë</a><a href="#galeria">Vetura e mësimit</a><a href="#kontakti">Kontakti</a></nav>
+  </header>
+  <div class="hero">
+    <div>
+      <p class="kicker">Autoshkollë në Gjilan</p>
+      <h1>Autoshkolla Bujari</h1>
+      <p class="tagline">Autoshkolla më e vjetër e qytetit të Gjilanit, 32 vite përvojë.</p>
+      <p class="lead">Përgatitje për patentë shofer me instruktorë të durueshëm dhe vetura moderne. Regjistrohuni me një telefonatë.</p>
+      <div class="cta"><a class="btn primary" href="tel:+38344859289">Telefononi 044 859 289</a><a class="btn" href="https://wa.me/38344859289">Shkruani në WhatsApp</a></div>
+    </div>
+    <svg viewBox="0 0 400 300" aria-hidden="true"><rect x="190" y="150" width="20" height="150" fill="#00704A"/>
+<rect x="110" y="30" width="180" height="140" rx="14" fill="#00704A"/><rect x="122" y="42" width="156" height="116" rx="8" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+<text x="200" y="125" text-anchor="middle" font-family="Overpass" font-weight="900" font-size="78" fill="#FFD100">B</text></svg>
+  </div>
+</div>
+<section class="services" id="sherbimet"><div class="wrap"><h2>Kategoritë</h2><ul><li>Kategoria B — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">350 €</span></li><li>Kategoria B me ndërrues automatik — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">400 €</span></li><li>Kategoria C — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">450 €</span></li><li>Kategoria B-E — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">250 €</span></li><li>Orë shtesë vozitjeje — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">15 €</span></li><li>Përgatitje për testin teorik</li></ul></div></section>
+<section class="steps"><div class="wrap"><h2>Rruga deri te patenta</h2><ol><li>Regjistrimi</li><li>Mësimi teorik</li><li>Orët e vozitjes</li><li>Provimi</li></ol></div></section>
+<section class="gallery" id="galeria"><div class="wrap"><h2>Vetura e mësimit</h2><p class="note">Fotot janë ilustrime; i zëvendësojmë me fotot tuaja.</p><div class="grid"><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gautoshkolla-bujari0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe7da"/><stop offset="1" stop-color="#eef6f1"/></linearGradient></defs><rect width="400" height="300" fill="url(#gautoshkolla-bujari0)"/><rect y="215" width="400" height="85" fill="#7c8a82"/><path d="M110.0 175 L140.0 137.0 H230.0 L260.0 175 Z" fill="#ffffff"/><path d="M122.0 173.0 L146.0 144.0 H182.0 V173.0 Z" fill="#cfe3f3" opacity=".9"/><path d="M188.0 173.0 V144.0 H224.0 L248.0 173.0 Z" fill="#cfe3f3" opacity=".9"/><rect x="70" y="175" width="230.0" height="42.0" rx="14.0" fill="#ffffff"/><rect x="282.0" y="185.0" width="14.0" height="8.0" rx="2" fill="#ffe08a"/><circle cx="120.0" cy="219.0" r="21.0" fill="#1d1f22"/><circle cx="120.0" cy="219.0" r="9.0" fill="#b8bec6"/><circle cx="250.0" cy="219.0" r="21.0" fill="#1d1f22"/><circle cx="250.0" cy="219.0" r="9.0" fill="#b8bec6"/><rect x="150" y="128" width="50" height="22" rx="3" fill="#00704A"/><text x="175" y="145" text-anchor="middle" font-family="sans-serif" font-weight="900" font-size="16" fill="#fff">L</text></svg><span class="tag">Foto ilustruese</span></div><figcaption>Vetura e mësimit</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gautoshkolla-bujari1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2ec"/><stop offset="1" stop-color="#ffffff"/></linearGradient></defs><rect width="400" height="300" fill="url(#gautoshkolla-bujari1)"/><rect y="215" width="400" height="85" fill="#cfd8cc"/><rect x="70" y="50" width="260" height="120" rx="6" fill="#00704A"/><circle cx="140" cy="110" r="34" fill="none" stroke="#fff" stroke-width="5"/><path d="M200 140 l30 -60 l30 60 z" fill="none" stroke="#FFD100" stroke-width="5"/><ellipse cx="130" cy="200" rx="45.0" ry="12.857142857142858" fill="#d9cbb5"/><rect x="85.0" y="200" width="90" height="40" fill="#d9cbb5"/><circle cx="105" cy="194" r="9" fill="#fff"/><circle cx="155" cy="194" r="9" fill="#fff"/><ellipse cx="270" cy="200" rx="45.0" ry="12.857142857142858" fill="#d9cbb5"/><rect x="225.0" y="200" width="90" height="40" fill="#d9cbb5"/><circle cx="245" cy="194" r="9" fill="#fff"/><circle cx="295" cy="194" r="9" fill="#fff"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Klasa e teorisë</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gautoshkolla-bujari2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6c9"/><stop offset="1" stop-color="#fffbe8"/></linearGradient></defs><rect width="400" height="300" fill="url(#gautoshkolla-bujari2)"/><rect y="215" width="400" height="85" fill="#e9dea4"/><rect x="100" y="80" width="200" height="126" rx="12" fill="#ffffff" stroke="#00704A" stroke-width="4"/><rect x="100" y="80" width="200" height="30" rx="12" fill="#00704A"/><circle cx="150" cy="155" r="26" fill="#e2b38f"/><rect x="190" y="135" width="90" height="10" rx="5" fill="#c7d1cb"/><rect x="190" y="155" width="70" height="10" rx="5" fill="#c7d1cb"/><text x="290" y="102" text-anchor="end" font-family="sans-serif" font-weight="900" font-size="18" fill="#FFD100">B</text></svg><span class="tag">Foto ilustruese</span></div><figcaption>Patenta në dorë</figcaption></figure></div></div></section>
+<section class="contact" id="kontakti"><div class="wrap"><h2>Na gjeni</h2><div class="grid">
+  <ul><li><span>Telefon</span><a href="tel:+38344859289">044 859 289</a></li><li><span>Instagram</span><a href="https://www.instagram.com/autoshkollabujari/">@autoshkollabujari</a></li><li><span>Adresa</span>Rruga Adem Jashari, kati i 3-të, Gjilan</li></ul>
+  <iframe title="Harta për Autoshkolla Bujari" loading="lazy" src="https://www.google.com/maps?q=Autoshkolla%20Bujari%2C%20Rruga%20Adem%20Jashari%2C%20kati%20i%203-t%C3%AB%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe>
+</div></div></section>
+<footer><div class="wrap">© 2026 Autoshkolla Bujari, Gjilan. Demo nga [Emri i ekipit].</div></footer>
+<div class="callbar"><a class="btn primary" href="tel:+38344859289">Telefononi</a><a class="btn" href="https://wa.me/38344859289">WhatsApp</a></div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Taverna Vjetër — Gjilan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,800;1,500&family=Alegreya+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#F3EDE3; --ink:#3B2A20; --muted:#6D5A4C; --accent:#9C3B2E; --on-accent:#FFFFFF; --panel:#6E1F1A; --on-panel:#F3EDE3;
+  --display:'Alegreya', serif; --body:'Alegreya Sans', sans-serif; }
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.6; }
+a { color:inherit; }
+a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.demo { background:var(--ink); color:var(--bg); font-size:.875rem; padding:.55rem 1.25rem; text-align:center; }
+.wrap { max-width:1120px; margin:0 auto; padding:0 1.5rem; }
+header.top { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; }
+header.top .logo { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:1.25rem; text-decoration:none; }
+header.top nav a { margin-left:1.25rem; text-decoration:none; color:var(--muted); }
+header.top nav a:hover { color:var(--ink); }
+.hero { display:grid; grid-template-columns:1.25fr 1fr; gap:2rem; align-items:center; padding:3.5rem 0 4.5rem; }
+.kicker { color:var(--muted); font-size:1rem; margin-bottom:1rem; }
+.hero h1 { font-family:var(--display); font-stretch:100%; font-weight:800; font-size:clamp(2.75rem, 7vw, 5.25rem); line-height:.98; letter-spacing:-.01em; }
+.tagline { font-family:var(--display); font-style:italic; font-size:1.35rem; margin-top:1rem; color:var(--muted); }
+.lead { max-width:34rem; margin-top:1.25rem; font-size:1.15rem; }
+.cta { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
+.btn { display:inline-block; padding:.85rem 1.35rem; border:2px solid var(--ink); border-radius:999px; text-decoration:none; font-weight:600; }
+.btn.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+.btn:hover { transform:translateY(-1px); }
+.hero svg { width:100%; height:auto; max-height:360px; }
+section { padding:4rem 0; }
+h2 { font-family:var(--display); font-stretch:100%; font-size:clamp(1.9rem, 4vw, 2.75rem); line-height:1.1; margin-bottom:1.75rem; }
+.services ul { list-style:none; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 3rem; }
+.services li { padding:1rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); font-size:1.15rem; }
+.steps { background:var(--panel); color:var(--on-panel); }
+.steps ol { list-style:none; counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:2rem; }
+.steps li { counter-increment:s; font-size:1.15rem; }
+.steps li::before { content:counter(s); display:block; font-family:var(--display); font-stretch:100%; font-size:3rem; line-height:1; color:var(--accent); margin-bottom:.5rem; }
+.gallery .grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem; }
+.gallery .note { color:var(--muted); margin:-1rem 0 1.5rem; }
+.ph-img { aspect-ratio:4/3; border-radius:6px; background:
+  repeating-linear-gradient(135deg, color-mix(in srgb, var(--panel) 14%, transparent) 0 14px, transparent 14px 28px), color-mix(in srgb, var(--panel) 8%, var(--bg)); }
+figcaption { margin-top:.5rem; color:var(--muted); }
+.mock { text-decoration:underline dotted color-mix(in srgb, var(--accent) 80%, var(--ink)); text-decoration-thickness:2px; text-underline-offset:4px; cursor:help; }
+.img { position:relative; aspect-ratio:4/3; border-radius:6px; overflow:hidden; }
+.img svg { display:block; width:100%; height:100%; }
+.tag { position:absolute; left:.6rem; bottom:.6rem; background:rgba(0,0,0,.55); color:#fff; font-size:.75rem; padding:.15rem .5rem; border-radius:999px; }
+.ph { background:color-mix(in srgb, var(--accent) 22%, transparent); border-radius:4px; padding:0 .3em; }
+.contact .grid { display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem; }
+.contact ul { list-style:none; }
+.contact li { display:grid; grid-template-columns:7rem 1fr; padding:.85rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.contact li span:first-child { color:var(--muted); }
+.contact iframe { width:100%; height:320px; border:0; border-radius:6px; }
+footer { padding:2.5rem 0; color:var(--muted); font-size:.9rem; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.callbar { display:none; }
+@media (max-width:760px) {
+  .hero { grid-template-columns:1fr; padding-top:2rem; }
+  .hero svg { max-height:200px; order:-1; }
+  header.top nav { display:none; }
+  .services ul, .contact .grid { grid-template-columns:1fr; }
+  .gallery .grid { grid-template-columns:1fr 1fr; }
+  .callbar { display:flex; position:fixed; left:0; right:0; bottom:0; gap:.5rem; padding:.75rem; background:var(--bg); border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+  .callbar .btn { flex:1; text-align:center; }
+  body { padding-bottom:4.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="demo">Demo e përgatitur falas nga [Emri i ekipit] për Taverna Vjetër. Çmimet e nënvizuara me pika dhe fotot janë shembuj që i zëvendësojmë me të dhënat tuaja.</div>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#">Taverna Vjetër</a>
+    <nav><a href="#sherbimet">Nga menyja</a><a href="#galeria">Ambienti</a><a href="#kontakti">Kontakti</a></nav>
+  </header>
+  <div class="hero">
+    <div>
+      <p class="kicker">Restorant tradicional në Gjilan</p>
+      <h1>Taverna Vjetër</h1>
+      
+      <p class="lead">Gatime shqiptare të përgatitura me kujdes, në një ambient të ngrohtë. Rezervoni tavolinën me një telefonatë.</p>
+      <div class="cta"><a class="btn primary" href="tel:+38348134234">Telefononi 048 134 234</a><a class="btn" href="https://wa.me/38348134234">Shkruani në WhatsApp</a></div>
+    </div>
+    <svg viewBox="0 0 400 300" aria-hidden="true"><circle cx="200" cy="150" r="115" fill="#6E1F1A"/>
+<circle cx="200" cy="150" r="80" fill="none" stroke="#F3EDE3" stroke-width="3"/>
+<path d="M70 40 V120 M60 40 V95 Q60 110 70 112 Q80 110 80 95 V40" stroke="#9C3B2E" stroke-width="6" fill="none"/>
+<path d="M330 40 Q350 80 330 120 V260" stroke="#9C3B2E" stroke-width="6" fill="none"/></svg>
+  </div>
+</div>
+<section class="services" id="sherbimet"><div class="wrap"><h2>Nga menyja</h2><ul><li><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Tavë kosi</span> — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">6.50 €</span></li><li><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Flija me kos</span> — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">5 €</span></li><li><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Fërgesë</span> — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">4.50 €</span></li><li><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Pleskavicë e mbushur</span> — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">6 €</span></li><li><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Sallatë shope</span> — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">2.50 €</span></li><li><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Bakllava</span> — <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">2 €</span></li></ul></div></section>
+<section class="steps"><div class="wrap"><h2>Ngjarje dhe grupe</h2><ol><li>Na tregoni datën dhe numrin e personave</li><li>Zgjidhni menunë</li><li>Ne kujdesemi për pjesën tjetër</li></ol></div></section>
+<section class="gallery" id="galeria"><div class="wrap"><h2>Ambienti</h2><p class="note">Fotot janë ilustrime; i zëvendësojmë me fotot tuaja.</p><div class="grid"><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gtaverna-vjeter0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5238"/><stop offset="1" stop-color="#9a6a49"/></linearGradient></defs><rect width="400" height="300" fill="url(#gtaverna-vjeter0)"/><rect y="215" width="400" height="85" fill="#4b3223"/><rect x="0" y="0" width="400" height="60" fill="#5a3e2b"/><rect x="20" y="0" width="16" height="60" fill="#3b2a20"/><rect x="90" y="0" width="16" height="60" fill="#3b2a20"/><rect x="160" y="0" width="16" height="60" fill="#3b2a20"/><rect x="230" y="0" width="16" height="60" fill="#3b2a20"/><rect x="300" y="0" width="16" height="60" fill="#3b2a20"/><rect x="370" y="0" width="16" height="60" fill="#3b2a20"/><line x1="120" y1="0" x2="120" y2="90" stroke="#e8b04b" stroke-width="3"/><path d="M92 114 Q120 80 148 114 Z" fill="#e8b04b"/><line x1="280" y1="0" x2="280" y2="90" stroke="#e8b04b" stroke-width="3"/><path d="M252 114 Q280 80 308 114 Z" fill="#e8b04b"/><ellipse cx="120" cy="200" rx="55.0" ry="15.714285714285714" fill="#f3ede3"/><rect x="65.0" y="200" width="110" height="40" fill="#f3ede3"/><circle cx="95" cy="194" r="9" fill="#fff"/><circle cx="145" cy="194" r="9" fill="#fff"/><ellipse cx="280" cy="200" rx="55.0" ry="15.714285714285714" fill="#f3ede3"/><rect x="225.0" y="200" width="110" height="40" fill="#f3ede3"/><circle cx="255" cy="194" r="9" fill="#fff"/><circle cx="305" cy="194" r="9" fill="#fff"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Salla</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gtaverna-vjeter1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7b5a43"/><stop offset="1" stop-color="#7b5a43"/></linearGradient></defs><rect width="400" height="300" fill="url(#gtaverna-vjeter1)"/><rect y="215" width="400" height="85" fill="#7b5a43"/><rect x="0" y="0" width="400" height="300" fill="#7b5a43"/><ellipse cx="130" cy="160" rx="85" ry="38.25" fill="#fbfaf6"/><ellipse cx="130" cy="160" rx="61.199999999999996" ry="27.2" fill="none" stroke="#e7e1d6" stroke-width="2"/><ellipse cx="130" cy="156" rx="42.5" ry="17.0" fill="#c8783c"/><ellipse cx="290" cy="120" rx="70" ry="31.5" fill="#fbfaf6"/><ellipse cx="290" cy="120" rx="50.4" ry="22.400000000000002" fill="none" stroke="#e7e1d6" stroke-width="2"/><ellipse cx="290" cy="116" rx="35.0" ry="14.0" fill="#e7c35a"/><ellipse cx="300" cy="230" rx="55" ry="24.75" fill="#fbfaf6"/><ellipse cx="300" cy="230" rx="39.6" ry="17.6" fill="none" stroke="#e7e1d6" stroke-width="2"/><ellipse cx="300" cy="226" rx="27.5" ry="11.0" fill="#7c9a46"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Gatimet</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="gtaverna-vjeter2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9a27e"/><stop offset="1" stop-color="#e2c7a6"/></linearGradient></defs><rect width="400" height="300" fill="url(#gtaverna-vjeter2)"/><rect y="215" width="400" height="85" fill="#8b6247"/><ellipse cx="200" cy="180" rx="120.0" ry="34.285714285714285" fill="#f3ede3"/><rect x="80.0" y="180" width="240" height="40" fill="#f3ede3"/><circle cx="175" cy="174" r="9" fill="#fff"/><circle cx="225" cy="174" r="9" fill="#fff"/><ellipse cx="160" cy="170" rx="40" ry="18.0" fill="#fbfaf6"/><ellipse cx="160" cy="170" rx="28.799999999999997" ry="12.8" fill="none" stroke="#e7e1d6" stroke-width="2"/><ellipse cx="160" cy="166" rx="20.0" ry="8.0" fill="#c8783c"/><ellipse cx="240" cy="170" rx="40" ry="18.0" fill="#fbfaf6"/><ellipse cx="240" cy="170" rx="28.799999999999997" ry="12.8" fill="none" stroke="#e7e1d6" stroke-width="2"/><ellipse cx="240" cy="166" rx="20.0" ry="8.0" fill="#9c3b2e"/><rect x="194" y="120" width="12" height="40" rx="3" fill="#6e1f1a"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Tavolina</figcaption></figure></div></div></section>
+<section class="contact" id="kontakti"><div class="wrap"><h2>Na gjeni</h2><div class="grid">
+  <ul><li><span>Telefon</span><a href="tel:+38348134234">048 134 234</a></li><li><span>Instagram</span><a href="https://www.instagram.com/tavernavjeter/">@tavernavjeter</a></li><li><span>Adresa</span>Gjilan, Kosovë</li></ul>
+  <iframe title="Harta për Taverna Vjetër" loading="lazy" src="https://www.google.com/maps?q=Taverna%20Vjet%C3%ABr%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe>
+</div></div></section>
+<footer><div class="wrap">© 2026 Taverna Vjetër, Gjilan. Demo nga [Emri i ekipit].</div></footer>
+<div class="callbar"><a class="btn primary" href="tel:+38348134234">Telefononi</a><a class="btn" href="https://wa.me/38348134234">WhatsApp</a></div>
+</body>
+</html>
