@@ -23,11 +23,13 @@ img { display:block; max-width:100%; }
 .mock { text-decoration:underline dotted; text-decoration-color:var(--accent); text-decoration-thickness:1.5px; text-underline-offset:4px; cursor:help; }
 
 /* hero */
-.hero { position:relative; min-height:min(88vh, 860px); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
+.hero { position:relative; min-height:max(640px, min(88vh, 860px)); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
 .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; animation:settle 1.6s ease-out both; }
 @keyframes settle { from { transform:scale(1.06); } to { transform:scale(1); } }
 .hero::after { content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.05) 30%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.78) 100%); }
+  background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 38%, rgba(0,0,0,.15) 75%, rgba(0,0,0,.05) 100%),
+             linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%); }
+.hero .copy { text-shadow:0 1px 18px rgba(0,0,0,.35); }
 .nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
 .nav .logo { font-family:var(--display); font-stretch:118%; font-weight:700; font-size:1.2rem; text-decoration:none; letter-spacing:.01em; }
 .nav nav a { margin-left:1.75rem; text-decoration:none; opacity:.85; font-size:.95rem; }
@@ -78,7 +80,7 @@ figcaption { font-size:.92rem; color:var(--muted); margin-top:.6rem; }
 .steps { background:var(--deep); color:#fff; }
 .steps ol { list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:0; margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.2); }
 .steps li { padding:1.5rem 1.5rem 0 0; font-size:1.1rem; }
-.steps li span { display:block; font-family:var(--display); font-stretch:118%; font-size:1rem; color:var(--accent); margin-bottom:.4rem; filter:brightness(1.35); }
+.steps li span { display:block; font-family:var(--display); font-stretch:118%; font-size:1.6rem; line-height:1; color:#fff; opacity:.55; margin-bottom:.6rem; }
 
 /* contact */
 .contact .grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
@@ -123,11 +125,11 @@ footer { padding:2rem 0 2.5rem; border-top:1px solid var(--line); color:var(--mu
 <div class="facts"><div class="wrap"><dl><div><dt>Ku</dt><dd>Gjilan, Kosovë</dd></div><div><dt>Orari</dt><dd>E hënë – e shtunë, <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">09:00–19:00</span></dd></div><div><dt>Instagram</dt><dd><a href="https://www.instagram.com/rentacar_premiumlj/">@rentacar_premiumlj</a></dd></div></dl></div></div>
 <section class="services" id="sherbimet"><div class="wrap grid">
   <div><h2>Çfarë ofrojmë</h2><p class="intro">Çmimet janë orientuese. Na telefononi për ofertën e saktë.</p></div>
-  <ul class="list"><li><span class="n">Shërbim dhe asistencë 24/7</span></li><li><span class="n">Vetura ekonomike nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">25 €</span> në ditë</span></li><li><span class="n">Vetura familjare nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">35 €</span> në ditë</span></li><li><span class="n">Vetura me ndërrues automatik</span></li><li><span class="n">Qira javore me <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">10%</span> zbritje</span></li><li><span class="n">Rezervim paraprak për verë</span></li></ul>
+  <ul class="list"><li><span class="n">Shërbim dhe asistencë 24/7</span></li><li><span class="n">VW Polo R-Line</span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">30 €</span> / ditë</span></li><li><span class="n">Vetura ekonomike</span><span class="dots"></span><span class="p">nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">25 €</span> / ditë</span></li><li><span class="n">Vetura familjare</span><span class="dots"></span><span class="p">nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">35 €</span> / ditë</span></li><li><span class="n">Vetura me 7 ulëse</span><span class="dots"></span><span class="p">nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">50 €</span> / ditë</span></li><li><span class="n">Qira javore</span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">10%</span> zbritje</span></li></ul>
 </div></section>
 <section class="gallery" id="galeria"><div class="wrap">
   <div class="head"><h2>Flota</h2><p class="note">Fotot janë ilustruese dhe zëvendësohen me fotot tuaja.</p></div>
-  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1400&q=75" alt="Në timon" loading="lazy"><figcaption>VW Polo R-Line, nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">30 €</span> në ditë</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=900&q=75" alt="Veturë në rrugë" loading="lazy"><figcaption><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">VW Golf 8</span>, nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">35 €</span> në ditë</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1765446647632-cf6ee5c9ad7a?auto=format&fit=crop&w=900&q=75" alt="Veturë në autostradë në perëndim të diellit" loading="lazy"><figcaption><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">VW Touran</span>, 7 ulëse, nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">50 €</span> në ditë</figcaption></figure></div>
+  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1400&q=75" alt="Në timon" loading="lazy"><figcaption>Në timon</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=900&q=75" alt="Veturë në rrugë" loading="lazy"><figcaption>Veturë në rrugë</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1765446647632-cf6ee5c9ad7a?auto=format&fit=crop&w=900&q=75" alt="Veturë në autostradë në perëndim të diellit" loading="lazy"><figcaption>Veturë në autostradë në perëndim të diellit</figcaption></figure></div>
 </div></section>
 <section class="steps"><div class="wrap"><h2>Si rezervoni</h2><ol><li><span>1</span>Na telefononi ose na shkruani në WhatsApp</li><li><span>2</span>Zgjidhni veturën dhe datat</li><li><span>3</span>Merreni veturën dhe nisuni</li></ol></div></section>
 <section class="contact" id="kontakti"><div class="wrap grid">

@@ -23,11 +23,13 @@ img { display:block; max-width:100%; }
 .mock { text-decoration:underline dotted; text-decoration-color:var(--accent); text-decoration-thickness:1.5px; text-underline-offset:4px; cursor:help; }
 
 /* hero */
-.hero { position:relative; min-height:min(88vh, 860px); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
+.hero { position:relative; min-height:max(640px, min(88vh, 860px)); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
 .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; animation:settle 1.6s ease-out both; }
 @keyframes settle { from { transform:scale(1.06); } to { transform:scale(1); } }
 .hero::after { content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.05) 30%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.78) 100%); }
+  background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 38%, rgba(0,0,0,.15) 75%, rgba(0,0,0,.05) 100%),
+             linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%); }
+.hero .copy { text-shadow:0 1px 18px rgba(0,0,0,.35); }
 .nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
 .nav .logo { font-family:var(--display); font-stretch:100%; font-weight:600; font-size:1.2rem; text-decoration:none; letter-spacing:.01em; }
 .nav nav a { margin-left:1.75rem; text-decoration:none; opacity:.85; font-size:.95rem; }
@@ -78,7 +80,7 @@ figcaption { font-size:.92rem; color:var(--muted); margin-top:.6rem; }
 .steps { background:var(--deep); color:#fff; }
 .steps ol { list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:0; margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.2); }
 .steps li { padding:1.5rem 1.5rem 0 0; font-size:1.1rem; }
-.steps li span { display:block; font-family:var(--display); font-stretch:100%; font-size:1rem; color:var(--accent); margin-bottom:.4rem; filter:brightness(1.35); }
+.steps li span { display:block; font-family:var(--display); font-stretch:100%; font-size:1.6rem; line-height:1; color:#fff; opacity:.55; margin-bottom:.6rem; }
 
 /* contact */
 .contact .grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
@@ -123,11 +125,11 @@ footer { padding:2rem 0 2.5rem; border-top:1px solid var(--line); color:var(--mu
 <div class="facts"><div class="wrap"><dl><div><dt>Ku</dt><dd>Kmetoc, Gjilan</dd></div><div><dt>Orari</dt><dd>E hënë – e shtunë, <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">09:00–19:00</span></dd></div></dl></div></div>
 <section class="services" id="sherbimet"><div class="wrap grid">
   <div><h2>Për çfarë na zgjidhni</h2><p class="intro">Çmimet janë orientuese. Na telefononi për ofertën e saktë.</p></div>
-  <ul class="list"><li><span class="n">Dasma</span></li><li><span class="n">Fejesa</span></li><li><span class="n">Ditëlindje dhe përvjetorë</span></li><li><span class="n">Festa familjare</span></li><li><span class="n">Menu nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">18 €</span> për person</span></li><li><span class="n">Kapaciteti deri në <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">500</span> mysafirë</span></li></ul>
+  <ul class="list"><li><span class="n">Dasma</span></li><li><span class="n">Fejesa</span></li><li><span class="n">Ditëlindje dhe përvjetorë</span></li><li><span class="n">Festa familjare</span></li><li><span class="n">Menu për dasma</span><span class="dots"></span><span class="p">nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">18 €</span> / person</span></li><li><span class="n">Kapaciteti</span><span class="dots"></span><span class="p">deri në <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">500</span> mysafirë</span></li></ul>
 </div></section>
 <section class="gallery" id="galeria"><div class="wrap">
   <div class="head"><h2>Salla</h2><p class="note">Fotot janë ilustruese dhe zëvendësohen me fotot tuaja.</p></div>
-  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1779308936221-89739e035a53?auto=format&fit=crop&w=1400&q=75" alt="Harku me lule" loading="lazy"><figcaption>Salla</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1763553113332-800519753e40?auto=format&fit=crop&w=900&q=75" alt="Tavolinat me dekor" loading="lazy"><figcaption>Dekori</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1761114905078-163aa92141c8?auto=format&fit=crop&w=900&q=75" alt="Darka e dasmës" loading="lazy"><figcaption>Tavolina e çiftit</figcaption></figure></div>
+  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1779308936221-89739e035a53?auto=format&fit=crop&w=1400&q=75" alt="Harku me lule" loading="lazy"><figcaption>Harku me lule</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1763553113332-800519753e40?auto=format&fit=crop&w=900&q=75" alt="Tavolinat me dekor" loading="lazy"><figcaption>Tavolinat me dekor</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1761114905078-163aa92141c8?auto=format&fit=crop&w=900&q=75" alt="Darka e dasmës" loading="lazy"><figcaption>Darka e dasmës</figcaption></figure></div>
 </div></section>
 <section class="steps"><div class="wrap"><h2>Rezervimi i datës</h2><ol><li><span>1</span>Kontrolloni nëse data është e lirë</li><li><span>2</span>Zgjidhni menunë dhe dekorin</li><li><span>3</span>Konfirmoni rezervimin</li></ol></div></section>
 <section class="contact" id="kontakti"><div class="wrap grid">

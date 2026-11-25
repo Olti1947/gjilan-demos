@@ -23,11 +23,13 @@ img { display:block; max-width:100%; }
 .mock { text-decoration:underline dotted; text-decoration-color:var(--accent); text-decoration-thickness:1.5px; text-underline-offset:4px; cursor:help; }
 
 /* hero */
-.hero { position:relative; min-height:min(88vh, 860px); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
+.hero { position:relative; min-height:max(640px, min(88vh, 860px)); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
 .hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; animation:settle 1.6s ease-out both; }
 @keyframes settle { from { transform:scale(1.06); } to { transform:scale(1); } }
 .hero::after { content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.05) 30%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.78) 100%); }
+  background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 38%, rgba(0,0,0,.15) 75%, rgba(0,0,0,.05) 100%),
+             linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%); }
+.hero .copy { text-shadow:0 1px 18px rgba(0,0,0,.35); }
 .nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
 .nav .logo { font-family:var(--display); font-stretch:100%; font-weight:500; font-size:1.2rem; text-decoration:none; letter-spacing:.01em; }
 .nav nav a { margin-left:1.75rem; text-decoration:none; opacity:.85; font-size:.95rem; }
@@ -78,7 +80,7 @@ figcaption { font-size:.92rem; color:var(--muted); margin-top:.6rem; }
 .steps { background:var(--deep); color:#fff; }
 .steps ol { list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:0; margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.2); }
 .steps li { padding:1.5rem 1.5rem 0 0; font-size:1.1rem; }
-.steps li span { display:block; font-family:var(--display); font-stretch:100%; font-size:1rem; color:var(--accent); margin-bottom:.4rem; filter:brightness(1.35); }
+.steps li span { display:block; font-family:var(--display); font-stretch:100%; font-size:1.6rem; line-height:1; color:#fff; opacity:.55; margin-bottom:.6rem; }
 
 /* contact */
 .contact .grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
@@ -127,7 +129,7 @@ footer { padding:2rem 0 2.5rem; border-top:1px solid var(--line); color:var(--mu
 </div></section>
 <section class="gallery" id="galeria"><div class="wrap">
   <div class="head"><h2>Klinika</h2><p class="note">Fotot janë ilustruese dhe zëvendësohen me fotot tuaja.</p></div>
-  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1777331903190-341a3dd0441b?auto=format&fit=crop&w=1400&q=75" alt="Konsultë me pacientin" loading="lazy"><figcaption>Hapësira e pritjes</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=75" alt="Kontrollë dentare" loading="lazy"><figcaption>Kabineti</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=75" alt="Analiza e rrezatimit" loading="lazy"><figcaption>Buzëqeshje e re</figcaption></figure></div>
+  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1777331903190-341a3dd0441b?auto=format&fit=crop&w=1400&q=75" alt="Konsultë me pacientin" loading="lazy"><figcaption>Konsultë me pacientin</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=900&q=75" alt="Kontrollë dentare" loading="lazy"><figcaption>Kontrollë dentare</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=75" alt="Analiza e rrezatimit" loading="lazy"><figcaption>Analiza e rrezatimit</figcaption></figure></div>
 </div></section>
 <section class="steps"><div class="wrap"><h2>Vizita e parë</h2><ol><li><span>1</span>Caktoni terminin me telefon ose WhatsApp</li><li><span>2</span>Kontrollë dhe plan trajtimi i shpjeguar qartë</li><li><span>3</span>Trajtimi sipas kohës që ju përshtatet</li></ol></div></section>
 <section class="contact" id="kontakti"><div class="wrap grid">
