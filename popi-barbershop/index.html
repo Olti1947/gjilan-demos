@@ -97,9 +97,9 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .hero h1{font-size:clamp(3.2rem,8vw,7rem);line-height:.92}
 .hero h1 em{color:var(--accent);font-style:italic}
 .hero .lead{color:#C9C1B8;font-size:1.15rem;margin:1.5rem 0 2rem;max-width:30rem}
-.hero .ph{aspect-ratio:4/5;margin-bottom:-4rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.hero .ph{aspect-ratio:4/5;max-height:560px;width:100%;margin-bottom:3rem}
 .hero .copy{padding-bottom:4.5rem}
-.express{margin-top:6rem}
+.express{margin-top:0;padding-top:4rem}
 .express .box{display:grid;grid-template-columns:1fr 1.3fr;gap:2.5rem;border:1px solid var(--line-strong);background:#fff;padding:clamp(1.5rem,4vw,2.75rem)}
 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 4rem}
 .mcat h3{font-size:1.5rem;margin-bottom:.5rem;color:var(--accent);filter:brightness(.85)}
@@ -116,7 +116,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <header class="nav"><div class="wrap row"><a class="brand" href="#">Popi Barbershop</a><nav class="links"><a href="#rezervo">Rezervo</a><a href="#menuja">Menuja</a><a class="btn btn-primary btn-sm" href="#rezervo">Book appointment</a></nav></div></header></div>
 <section class="hero"><div class="wrap grid"><div class="copy"><p class="eyebrow">Berber në Gjilan</p>
 <h1>More than a <em>haircut.</em></h1><p class="lead">Gjashtë vite zanat në Gjilan. Rezervoni karrigen tuaj në 30 sekonda.</p>
-<a class="btn btn-primary" href="#rezervo">Rezervo tani</a></div><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=75" alt="Klient në karrigen e berberit" loading="lazy"><span class="tag">Foto ilustruese</span></figure></div></section>
+<a class="btn btn-primary" href="#rezervo">Rezervo tani</a></div><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=75" alt="Klient në karrigen e berberit" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure></div></section>
 <section class="express" id="rezervo" style="padding-top:0"><div class="wrap"><div class="box">
 <div><h2>Rezervim i shpejtë</h2><p class="sub">Zgjidhni shërbimin dhe orën. Ju konfirmojmë në WhatsApp, në 045 470 065.</p></div>
 <form class="form" data-wa="38345470065" data-title="Rezervim – Popi Barbershop"><input type="hidden" id="ora2" name="Ora" data-label="Ora">
