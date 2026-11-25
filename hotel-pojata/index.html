@@ -4,99 +4,137 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Hotel Pojata — Gjilan</title>
+<title>Hotel Pojata | Gjilan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Karla:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=2000&q=75">
 <style>
-:root { --bg:#F1EEE6; --ink:#2B3324; --muted:#5F6855; --accent:#A46A3D; --on-accent:#2B3324; --panel:#4F5D43; --on-panel:#F1EEE6;
-  --display:'Libre Caslon Text', serif; --body:'Karla', sans-serif; }
+:root { --bg:#F2F0EA; --ink:#262D22; --muted:#5E6656; --accent:#8C6A44; --deep:#262D22;
+  --display:'Libre Caslon Display', serif; --body:'Karla', system-ui, sans-serif; --line:color-mix(in srgb, var(--ink) 14%, transparent); }
 * { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
-body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.6; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .hero img { animation:none !important; } }
+body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.65; -webkit-font-smoothing:antialiased; }
 a { color:inherit; }
-a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
-.demo { background:var(--ink); color:var(--bg); font-size:.875rem; padding:.55rem 1.25rem; text-align:center; }
-.wrap { max-width:1120px; margin:0 auto; padding:0 1.5rem; }
-header.top { display:flex; justify-content:space-between; align-items:center; padding:1.25rem 0; }
-header.top .logo { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:1.25rem; text-decoration:none; }
-header.top nav a { margin-left:1.25rem; text-decoration:none; color:var(--muted); }
-header.top nav a:hover { color:var(--ink); }
-.hero { display:grid; grid-template-columns:1.25fr 1fr; gap:2rem; align-items:center; padding:3.5rem 0 4.5rem; }
-.kicker { color:var(--muted); font-size:1rem; margin-bottom:1rem; }
-.hero h1 { font-family:var(--display); font-stretch:100%; font-weight:800; font-size:clamp(2.75rem, 7vw, 5.25rem); line-height:.98; letter-spacing:-.01em; }
-.tagline { font-family:var(--display); font-style:italic; font-size:1.35rem; margin-top:1rem; color:var(--muted); }
-.lead { max-width:34rem; margin-top:1.25rem; font-size:1.15rem; }
+a:focus-visible, .btn:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+img { display:block; max-width:100%; }
+.wrap { width:min(1180px, 100% - 3rem); margin-inline:auto; }
+.demo { background:var(--deep); color:#fff; font-size:.8125rem; text-align:center; padding:.5rem 1rem; opacity:.96; }
+.mock { text-decoration:underline dotted; text-decoration-color:var(--accent); text-decoration-thickness:1.5px; text-underline-offset:4px; cursor:help; }
+
+/* hero */
+.hero { position:relative; min-height:min(88vh, 860px); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
+.hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; animation:settle 1.6s ease-out both; }
+@keyframes settle { from { transform:scale(1.06); } to { transform:scale(1); } }
+.hero::after { content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.05) 30%, rgba(0,0,0,.25) 55%, rgba(0,0,0,.78) 100%); }
+.nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
+.nav .logo { font-family:var(--display); font-stretch:100%; font-weight:400; font-size:1.2rem; text-decoration:none; letter-spacing:.01em; }
+.nav nav a { margin-left:1.75rem; text-decoration:none; opacity:.85; font-size:.95rem; }
+.nav nav a:hover { opacity:1; }
+.hero .copy { margin-top:auto; padding-bottom:clamp(2.5rem, 7vh, 5rem); max-width:46rem; }
+.kicker { font-size:.95rem; opacity:.85; margin-bottom:1rem; }
+.hero h1 { font-family:var(--display); font-stretch:100%; font-weight:400; font-size:clamp(3rem, 8vw, 6.5rem); line-height:.95; letter-spacing:-.015em; }
+.tagline { font-family:var(--display); font-style:italic; font-size:1.35rem; margin-top:1rem; opacity:.9; }
+.lead { margin-top:1.25rem; font-size:1.15rem; max-width:36rem; opacity:.92; }
 .cta { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
-.btn { display:inline-block; padding:.85rem 1.35rem; border:2px solid var(--ink); border-radius:999px; text-decoration:none; font-weight:600; }
-.btn.primary { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
-.btn:hover { transform:translateY(-1px); }
-.hero svg { width:100%; height:auto; max-height:360px; }
-section { padding:4rem 0; }
-h2 { font-family:var(--display); font-stretch:100%; font-size:clamp(1.9rem, 4vw, 2.75rem); line-height:1.1; margin-bottom:1.75rem; }
-.services ul { list-style:none; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 3rem; }
-.services li { padding:1rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); font-size:1.15rem; }
-.steps { background:var(--panel); color:var(--on-panel); }
-.steps ol { list-style:none; counter-reset:s; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:2rem; }
-.steps li { counter-increment:s; font-size:1.15rem; }
-.steps li::before { content:counter(s); display:block; font-family:var(--display); font-stretch:100%; font-size:3rem; line-height:1; color:var(--accent); margin-bottom:.5rem; }
-.gallery .grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1rem; }
-.gallery .note { color:var(--muted); margin:-1rem 0 1.5rem; }
-.ph-img { aspect-ratio:4/3; border-radius:6px; background:
-  repeating-linear-gradient(135deg, color-mix(in srgb, var(--panel) 14%, transparent) 0 14px, transparent 14px 28px), color-mix(in srgb, var(--panel) 8%, var(--bg)); }
-figcaption { margin-top:.5rem; color:var(--muted); }
-.mock { text-decoration:underline dotted color-mix(in srgb, var(--accent) 80%, var(--ink)); text-decoration-thickness:2px; text-underline-offset:4px; cursor:help; }
-.img { position:relative; aspect-ratio:4/3; border-radius:6px; overflow:hidden; }
-.img svg { display:block; width:100%; height:100%; }
-.tag { position:absolute; left:.6rem; bottom:.6rem; background:rgba(0,0,0,.55); color:#fff; font-size:.75rem; padding:.15rem .5rem; border-radius:999px; }
-.ph { background:color-mix(in srgb, var(--accent) 22%, transparent); border-radius:4px; padding:0 .3em; }
-.contact .grid { display:grid; grid-template-columns:1fr 1.2fr; gap:2.5rem; }
-.contact ul { list-style:none; }
-.contact li { display:grid; grid-template-columns:7rem 1fr; padding:.85rem 0; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
-.contact li span:first-child { color:var(--muted); }
-.contact iframe { width:100%; height:320px; border:0; border-radius:6px; }
-footer { padding:2.5rem 0; color:var(--muted); font-size:.9rem; border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
+.btn { display:inline-flex; align-items:center; justify-content:center; padding:.9rem 1.5rem; border-radius:2px; text-decoration:none; font-weight:600; font-size:.98rem; border:1px solid currentColor; transition:background .2s, color .2s; }
+.btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+.btn.primary:hover { background:color-mix(in srgb, var(--accent) 85%, #000); }
+.btn.ghost { color:#fff; border-color:rgba(255,255,255,.7); }
+.btn.ghost:hover { background:rgba(255,255,255,.12); }
+
+/* facts strip */
+.facts { border-bottom:1px solid var(--line); }
+.facts dl { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; padding:1.75rem 0; }
+dt { color:var(--muted); font-size:.85rem; }
+dd { font-size:1.02rem; }
+
+section { padding:clamp(4rem, 9vw, 7rem) 0; }
+h2 { font-family:var(--display); font-stretch:100%; font-weight:400; font-size:clamp(2.1rem, 4.2vw, 3.25rem); line-height:1.05; letter-spacing:-.01em; }
+.intro { color:var(--muted); margin-top:1rem; max-width:24rem; }
+
+/* services as a price list */
+.services .grid { display:grid; grid-template-columns:5fr 7fr; gap:3rem; align-items:start; }
+.list { list-style:none; }
+.list li { display:flex; align-items:baseline; gap:.75rem; padding:1.1rem 0; border-bottom:1px solid var(--line); font-size:1.12rem; }
+.list li:first-child { border-top:1px solid var(--line); }
+.list .dots { flex:1; border-bottom:1px dotted color-mix(in srgb, var(--ink) 35%, transparent); transform:translateY(-.3em); }
+.list .p { font-variant-numeric:tabular-nums; white-space:nowrap; }
+
+/* gallery */
+.gallery { padding-top:0; }
+.gallery .head { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2rem; }
+.gallery .note { color:var(--muted); font-size:.9rem; max-width:22rem; text-align:right; }
+.gallery .grid { display:grid; grid-template-columns:7fr 5fr; grid-template-rows:auto auto; gap:1rem; }
+figure { margin:0; }
+figure img { width:100%; height:100%; object-fit:cover; }
+.g0 { grid-row:span 2; }
+.g0 img { aspect-ratio:4/5; }
+.g1 img, .g2 img { aspect-ratio:16/10; }
+figcaption { font-size:.92rem; color:var(--muted); margin-top:.6rem; }
+
+/* steps */
+.steps { background:var(--deep); color:#fff; }
+.steps ol { list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:0; margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.2); }
+.steps li { padding:1.5rem 1.5rem 0 0; font-size:1.1rem; }
+.steps li span { display:block; font-family:var(--display); font-stretch:100%; font-size:1rem; color:var(--accent); margin-bottom:.4rem; filter:brightness(1.35); }
+
+/* contact */
+.contact .grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+.big { display:block; font-family:var(--display); font-stretch:100%; font-weight:400; font-size:clamp(2.2rem, 5vw, 3.6rem); line-height:1.1; text-decoration:none; margin:1.25rem 0 1rem; }
+.contact p { color:var(--muted); margin-top:.3rem; }
+.contact p a { color:var(--ink); }
+.contact iframe { width:100%; aspect-ratio:4/3; border:0; filter:grayscale(.35); }
+footer { padding:2rem 0 2.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
 .callbar { display:none; }
-@media (max-width:760px) {
-  .hero { grid-template-columns:1fr; padding-top:2rem; }
-  .hero svg { max-height:200px; order:-1; }
-  header.top nav { display:none; }
-  .services ul, .contact .grid { grid-template-columns:1fr; }
+
+@media (max-width:820px) {
+  .nav nav { display:none; }
+  .services .grid, .contact .grid { grid-template-columns:1fr; gap:2rem; }
   .gallery .grid { grid-template-columns:1fr 1fr; }
-  .callbar { display:flex; position:fixed; left:0; right:0; bottom:0; gap:.5rem; padding:.75rem; background:var(--bg); border-top:1px solid color-mix(in srgb, var(--ink) 18%, transparent); }
-  .callbar .btn { flex:1; text-align:center; }
-  body { padding-bottom:4.5rem; }
+  .g0 { grid-column:span 2; grid-row:auto; }
+  .g0 img { aspect-ratio:4/3; }
+  .gallery .head { display:block; } .gallery .note { text-align:left; margin-top:.75rem; }
+  .hero .cta { display:none; }
+  .callbar { display:flex; position:fixed; inset:auto 0 0 0; gap:.5rem; padding:.7rem; background:var(--bg); border-top:1px solid var(--line); z-index:5; }
+  .callbar .btn { flex:1; }
+  .callbar .btn:not(.primary) { color:var(--ink); }
+  body { padding-bottom:4.6rem; }
 }
 </style>
 </head>
 <body>
-<div class="demo">Demo e përgatitur falas nga [Emri i ekipit] për Hotel Pojata. Çmimet e nënvizuara me pika dhe fotot janë shembuj që i zëvendësojmë me të dhënat tuaja.</div>
-<div class="wrap">
-  <header class="top">
+<div class="demo">Demo falas nga [Emri i ekipit] për Hotel Pojata. Vlerat e nënvizuara me pika dhe fotot janë shembuj.</div>
+<header class="hero">
+  <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=2000&q=75" alt="Dhoma dyshe">
+  <div class="wrap nav">
     <a class="logo" href="#">Hotel Pojata</a>
     <nav><a href="#sherbimet">Në hotel</a><a href="#galeria">Dhomat</a><a href="#kontakti">Kontakti</a></nav>
-  </header>
-  <div class="hero">
-    <div>
-      <p class="kicker">Hotel në Gjilan</p>
-      <h1>Hotel Pojata</h1>
-      
-      <p class="lead">Dhoma të qeta, mëngjes dhe restorant në vend. Rezervoni direkt me ne, pa ndërmjetës.</p>
-      <div class="cta"><a class="btn primary" href="tel:+38348580010">Telefononi 048 580 010</a><a class="btn" href="https://wa.me/38348580010">Shkruani në WhatsApp</a></div>
-    </div>
-    <svg viewBox="0 0 400 300" aria-hidden="true"><rect x="120" y="30" width="160" height="240" fill="#4F5D43"/>
-<rect x="136" y="46" width="60" height="100" fill="#F1EEE6"/><rect x="204" y="46" width="60" height="100" fill="#F1EEE6"/>
-<rect x="136" y="154" width="128" height="100" fill="#A46A3D"/></svg>
   </div>
-</div>
-<section class="services" id="sherbimet"><div class="wrap"><h2>Në hotel</h2><ul><li>Dhomë dyshe nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">45 €</span> nata</li><li>Dhomë familjare nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">65 €</span> nata</li><li>Mëngjes i përfshirë</li><li>Restorant</li><li>Wi-Fi dhe parking falas</li><li>Ndihmë për turistët dhe diasporën</li></ul></div></section>
-<section class="steps"><div class="wrap"><h2>Rezervimi direkt</h2><ol><li>Zgjidhni datat</li><li>Na shkruani në WhatsApp ose me email</li><li>Merrni konfirmimin nga ne</li></ol></div></section>
-<section class="gallery" id="galeria"><div class="wrap"><h2>Dhomat</h2><p class="note">Fotot janë ilustrime; i zëvendësojmë me fotot tuaja.</p><div class="grid"><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="ghotel-pojata0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ebe6dc"/><stop offset="1" stop-color="#f4f1ea"/></linearGradient></defs><rect width="400" height="300" fill="url(#ghotel-pojata0)"/><rect y="215" width="400" height="85" fill="#cbbfa8"/><rect x="250" y="60" width="110" height="100" fill="#bcd6e6" stroke="#ffffff" stroke-width="8"/><line x1="305.0" y1="60" x2="305.0" y2="160" stroke="#ffffff" stroke-width="6"/><rect x="50" y="100" width="24" height="110" rx="6" fill="#4F5D43"/><rect x="70" y="170" width="220" height="40" rx="8" fill="#ffffff"/><rect x="80" y="148" width="60" height="26" rx="10" fill="#fff"/><rect x="70" y="210" width="12" height="24" fill="#4F5D43"/><rect x="278" y="210" width="12" height="24" fill="#4F5D43"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Dhoma dyshe</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="ghotel-pojata1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7e2d6"/><stop offset="1" stop-color="#f2eee6"/></linearGradient></defs><rect width="400" height="300" fill="url(#ghotel-pojata1)"/><rect y="215" width="400" height="85" fill="#c4b79d"/><rect x="270" y="60" width="90" height="90" fill="#bcd6e6" stroke="#ffffff" stroke-width="8"/><line x1="315.0" y1="60" x2="315.0" y2="150" stroke="#ffffff" stroke-width="6"/><rect x="30" y="100" width="24" height="110" rx="6" fill="#4F5D43"/><rect x="50" y="170" width="220" height="40" rx="8" fill="#A46A3D"/><rect x="60" y="148" width="60" height="26" rx="10" fill="#fff"/><rect x="50" y="210" width="12" height="24" fill="#4F5D43"/><rect x="258" y="210" width="12" height="24" fill="#4F5D43"/><rect x="290" y="170" width="70" height="40" rx="6" fill="#ffffff"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Dhoma familjare</figcaption></figure><figure><div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Foto ilustruese"><defs><linearGradient id="ghotel-pojata2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe3d5"/><stop offset="1" stop-color="#eef0e7"/></linearGradient></defs><rect width="400" height="300" fill="url(#ghotel-pojata2)"/><rect y="215" width="400" height="85" fill="#a99c82"/><line x1="130" y1="0" x2="130" y2="60" stroke="#A46A3D" stroke-width="3"/><path d="M102 84 Q130 50 158 84 Z" fill="#A46A3D"/><line x1="270" y1="0" x2="270" y2="60" stroke="#A46A3D" stroke-width="3"/><path d="M242 84 Q270 50 298 84 Z" fill="#A46A3D"/><ellipse cx="130" cy="190" rx="55.0" ry="15.714285714285714" fill="#ffffff"/><rect x="75.0" y="190" width="110" height="40" fill="#ffffff"/><circle cx="105" cy="184" r="9" fill="#fff"/><circle cx="155" cy="184" r="9" fill="#fff"/><ellipse cx="270" cy="190" rx="55.0" ry="15.714285714285714" fill="#ffffff"/><rect x="215.0" y="190" width="110" height="40" fill="#ffffff"/><circle cx="245" cy="184" r="9" fill="#fff"/><circle cx="295" cy="184" r="9" fill="#fff"/></svg><span class="tag">Foto ilustruese</span></div><figcaption>Restoranti</figcaption></figure></div></div></section>
-<section class="contact" id="kontakti"><div class="wrap"><h2>Na gjeni</h2><div class="grid">
-  <ul><li><span>Telefon</span><a href="tel:+38348580010">048 580 010</a></li><li><span>Email</span><a href="mailto:pojatahotel@gmail.com">pojatahotel@gmail.com</a></li><li><span>Adresa</span>M25-2, Gjilan</li></ul>
+  <div class="wrap"><div class="copy">
+    <p class="kicker">Hotel në Gjilan</p>
+    <h1>Hotel Pojata</h1>
+    
+    <p class="lead">Dhoma të qeta, mëngjes dhe restorant në vend. Rezervoni direkt me ne, pa ndërmjetës.</p>
+    <div class="cta"><a class="btn primary" href="tel:+38348580010">Telefononi 048 580 010</a><a class="btn ghost" href="https://wa.me/38348580010">WhatsApp</a></div>
+  </div></div>
+</header>
+<div class="facts"><div class="wrap"><dl><div><dt>Ku</dt><dd>M25-2, Gjilan</dd></div><div><dt>Orari</dt><dd>E hënë – e shtunë, <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">09:00–19:00</span></dd></div></dl></div></div>
+<section class="services" id="sherbimet"><div class="wrap grid">
+  <div><h2>Në hotel</h2><p class="intro">Çmimet janë orientuese. Na telefononi për ofertën e saktë.</p></div>
+  <ul class="list"><li><span class="n">Dhomë dyshe nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">45 €</span> nata</span></li><li><span class="n">Dhomë familjare nga <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">65 €</span> nata</span></li><li><span class="n">Mëngjes i përfshirë</span></li><li><span class="n">Restorant</span></li><li><span class="n">Wi-Fi dhe parking falas</span></li><li><span class="n">Ndihmë për turistët dhe diasporën</span></li></ul>
+</div></section>
+<section class="gallery" id="galeria"><div class="wrap">
+  <div class="head"><h2>Dhomat</h2><p class="note">Fotot janë ilustruese dhe zëvendësohen me fotot tuaja.</p></div>
+  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=75" alt="Shtrati" loading="lazy"><figcaption>Dhoma dyshe</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=75" alt="Dhoma moderne" loading="lazy"><figcaption>Dhoma familjare</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1782890790046-2aefb0b503cb?auto=format&fit=crop&w=900&q=75" alt="Recepsioni" loading="lazy"><figcaption>Restoranti</figcaption></figure></div>
+</div></section>
+<section class="steps"><div class="wrap"><h2>Rezervimi direkt</h2><ol><li><span>1</span>Zgjidhni datat</li><li><span>2</span>Na shkruani në WhatsApp ose me email</li><li><span>3</span>Merrni konfirmimin nga ne</li></ol></div></section>
+<section class="contact" id="kontakti"><div class="wrap grid">
+  <div><h2>Na kontaktoni</h2><a class="big" href="tel:+38348580010">048 580 010</a><p>M25-2, Gjilan</p><p><a href="mailto:pojatahotel@gmail.com">pojatahotel@gmail.com</a></p></div>
   <iframe title="Harta për Hotel Pojata" loading="lazy" src="https://www.google.com/maps?q=Hotel%20Pojata%2C%20M25-2%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe>
-</div></div></section>
-<footer><div class="wrap">© 2026 Hotel Pojata, Gjilan. Demo nga [Emri i ekipit].</div></footer>
+</div></section>
+<div class="wrap"><footer><span>© 2026 Hotel Pojata</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></footer></div>
 <div class="callbar"><a class="btn primary" href="tel:+38348580010">Telefononi</a><a class="btn" href="https://wa.me/38348580010">WhatsApp</a></div>
 </body>
 </html>
