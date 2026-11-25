@@ -1,142 +1,169 @@
 <!DOCTYPE html>
-<html lang="sq">
+<html lang="sq" data-lang="sq">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Taverna 501 | Gjilan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Alegreya+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1608816042754-d69cb2271bea?auto=format&fit=crop&w=2000&q=75">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root { --bg:#F1ECE4; --ink:#2C1E16; --muted:#6B5A4E; --accent:#8E2F23; --deep:#2C1E16;
-  --display:'Alegreya', serif; --body:'Alegreya Sans', system-ui, sans-serif; --line:color-mix(in srgb, var(--ink) 14%, transparent); }
-* { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .hero img { animation:none !important; } }
-body { background:var(--bg); color:var(--ink); font-family:var(--body); font-size:1.0625rem; line-height:1.65; -webkit-font-smoothing:antialiased; }
-a { color:inherit; }
-a:focus-visible, .btn:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
-img { display:block; max-width:100%; }
-.wrap { width:min(1180px, 100% - 3rem); margin-inline:auto; }
-.demo { background:var(--deep); color:#fff; font-size:.8125rem; text-align:center; padding:.5rem 1rem; opacity:.96; }
-.mock { text-decoration:underline dotted; text-decoration-color:var(--accent); text-decoration-thickness:1.5px; text-underline-offset:4px; cursor:help; }
-
-/* hero */
-.hero { position:relative; min-height:max(640px, min(88vh, 860px)); display:flex; flex-direction:column; color:#fff; overflow:hidden; isolation:isolate; }
-.hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; animation:settle 1.6s ease-out both; }
-@keyframes settle { from { transform:scale(1.06); } to { transform:scale(1); } }
-.hero::after { content:""; position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 38%, rgba(0,0,0,.15) 75%, rgba(0,0,0,.05) 100%),
-             linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 60%, rgba(0,0,0,.55) 100%); }
-.hero .copy { text-shadow:0 1px 18px rgba(0,0,0,.35); }
-.nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
-.nav .logo { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:1.2rem; text-decoration:none; letter-spacing:.01em; }
-.nav nav a { margin-left:1.75rem; text-decoration:none; opacity:.85; font-size:.95rem; }
-.nav nav a:hover { opacity:1; }
-.hero .copy { margin-top:auto; padding-bottom:clamp(2.5rem, 7vh, 5rem); max-width:46rem; }
-.kicker { font-size:.95rem; opacity:.85; margin-bottom:1rem; }
-.hero h1 { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:clamp(3rem, 8vw, 6.5rem); line-height:.95; letter-spacing:-.015em; }
-.tagline { font-family:var(--display); font-style:italic; font-size:1.35rem; margin-top:1rem; opacity:.9; }
-.lead { margin-top:1.25rem; font-size:1.15rem; max-width:36rem; opacity:.92; }
-.cta { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem; }
-.btn { display:inline-flex; align-items:center; justify-content:center; padding:.9rem 1.5rem; border-radius:2px; text-decoration:none; font-weight:600; font-size:.98rem; border:1px solid currentColor; transition:background .2s, color .2s; }
-.btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
-.btn.primary:hover { background:color-mix(in srgb, var(--accent) 85%, #000); }
-.btn.ghost { color:#fff; border-color:rgba(255,255,255,.7); }
-.btn.ghost:hover { background:rgba(255,255,255,.12); }
-
-/* facts strip */
-.facts { border-bottom:1px solid var(--line); }
-.facts dl { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; padding:1.75rem 0; }
-dt { color:var(--muted); font-size:.85rem; }
-dd { font-size:1.02rem; }
-
-section { padding:clamp(4rem, 9vw, 7rem) 0; }
-h2 { font-family:var(--display); font-stretch:100%; font-weight:700; font-size:clamp(2.1rem, 4.2vw, 3.25rem); line-height:1.05; letter-spacing:-.01em; }
-.intro { color:var(--muted); margin-top:1rem; max-width:24rem; }
-
-/* services as a price list */
-.services .grid { display:grid; grid-template-columns:5fr 7fr; gap:3rem; align-items:start; }
-.list { list-style:none; }
-.list li { display:flex; align-items:baseline; gap:.75rem; padding:1.1rem 0; border-bottom:1px solid var(--line); font-size:1.12rem; }
-.list li:first-child { border-top:1px solid var(--line); }
-.list .dots { flex:1; border-bottom:1px dotted color-mix(in srgb, var(--ink) 35%, transparent); transform:translateY(-.3em); }
-.list .p { font-variant-numeric:tabular-nums; white-space:nowrap; }
-
-/* gallery */
-.gallery { padding-top:0; }
-.gallery .head { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2rem; }
-.gallery .note { color:var(--muted); font-size:.9rem; max-width:22rem; text-align:right; }
-.gallery .grid { display:grid; grid-template-columns:7fr 5fr; grid-template-rows:auto auto; gap:1rem; }
-figure { margin:0; }
-figure img { width:100%; height:100%; object-fit:cover; }
-.g0 { grid-row:span 2; }
-.g0 img { aspect-ratio:4/5; }
-.g1 img, .g2 img { aspect-ratio:16/10; }
-figcaption { font-size:.92rem; color:var(--muted); margin-top:.6rem; }
-
-/* steps */
-.steps { background:var(--deep); color:#fff; }
-.steps ol { list-style:none; display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:0; margin-top:2.5rem; border-top:1px solid rgba(255,255,255,.2); }
-.steps li { padding:1.5rem 1.5rem 0 0; font-size:1.1rem; }
-.steps li span { display:block; font-family:var(--display); font-stretch:100%; font-size:1.6rem; line-height:1; color:#fff; opacity:.55; margin-bottom:.6rem; }
-
-/* contact */
-.contact .grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
-.big { display:block; font-family:var(--display); font-stretch:100%; font-weight:700; font-size:clamp(2.2rem, 5vw, 3.6rem); line-height:1.1; text-decoration:none; margin:1.25rem 0 1rem; }
-.contact p { color:var(--muted); margin-top:.3rem; }
-.contact p a { color:var(--ink); }
-.contact iframe { width:100%; aspect-ratio:4/3; border:0; filter:grayscale(.35); }
-footer { padding:2rem 0 2.5rem; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-.callbar { display:none; }
-
-@media (max-width:820px) {
-  .nav nav { display:none; }
-  .services .grid, .contact .grid { grid-template-columns:1fr; gap:2rem; }
-  .gallery .grid { grid-template-columns:1fr 1fr; }
-  .g0 { grid-column:span 2; grid-row:auto; }
-  .g0 img { aspect-ratio:4/3; }
-  .gallery .head { display:block; } .gallery .note { text-align:left; margin-top:.75rem; }
-  .hero .cta { display:none; }
-  .callbar { display:flex; position:fixed; inset:auto 0 0 0; gap:.5rem; padding:.7rem; background:var(--bg); border-top:1px solid var(--line); z-index:5; }
-  .callbar .btn { flex:1; }
-  .callbar .btn:not(.primary) { color:var(--ink); }
-  body { padding-bottom:4.6rem; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body),system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
+.l-en{display:none}html[data-lang=en] .l-en{display:inline}html[data-lang=en] .l-sq{display:none}
+.mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
+.demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
+.nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.nav .brand{font-family:var(--display);font-weight:var(--dw,700);font-size:1.25rem;text-decoration:none;letter-spacing:var(--brand-ls,0)}
+.nav .links{display:flex;gap:1.6rem;align-items:center}
+.nav .links a{text-decoration:none;opacity:.82;font-size:.95rem}.nav .links a:hover{opacity:1}
+.lang{display:inline-flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;font-size:.8rem;opacity:.9}
+.lang button{background:none;border:0;padding:.25rem .65rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.45rem;border-radius:var(--radius,4px);text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.btn-sm{padding:.6rem 1rem;font-size:.88rem}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.eyebrow{font-size:.92rem;color:var(--accent);margin-bottom:.9rem;font-weight:600}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw,700);line-height:1.04;letter-spacing:var(--h-ls,-.01em)}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h3{font-size:1.35rem;line-height:1.2}
+.sub{color:var(--muted);max-width:38rem;margin-top:1rem;font-size:1.08rem}
+.head{margin-bottom:clamp(2rem,4vw,3.25rem)}
+.grid{display:grid;gap:var(--gap,1.25rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,4px);padding:1.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1px solid var(--line-strong,var(--line));background:transparent;border-radius:999px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-cat].hide{display:none}
+.plist{list-style:none}
+.plist li{display:flex;align-items:baseline;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.plist li .d{flex:1;border-bottom:1px dotted var(--line-strong,var(--line));transform:translateY(-.3em)}
+.plist li .p{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.plist small{display:block;color:var(--muted);font-size:.88rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line-strong,var(--line));padding-top:1.25rem}
+.steps li::before{content:counter(s);display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent);margin-bottom:.75rem}
+.steps b{display:block;margin-bottom:.25rem}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form textarea{min-height:6rem;resize:vertical}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .note{font-size:.82rem;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:.6rem;max-width:44rem}
+.ph{position:relative;overflow:hidden;border-radius:var(--radius,4px);background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:.6rem;bottom:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:.15rem .5rem;border-radius:999px}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radius,4px);filter:grayscale(.3)}
+.contact-list{list-style:none}
+.contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.contact-list li>span:first-child{color:var(--muted)}
+footer.foot{padding:2rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.callbar{display:none}
+@media (max-width:860px){
+  .nav .links a{display:none}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .form .two{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;inset:auto 0 0 0;gap:.5rem;padding:.65rem;background:var(--bg);border-top:1px solid var(--line);z-index:30}
+  .callbar .btn{flex:1}
+  body{padding-bottom:4.5rem}
+  .contact-list li{grid-template-columns:6rem 1fr}
 }
+
+:root{--bg:#141416;--surface:#1C1C1F;--ink:#F3EFE6;--muted:#A19C93;--accent:#EAB308;--on-accent:#141416;--wine:#7F1D1D;--line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.22);
+--display:'Instrument Serif';--body:'Inter';--dw:400;--h-ls:-.01em;--radius:6px;--demo-bg:#000;--field:#1C1C1F}
+.hero{position:relative;min-height:max(680px,94vh);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden;padding:0}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#141416 8%,rgba(20,20,22,.4) 55%,rgba(20,20,22,.6))}
+.hero h1{font-size:clamp(3.6rem,10vw,9rem);line-height:.88}
+.hero h1 em{color:var(--accent)}
+.hero .row{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;padding-bottom:3.5rem}
+.resv{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(1.5rem,4vw,2.5rem);display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem}
+.party{display:flex;align-items:center;gap:1rem}
+.party button{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--line-strong);background:none;font-size:1.3rem;cursor:pointer}
+.party output{font-family:var(--display);font-size:2.6rem;min-width:3ch;text-align:center}
+.tog{display:flex;align-items:center;gap:.75rem;cursor:pointer;color:var(--ink)}
+.tog input{width:auto;accent-color:var(--accent);transform:scale(1.3)}
+.setm{display:none;border:1px dashed var(--accent);border-radius:8px;padding:1rem;color:var(--ink)}
+.setm.on{display:block}
+.dish{display:grid;gap:1rem}
+.dish h3{font-family:var(--display);font-size:1.8rem}
+.dish p{color:var(--muted);font-size:.95rem}
+.pr{color:var(--accent);font-weight:600}
+.iftar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:3rem 0;align-items:center}
+.iftar .tag2{display:inline-block;background:var(--wine);color:#fff;padding:.3rem .75rem;border-radius:999px;font-size:.85rem;margin-bottom:1rem}
+@media(max-width:860px){.resv,.iftar{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="demo">Demo falas nga [Emri i ekipit] për Taverna 501. Vlerat e nënvizuara me pika dhe fotot janë shembuj.</div>
-<header class="hero">
-  <img src="https://images.unsplash.com/photo-1608816042754-d69cb2271bea?auto=format&fit=crop&w=2000&q=75" alt="Tavolinat prej druri">
-  <div class="wrap nav">
-    <a class="logo" href="#">Taverna 501</a>
-    <nav><a href="#sherbimet">Nga menyja</a><a href="#galeria">Ambienti</a><a href="#kontakti">Kontakti</a></nav>
-  </div>
-  <div class="wrap"><div class="copy">
-    <p class="kicker">Restorant tradicional në Gjilan</p>
-    <h1>Taverna 501</h1>
-    <p class="tagline">Heaven to the food lovers.</p>
-    <p class="lead">Gatime shqiptare të përgatitura me kujdes, në një ambient të ngrohtë. Rezervoni tavolinën me një telefonatë.</p>
-    <div class="cta"><a class="btn primary" href="tel:+38344431913">Telefononi 044 431 913</a><a class="btn ghost" href="https://wa.me/38344431913">WhatsApp</a></div>
-  </div></div>
-</header>
-<div class="facts"><div class="wrap"><dl><div><dt>Ku</dt><dd>Rruga Beqir Musliu 10, Gjilan</dd></div><div><dt>Orari</dt><dd>E hënë – e shtunë, <span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">09:00–19:00</span></dd></div><div><dt>Instagram</dt><dd><a href="https://www.instagram.com/taverna_501/">@taverna_501</a></dd></div></dl></div></div>
-<section class="services" id="sherbimet"><div class="wrap grid">
-  <div><h2>Nga menyja</h2><p class="intro">Çmimet janë orientuese. Na telefononi për ofertën e saktë.</p></div>
-  <ul class="list"><li><span class="n"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Tavë kosi</span></span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">6.50 €</span></span></li><li><span class="n"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Flija me kos</span></span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">5 €</span></span></li><li><span class="n"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Fërgesë</span></span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">4.50 €</span></span></li><li><span class="n"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Pleskavicë e mbushur</span></span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">6 €</span></span></li><li><span class="n"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Sallatë shope</span></span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">2.50 €</span></span></li><li><span class="n"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">Bakllava</span></span><span class="dots"></span><span class="p"><span class="mock" title="Shembull, do të zëvendësohet me të dhënat tuaja">2 €</span></span></li></ul>
-</div></section>
-<section class="gallery" id="galeria"><div class="wrap">
-  <div class="head"><h2>Ambienti</h2><p class="note">Fotot janë ilustruese dhe zëvendësohen me fotot tuaja.</p></div>
-  <div class="grid"><figure class="g0"><img src="https://images.unsplash.com/photo-1588690793273-4d86028401f0?auto=format&fit=crop&w=1400&q=75" alt="Mish në skarë" loading="lazy"><figcaption>Mish në skarë</figcaption></figure><figure class="g1"><img src="https://images.unsplash.com/photo-1743793055775-3c07ab847ad0?auto=format&fit=crop&w=900&q=75" alt="Tavolina e shtruar" loading="lazy"><figcaption>Tavolina e shtruar</figcaption></figure><figure class="g2"><img src="https://images.unsplash.com/photo-1713195959066-8698d2aa817e?auto=format&fit=crop&w=900&q=75" alt="Restoranti me mur me tulla" loading="lazy"><figcaption>Restoranti me mur me tulla</figcaption></figure></div>
-</div></section>
-<section class="steps"><div class="wrap"><h2>Ngjarje dhe grupe</h2><ol><li><span>1</span>Na tregoni datën dhe numrin e personave</li><li><span>2</span>Zgjidhni menunë</li><li><span>3</span>Ne kujdesemi për pjesën tjetër</li></ol></div></section>
-<section class="contact" id="kontakti"><div class="wrap grid">
-  <div><h2>Na kontaktoni</h2><a class="big" href="tel:+38344431913">044 431 913</a><p>Rruga Beqir Musliu 10, Gjilan</p><p><a href="https://www.instagram.com/taverna_501/">@taverna_501 në Instagram</a></p></div>
-  <iframe title="Harta për Taverna 501" loading="lazy" src="https://www.google.com/maps?q=Taverna%20501%2C%20Rruga%20Beqir%20Musliu%2010%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe>
-</div></section>
-<div class="wrap"><footer><span>© 2026 Taverna 501</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></footer></div>
-<div class="callbar"><a class="btn primary" href="tel:+38344431913">Telefononi</a><a class="btn" href="https://wa.me/38344431913">WhatsApp</a></div>
+<div class="demo">Demo falas nga [Emri i ekipit] për Taverna 501. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</div>
+<header class="nav"><div class="wrap row"><a class="brand" href="#">Taverna 501</a><nav class="links"><a href="#rezervo">Rezervo</a><a href="#pjatat">Pjatat</a><a href="#iftar">Menu sezonale</a><a class="btn btn-primary btn-sm" href="#rezervo">Rezervo</a></nav></div></header>
+<section class="hero"><img src="https://images.unsplash.com/photo-1770334597610-8335702e8ab1?auto=format&fit=crop&w=2200&q=75" alt="Bar me ndriçim të zbehtë">
+<div class="wrap row"><div><p class="eyebrow">Rruga Beqir Musliu 10, Gjilan</p><h1>Heaven to the <em>food lovers.</em></h1></div>
+<a class="btn btn-primary" href="#rezervo">Rezervoni tavolinën</a></div></section>
+<section id="rezervo"><div class="wrap"><div class="resv"><div><h2>Rezervoni</h2><p class="sub">Për dy persona, për familjen ose për një grup të madh. Konfirmimi vjen në WhatsApp.</p></div>
+<form class="form" data-wa="38344431913" data-title="Rezervim – Taverna 501"><input type="hidden" id="psv" name="Persona" data-label="Persona" value="2"><input type="hidden" id="setval" name="Menu" data-label="Menu sezonale">
+<label>Sa persona?</label><div class="party"><button type="button" id="pm" aria-label="Më pak">−</button><output id="ps">2</output><button type="button" id="pp" aria-label="Më shumë">+</button></div>
+<div class="two"><label>Data<input type="date" name="Data" data-label="Data" required></label><label>Ora<input type="time" name="Ora" data-label="Ora" value="20:00"></label></div>
+<label class="tog"><input type="checkbox" id="settog"> Menu sezonale / iftar për grupin</label>
+<div class="setm" id="setbox">Menu me çmim fiks për grupin. Rezervimi është i detyrueshëm.</div>
+<label>Emri<input name="Emri" data-label="Emri" required></label>
+<button class="btn btn-primary" type="submit">Dërgo rezervimin në WhatsApp</button></form></div></div></section>
+<section id="pjatat" style="padding-top:0"><div class="wrap"><div class="head"><h2>Të preferuarat e klientëve</h2><p class="sub">Nga postimet tona në Instagram @taverna_501. Çmimet janë shembuj.</p></div><div class="grid g3"><article class="dish"><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1588690793273-4d86028401f0?auto=format&fit=crop&w=900&q=75" alt="Pjata e skarës për ndarje" loading="lazy"><span class="tag">Foto ilustruese</span></figure><div><h3><span class="mock" title="Shembull / Example">Pjata e skarës për ndarje</span></h3><p>Për 2–3 persona</p><span class="pr"><span class="mock" title="Shembull / Example">18 €</span></span></div></article><article class="dish"><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1504973960431-1c467e159aa4?auto=format&fit=crop&w=900&q=75" alt="Biftek me pure patatesh" loading="lazy"><span class="tag">Foto ilustruese</span></figure><div><h3><span class="mock" title="Shembull / Example">Biftek me pure patatesh</span></h3><p>Pure e njohur e shtëpisë</p><span class="pr"><span class="mock" title="Shembull / Example">14 €</span></span></div></article><article class="dish"><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=75" alt="Brusketa e shtëpisë" loading="lazy"><span class="tag">Foto ilustruese</span></figure><div><h3><span class="mock" title="Shembull / Example">Brusketa e shtëpisë</span></h3><p>Fillimi që porositet më shumë</p><span class="pr"><span class="mock" title="Shembull / Example">4 €</span></span></div></article></div></div></section>
+<section id="iftar" style="padding-top:0"><div class="wrap"><div class="iftar"><div><span class="tag2">Muaji i Ramazanit</span><h2>Menu iftari për 4 persona</h2>
+<p class="sub">Menu me disa gjellë për familjen, me rezervim të detyrueshëm. Edhe për grupe dhe festa gjatë gjithë vitit.</p>
+<p style="margin-top:1.25rem"><span class="pr mock" title="Shembull">40 € për 4 persona</span></p></div><figure class="ph " style="aspect-ratio:4/3"><img src="https://images.unsplash.com/photo-1743793055775-3c07ab847ad0?auto=format&fit=crop&w=1100&q=75" alt="Tavolinë e shtruar për darkë" loading="lazy"><span class="tag">Foto ilustruese</span></figure></div></div></section>
+<section><div class="wrap grid g2" style="gap:3rem"><div><h2>Na gjeni</h2><ul class="contact-list" style="margin-top:1.5rem"><li><span>Adresa</span><span>Rruga Beqir Musliu 10, Gjilan</span></li><li><span>Telefon</span><a href="tel:+38344431913">044 431 913</a></li>
+<li><span>Instagram</span><a href="https://www.instagram.com/taverna_501/">@taverna_501</a></li><li><span>Orari</span><span>Çdo ditë, <span class="mock" title="Shembull">08:00–23:00</span></span></li></ul></div><iframe class="map" title="Harta" loading="lazy" src="https://www.google.com/maps?q=Taverna%20501%2C%20Beqir%20Musliu%2010%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe></div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 Taverna 501, Gjilan</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38344431913">Telefononi</a><a class="btn btn-line" href="https://wa.me/38344431913?text=P%C3%ABrsh%C3%ABndetje%2C%20dua%20t%C3%AB%20rezervoj%20nj%C3%AB%20tavolin%C3%AB.">WhatsApp</a></div>
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
+  // filter chips
+  document.querySelectorAll('[data-filter-group]').forEach(function(g){
+    var items=document.querySelectorAll(g.dataset.filterGroup+' [data-cat]');
+    g.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+      items.forEach(function(it){it.classList.toggle('hide',c.dataset.f!=='all'&&it.dataset.cat.split(' ').indexOf(c.dataset.f)<0)});
+    })});
+  });
+  // forms that compose a WhatsApp message
+  document.querySelectorAll('form[data-wa]').forEach(function(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
+    var lines=[f.dataset.title||''];
+    f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
+      if(el.value){var lab=el.dataset.label||el.name;lines.push(lab+': '+el.value)}});
+    window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  })});
+})();
+
+(function(){var o=document.getElementById('ps'),h=document.getElementById('psv');function s(v){v=Math.min(40,Math.max(1,v));o.textContent=v;h.value=v}
+document.getElementById('pm').addEventListener('click',function(){s(+o.textContent-1)});document.getElementById('pp').addEventListener('click',function(){s(+o.textContent+1)});
+var t=document.getElementById('settog'),b=document.getElementById('setbox'),m=document.getElementById('setval');
+t.addEventListener('change',function(){b.classList.toggle('on',t.checked);m.value=t.checked?'Po, menu sezonale / iftar':''});})();</script>
 </body>
 </html>
