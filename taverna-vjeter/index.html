@@ -168,6 +168,10 @@ body{font-size:1.1rem}
 <button class="btn btn-primary" type="submit"><span class="l-sq">Rezervo në WhatsApp</span><span class="l-en" lang="en">Book on WhatsApp</span></button></form></div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 Taverna Vjetër, Gjilan</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38348134234">Telefononi</a><a class="btn btn-line" href="https://wa.me/38348134234?text=P%C3%ABrsh%C3%ABndetje%2C%20dua%20t%C3%AB%20rezervoj%20nj%C3%AB%20tavolin%C3%AB.">WhatsApp</a></div>
 <script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
 (function(){
   var root=document.documentElement;
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;

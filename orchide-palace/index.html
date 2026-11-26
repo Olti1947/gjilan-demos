@@ -183,6 +183,10 @@ output{font-family:var(--display);font-size:2rem;color:#E3C88F}
 <section style="padding-top:0"><div class="wrap grid g2" style="gap:3rem"><div><h2><span class="l-sq">Si të na gjeni</span><span class="l-en" lang="en">How to find us</span></h2><p class="sub"><span class="l-sq">Në Kmetoc, pak minuta nga qendra e Gjilanit. Parking i madh për mysafirët.</span><span class="l-en" lang="en">In Kmetoc, a few minutes from central Gjilan. Large car park for guests.</span></p></div><iframe class="map" title="Harta" loading="lazy" src="https://www.google.com/maps?q=Orchide%20Palace%2C%20Kmetoc%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe></div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 Orchide Palace, Gjilan</span><span><span class="l-sq">Demo nga [Emri i ekipit]. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by [Emri i ekipit]. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38344486222"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38344486222?text=P%C3%ABrsh%C3%ABndetje%2C%20dua%20t%C3%AB%20pyes%20p%C3%ABr%20nj%C3%AB%20dat%C3%AB.">WhatsApp</a></div>
 <script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
 (function(){
   var root=document.documentElement;
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;

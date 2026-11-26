@@ -162,6 +162,10 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <section><div class="wrap grid g2" style="gap:3rem"><div><h2><span class="l-sq">Kontakti dhe orari</span><span class="l-en" lang="en">Contact and hours</span></h2><ul class="contact-list" style="margin-top:1.5rem"><li><span><span class="l-sq">Telefon</span><span class="l-en" lang="en">Phone</span></span><a href="tel:+38345470065">045 470 065</a></li><li><span><span class="l-sq">Orari</span><span class="l-en" lang="en">Hours</span></span><span><span class="l-sq">E hënë – e shtunë,</span><span class="l-en" lang="en">Mon – Sat,</span> <span class="mock" title="Shembull">09:00–20:00</span></span></li><li><span><span class="l-sq">Adresa</span><span class="l-en" lang="en">Address</span></span><span>Gjilan</span></li></ul></div><iframe class="map" title="Harta" loading="lazy" src="https://www.google.com/maps?q=Popi%20Barbershop%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe></div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 Popi Barbershop, Gjilan</span><span><span class="l-sq">Demo nga [Emri i ekipit]. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by [Emri i ekipit]. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38345470065"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38345470065">WhatsApp</a></div>
 <script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
 (function(){
   var root=document.documentElement;
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;

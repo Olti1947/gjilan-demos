@@ -200,6 +200,10 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <iframe class="map" title="Harta" loading="lazy" src="https://www.google.com/maps?q=D-Dent%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe></div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 D-Dent, Gjilan</span><span><span class="l-sq">Demo nga [Emri i ekipit]. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by [Emri i ekipit]. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="#termin"><span class="l-sq">Kërko termin</span><span class="l-en" lang="en">Request appointment</span></a></div>
 <script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
 (function(){
   var root=document.documentElement;
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;

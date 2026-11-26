@@ -181,6 +181,10 @@ dialog .x{float:right;background:none;border:0;font-size:1.5rem;cursor:pointer;c
 <button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo në WhatsApp</span><span class="l-en" lang="en">Send on WhatsApp</span></button><p class="note"><span class="l-sq">Rezervimi konfirmohet nga ne me mesazh.</span><span class="l-en" lang="en">We confirm your booking by message.</span></p></form></dialog>
 <footer class="foot"><div class="wrap"><span>© 2026 Premium LJ Rent a Car, Gjilan</span><span><span class="l-sq">Demo nga [Emri i ekipit]. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by [Emri i ekipit]. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38349895055"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38349895055">WhatsApp</a></div>
 <script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
 (function(){
   var root=document.documentElement;
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
