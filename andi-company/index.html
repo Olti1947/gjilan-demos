@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="sq" data-lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ANDI Company | Prishtinë</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body),system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible,.dbar input:focus-visible,.dbar select:focus-visible,.qbar input:focus-visible,.qbar select:focus-visible{outline-offset:-2px}.dbar input:focus-visible,.dbar select:focus-visible{outline:none}.dbar label:focus-within{outline:2px solid var(--accent);outline-offset:-2px}
+.wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
+html:not([data-lang=en]) .l-en{display:none!important}html[data-lang=en] .l-sq{display:none!important}
+.mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
+.demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
+.nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.nav .brand{font-family:var(--display);font-weight:var(--dw,700);font-size:1.25rem;text-decoration:none;letter-spacing:var(--brand-ls,0)}
+.nav .links{display:flex;gap:1.6rem;align-items:center;flex:none}.nav .brand{min-width:0}.nav .links .btn{white-space:nowrap}.lang{flex:none}.lang button{white-space:nowrap;font:inherit;color:inherit;line-height:1.4}
+.nav .links a{text-decoration:none;opacity:.82;font-size:.95rem}.nav .links a:hover{opacity:1}
+.lang{display:inline-flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;font-size:.8rem;opacity:.9}
+.lang button{background:none;border:0;padding:.25rem .65rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.45rem;border-radius:var(--radius,4px);text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.btn-sm{padding:.6rem 1rem;font-size:.88rem}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.eyebrow{font-size:.92rem;color:var(--accent);margin-bottom:.9rem;font-weight:600}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw,700);line-height:1.04;letter-spacing:var(--h-ls,-.01em)}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h3{font-size:1.35rem;line-height:1.2}
+.sub{color:var(--muted);max-width:38rem;margin-top:1rem;font-size:1.08rem}
+.head{margin-bottom:clamp(2rem,4vw,3.25rem)}
+.grid{display:grid;gap:var(--gap,1.25rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,4px);padding:1.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1px solid var(--line-strong,var(--line));background:transparent;border-radius:999px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-cat].hide{display:none}
+.plist{list-style:none}
+.plist li{display:flex;align-items:baseline;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.plist li .d{flex:1;border-bottom:1px dotted var(--line-strong,var(--line));transform:translateY(-.3em)}
+.plist li .p{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.plist small{display:block;color:var(--muted);font-size:.88rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line-strong,var(--line));padding-top:1.25rem}
+.steps li::before{content:counter(s);display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent);margin-bottom:.75rem}
+.steps b{display:block;margin-bottom:.25rem}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form textarea{min-height:6rem;resize:vertical}
+.form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
+select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+select::-ms-expand{display:none}
+input[type=date],input[type=time]{min-width:0;max-width:100%;-webkit-appearance:none;appearance:none;position:relative;display:block;min-height:1.5em;text-align:left;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;padding:0;opacity:0;cursor:pointer}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .note{font-size:.82rem;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:.6rem;max-width:44rem}
+.ph{position:relative;overflow:hidden;border-radius:var(--radius,4px);background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:.6rem;bottom:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:.15rem .5rem;border-radius:999px}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radius,4px);filter:grayscale(.3)}
+.contact-list{list-style:none}
+.contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.contact-list li>span:first-child{color:var(--muted)}
+footer.foot{padding:2rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.callbar{display:none}
+@media (max-width:860px){
+  .nav .links a{display:none}.nav .links{gap:.6rem}.nav .row{gap:.75rem}
+  .nav .brand{font-size:1.05rem;line-height:1.15}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .form .two{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;inset:auto 0 0 0;gap:.5rem;padding:.65rem;background:var(--bg);border-top:1px solid var(--line);z-index:30}
+  .callbar .btn{flex:1}
+  body{padding-bottom:4.5rem}
+  .contact-list li{grid-template-columns:6rem 1fr}
+}
+
+:root{--bg:#F6F7F8;--surface:#FFFFFF;--ink:#0F1D33;--muted:#526075;--accent:#0E8C8C;--on-accent:#fff;--navy:#0F1D33;--line:#DCE1E8;--line-strong:#A6B1C0;
+--display:'Schibsted Grotesk';--body:'Schibsted Grotesk';--dw:800;--radius:8px;--h-ls:-.03em;--demo-bg:#0F1D33}
+.hero{padding:8rem 0 3.5rem;background:linear-gradient(180deg,#fff,var(--bg))}
+.hero .g{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(1.5rem,4vw,3rem);align-items:end}
+.hero h1{font-size:clamp(2.7rem,6.8vw,5.4rem);line-height:.96}
+.hero .lead{color:var(--muted);max-width:32rem;margin-top:1rem;font-size:1.1rem}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
+.clock{background:var(--navy);color:#E6EEF6;border-radius:12px;padding:1.5rem}
+.clock b{font-size:clamp(2.6rem,7vw,3.6rem);display:block;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.clock span{color:#8FA3BA;font-size:.9rem}.clock p{margin-top:.75rem;display:flex;gap:.5rem;align-items:center}.clock p::before{content:"";width:.6rem;height:.6rem;border-radius:50%;background:#2BD4C4}
+.div4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.div4 .card{border-top:3px solid var(--accent)}.div4 h3{font-size:1.2rem;margin-bottom:.4rem}.div4 p{color:var(--muted);font-size:.95rem}
+.why{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-strong)}
+.why>div{padding:1.4rem 1.2rem 1.4rem 0}.why b{display:block;font-size:1.15rem;margin-bottom:.3rem}.why>div>span{color:var(--muted)}
+.sol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(1.25rem,4vw,2.5rem)}
+.sol input[type=range]{width:100%;accent-color:var(--accent)}
+.sol .out b{font-size:clamp(2.4rem,7vw,3.6rem);display:block;line-height:1;color:var(--accent)}
+.panels{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:1rem}.panels i{aspect-ratio:3/5;border-radius:2px;background:#E3E8EE;transition:background .25s}.panels i.on{background:linear-gradient(160deg,#1E3A5F,#0E8C8C)}
+.inq{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.radios{display:flex;gap:.5rem;flex-wrap:wrap}
+.radios label{position:relative;display:block;cursor:pointer;color:var(--ink)}
+.radios input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0;margin:0}
+.radios label>span{display:block;border:1px solid var(--line-strong);border-radius:999px;padding:.5rem 1rem;font-size:.92rem}
+.radios input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.radios input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.err{color:#C0392B;font-size:.85rem;min-height:1.2em}
+@media(max-width:1000px){.div4,.why{grid-template-columns:1fr 1fr}}@media(max-width:860px){.hero .g,.sol,.inq{grid-template-columns:1fr}}@media(max-width:560px){.div4,.why{grid-template-columns:1fr}}
+[hidden]{display:none!important}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
+</head>
+<body>
+<div class="demo"><span class="l-sq">Demo falas nga Olt Bajrami për ANDI Company. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by Olt Bajrami for ANDI Company. Prices, offers and photos underlined with dots are examples.</span></div>
+<header class="nav"><div class="wrap row"><a class="brand" href="#">ANDI Company</a><nav class="links"><a href="#sherbimet"><span class="l-sq">Shërbimet</span><span class="l-en" lang="en">Services</span></a><a href="#kontakt"><span class="l-sq">Kontakt</span><span class="l-en" lang="en">Contact</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div></nav></div></header>
+<section class="hero"><div class="wrap g"><div><p class="eyebrow"><span class="l-sq">Rr. Tringë Smajli · Prishtinë</span><span class="l-en" lang="en">Tringë Smajli St · Prishtina</span></p>
+<h1><span class="l-sq">Partner për ndërtim dhe energji, në çdo orë.</span><span class="l-en" lang="en">A partner for construction and energy, at any hour.</span></h1>
+<p class="lead"><span class="l-sq">ANDI Company punon me kompani dhe klientë në Prishtinë e më gjerë: ndërtim, pajisje solare dhe mbështetje e shpejtë.</span><span class="l-en" lang="en">ANDI Company works with businesses and clients in Prishtina and beyond: construction, solar equipment and fast support.</span></p>
+<div class="cta"><a class="btn btn-primary" href="#kontakt"><span class="l-sq">Na kontaktoni</span><span class="l-en" lang="en">Get in touch</span></a><a class="btn btn-line" href="#sherbimet"><span class="l-sq">Shërbimet</span><span class="l-en" lang="en">Services</span></a></div></div>
+<div class="clock"><span><span class="l-sq">Ora në Prishtinë</span><span class="l-en" lang="en">Time in Prishtina</span></span><b>--:--</b><p><span class="l-sq">Jemi në dispozicion tani</span><span class="l-en" lang="en">We&#x27;re available now</span></p></div></div></section>
+<section id="sherbimet" style="padding-top:2rem"><div class="wrap"><div class="head"><h2><span class="l-sq">Çka bëjmë</span><span class="l-en" lang="en">What we do</span></h2></div><div class="div4"><div class="card"><h3><span class="l-sq">Ndërtim objektesh</span><span class="l-en" lang="en">Building construction</span></h3><p><span class="l-sq">Objekte banimi dhe afariste, nga themeli te çelësi.</span><span class="l-en" lang="en">Residential and commercial buildings, from foundation to handover.</span></p></div><div class="card"><h3><span class="l-sq">Energji solare</span><span class="l-en" lang="en">Solar energy</span></h3><p><span class="l-sq">Furnizim dhe montim i paneleve dhe pajisjeve solare.</span><span class="l-en" lang="en">Supply and installation of solar panels and equipment.</span></p></div><div class="card"><h3><span class="l-sq">Furnizim teknik</span><span class="l-en" lang="en">Technical supply</span></h3><p><span class="l-sq"><span class="mock" title="Shembull / Example">Materiale dhe pajisje për projekte të partnerëve.</span></span><span class="l-en" lang="en"><span class="mock" title="Shembull / Example">Materials and equipment for partners&#x27; projects.</span></span></p></div><div class="card"><h3><span class="l-sq">Mbështetje 24/7</span><span class="l-en" lang="en">24/7 support</span></h3><p><span class="l-sq">Një kontakt i vetëm, në çdo orë.</span><span class="l-en" lang="en">One point of contact, at any hour.</span></p></div></div></div></section>
+<section style="padding-top:0"><div class="wrap sol"><div><h2><span class="l-sq">Sa prodhon një sistem solar?</span><span class="l-en" lang="en">How much does a solar system produce?</span></h2><p class="sub"><span class="l-sq">Lëvizni rrëshqitësin. Vlerësim i përafërt për Kosovën, rreth 1 300 kWh për çdo kW në vit.</span><span class="l-en" lang="en">Move the slider. A rough estimate for Kosovo, about 1,300 kWh per kW each year.</span></p>
+<input type="range" min="3" max="50" value="10" aria-label="kW" style="margin-top:1.25rem"><p style="color:var(--muted)"><span class="kw">10</span> kW</p></div>
+<div class="out"><span style="color:var(--muted)"><span class="l-sq">Rreth</span><span class="l-en" lang="en">About</span></span><b>13000 kWh</b><span style="color:var(--muted)"><span class="l-sq">në vit</span><span class="l-en" lang="en">per year</span></span><div class="panels"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="head"><h2><span class="l-sq">Pse ANDI</span><span class="l-en" lang="en">Why ANDI</span></h2></div><div class="why">
+<div><b>24/7</b><span><span class="l-sq">Hapur gjatë gjithë kohës.</span><span class="l-en" lang="en">Open around the clock.</span></span></div><div><b><span class="l-sq">Prishtinë</span><span class="l-en" lang="en">Prishtina</span></b><span><span class="l-sq">Zyrë në Rr. Tringë Smajli.</span><span class="l-en" lang="en">Office on Tringë Smajli St.</span></span></div>
+<div><b><span class="l-sq">Një kontakt</span><span class="l-en" lang="en">One contact</span></b><span><span class="l-sq">Nga oferta te dorëzimi.</span><span class="l-en" lang="en">From quote to handover.</span></span></div><div><b><span class="l-sq">Sipas nevojës</span><span class="l-en" lang="en">Tailored</span></b><span><span class="l-sq">Zgjidhje për çdo partner.</span><span class="l-en" lang="en">A solution for each partner.</span></span></div></div></div></section>
+<section id="kontakt" style="padding-top:0"><div class="wrap inq"><div><h2><span class="l-sq">Na dërgoni kërkesën</span><span class="l-en" lang="en">Send us your inquiry</span></h2><p class="sub"><span class="l-sq">Ju përgjigjemi në mënyrën që zgjidhni.</span><span class="l-en" lang="en">We reply the way you choose.</span></p>
+<div style="margin-top:1.25rem"><ul class="contact-list"><li><span><span class="l-sq">Adresa</span><span class="l-en" lang="en">Address</span></span><span><span class="l-sq">Rr. Tringë Smajli, Prishtinë</span><span class="l-en" lang="en">Tringë Smajli St, Prishtina</span></span></li><li><span><span class="l-sq">Orari</span><span class="l-en" lang="en">Hours</span></span><span><span class="l-sq">24 orë</span><span class="l-en" lang="en">24 hours</span></span></li><li><span><span class="l-sq">Telefon</span><span class="l-en" lang="en">Phone</span></span><span><span class="mock" title="Shembull / Example">04x xxx xxx</span></span></li></ul></div></div>
+<div class="card"><form class="form vform" novalidate data-wa="" data-title="Kërkesë – ANDI Company"><div class="two"><label><span class="l-sq">Kompania / Klienti</span><span class="l-en" lang="en">Company / Client</span><input type="text" name="Kompania" data-label="Kompania" required ></label><label><span class="l-sq">Personi kontaktues</span><span class="l-en" lang="en">Contact person</span><input type="text" name="Personi" data-label="Personi" ></label></div><label><span class="l-sq">Fusha e shërbimit</span><span class="l-en" lang="en">Service scope</span><select name="Fusha" data-label="Fusha"><option value="Ndërtim objektesh" data-sq="Ndërtim objektesh" data-en="Building construction" selected>Ndërtim objektesh</option><option value="Energji solare" data-sq="Energji solare" data-en="Solar energy">Energji solare</option><option value="Furnizim teknik" data-sq="Furnizim teknik" data-en="Technical supply">Furnizim teknik</option><option value="Tjetër" data-sq="Tjetër" data-en="Other">Tjetër</option></select></label><div><p style="font-size:.9rem;color:var(--muted);margin-bottom:.4rem"><span class="l-sq">Si t&#x27;ju kontaktojmë?</span><span class="l-en" lang="en">How should we reach you?</span></p><div class="radios"><label><input type="radio" name="Kontakti" data-label="Kontakti" value="Telefon" checked><span><span class="l-sq">Telefon</span><span class="l-en" lang="en">Phone</span></span></label><label><input type="radio" name="Kontakti" data-label="Kontakti" value="WhatsApp"><span><span class="l-sq">WhatsApp</span><span class="l-en" lang="en">WhatsApp</span></span></label><label><input type="radio" name="Kontakti" data-label="Kontakti" value="Email"><span><span class="l-sq">Email</span><span class="l-en" lang="en">Email</span></span></label></div></div><label><span class="l-sq">Telefon ose email</span><span class="l-en" lang="en">Phone or email</span><input type="text" name="Kontakt" data-label="Kontakt" required ></label><label><span class="l-sq">Përshkrimi</span><span class="l-en" lang="en">Details</span><textarea name="Përshkrimi" data-label="Përshkrimi"></textarea></label><p class="err" aria-live="polite"></p><button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo kërkesën</span><span class="l-en" lang="en">Send inquiry</span></button><p class="note"><span class="l-sq">Mesazhi hapet në WhatsApp, gati për ta dërguar.</span><span class="l-en" lang="en">The message opens in WhatsApp, ready to send.</span></p></form></div></div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 ANDI Company, Prishtinë</span><span><span class="l-sq">Demo nga Olt Bajrami. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by Olt Bajrami. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="#kontakt"><span class="l-sq">Na kontaktoni</span><span class="l-en" lang="en">Get in touch</span></a><a class="btn btn-line" href="#sherbimet"><span class="l-sq">Shërbimet</span><span class="l-en" lang="en">Services</span></a></div>
+<script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
+    document.querySelectorAll('[data-ph-en]').forEach(function(o){o.placeholder=o.dataset[l==='en'?'phEn':'phSq']});
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
+  // filter chips
+  document.querySelectorAll('[data-filter-group]').forEach(function(g){
+    var items=document.querySelectorAll(g.dataset.filterGroup+' [data-cat]');
+    g.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+      items.forEach(function(it){it.classList.toggle('hide',c.dataset.f!=='all'&&it.dataset.cat.split(' ').indexOf(c.dataset.f)<0)});
+    })});
+  });
+  // forms that compose a WhatsApp message
+  document.querySelectorAll('form[data-wa]').forEach(function(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
+    var lines=[f.dataset.title||''];
+    f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
+      var v=el.value;if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];if(o&&o.dataset.sq)v=o.dataset.sq}
+      if(v){var lab=el.dataset.label||el.name;lines.push(lab+': '+v)}});
+    window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  })});
+})();
+window.tn=function(el,v,s,d){if(window.tweenNum)tweenNum(el,v,s,d);else el.textContent=v+(s||'')};
+
+(function(){var b=document.querySelector('.clock b');function t(){var d=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Belgrade'}));b.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}t();setInterval(t,15000)})();
+(function(){var s=document.querySelector('.sol');if(!s)return;var r=s.querySelector('input'),kw=s.querySelector('.kw'),o=s.querySelector('.out b'),ps=s.querySelectorAll('.panels i');
+function up(){var v=+r.value;kw.textContent=v;tn(o,Math.round(v*1300),' kWh',400);var n=Math.round(v/50*40);ps.forEach(function(p,i){p.classList.toggle('on',i<n)})}r.addEventListener('input',up);up()})();
+(function(){var f=document.querySelector('form.vform');if(!f)return;f.addEventListener('submit',function(e){var err=f.querySelector('.err'),bad=[].slice.call(f.querySelectorAll('[required]')).filter(function(x){return!x.value.trim()});
+ var en=document.documentElement.dataset.lang==='en';if(bad.length){e.preventDefault();e.stopImmediatePropagation();err.textContent=en?'Please fill in the company name and how to reach you.':'Ju lutem plotësoni emrin e kompanisë dhe kontaktin.';bad[0].focus()}else err.textContent=''},true)})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+</script>
+</body>
+</html>
