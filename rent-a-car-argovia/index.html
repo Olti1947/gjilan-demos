@@ -62,6 +62,8 @@ h3{font-size:1.35rem;line-height:1.2}
 .form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
 .form textarea{min-height:6rem;resize:vertical}
 .form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
 select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
   background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
   background-position:calc(100% - 17px) 52%,calc(100% - 12px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:2.4rem!important}
@@ -109,8 +111,8 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .flow>div{padding:1.75rem;border-right:1px solid var(--ink)}
 .flow>div:last-child{border-right:0}
 .flow .k{font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:.75rem}
-.opt{display:block;margin-bottom:.5rem;cursor:pointer}
-.opt input{position:absolute;opacity:0}
+.opt{display:block;margin-bottom:.5rem;cursor:pointer;position:relative}
+.opt input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0;margin:0}
 .opt span{display:flex;justify-content:space-between;border:1px solid var(--line-strong);padding:.75rem .9rem}
 .opt small{color:var(--muted)}
 .opt input:checked+span{border-color:var(--accent);box-shadow:inset 3px 0 0 var(--accent)}

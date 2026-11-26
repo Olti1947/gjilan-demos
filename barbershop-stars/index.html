@@ -62,6 +62,8 @@ h3{font-size:1.35rem;line-height:1.2}
 .form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
 .form textarea{min-height:6rem;resize:vertical}
 .form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
 select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
   background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
   background-position:calc(100% - 17px) 52%,calc(100% - 12px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:2.4rem!important}
@@ -109,7 +111,7 @@ h1,h2{text-transform:uppercase}
 .book .st{padding:1.5rem;border-right:1px solid var(--line)}
 .book .st:last-child{border-right:0}
 .book .k{font-family:var(--display);font-size:1.1rem;text-transform:uppercase;margin-bottom:1rem;color:var(--muted)}
-.bar{display:block;margin-bottom:.5rem;cursor:pointer}.bar input{position:absolute;opacity:0}
+.bar{display:block;margin-bottom:.5rem;cursor:pointer;position:relative}.bar input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0;margin:0}
 .bar span{display:block;border:1px solid var(--line-strong);padding:.8rem}.bar small{display:block;color:var(--muted)}
 .bar input:checked+span{background:#fff;color:#09090B}.bar input:checked+span small{color:#444}
 .plist li{font-size:1.1rem}.plist small{display:inline;margin-left:.6rem}
