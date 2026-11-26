@@ -278,7 +278,7 @@ var cl=st.querySelector('.clip'),bt;function mv(e){var r=st.getBoundingClientRec
 function rest(){down=false;st.classList.remove('live','buzz');st.classList.add('idle');cl.style.removeProperty('--cx');cl.style.removeProperty('--cy')}
 function ok(e){return e.pointerType==='mouse'||st.classList.contains('play')}
 function play(on){st.classList.toggle('play',on);if(!on)rest()}
-st.querySelector('.gp.go').addEventListener('click',function(){play(true)});st.querySelector('.gp.stop').addEventListener('click',function(){play(false)});
+st.querySelector('.gp.go').addEventListener('click',function(){play(true)});st.querySelector('.gp.stop').addEventListener('click',function(){play(false);t.querySelector('.grow').click()});
 st.addEventListener('pointerdown',function(e){if(e.target.closest('.gp')||!ok(e))return;down=true;st.setPointerCapture(e.pointerId);mv(e);cut(e.clientX,e.clientY)});
 st.addEventListener('pointermove',function(e){if(!ok(e))return;if(down||e.pointerType==='mouse'){mv(e);cut(e.clientX,e.clientY)}});st.addEventListener('pointerup',function(e){down=false;if(e.pointerType!=='mouse')rest()});st.addEventListener('pointercancel',rest);st.addEventListener('pointerleave',function(e){if(!down)rest()});
 t.querySelector('.snip').addEventListener('click',function(){var left=H.filter(function(h){return !h.classList.contains('cut')});left.slice(0,Math.ceil(total/5)).forEach(function(h){h.classList.add('cut')});upd()});
