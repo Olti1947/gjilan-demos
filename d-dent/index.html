@@ -149,6 +149,9 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 
 .brush{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;background:var(--surface);border-radius:24px;padding:clamp(1.5rem,4vw,3rem)}
 .brush .stage{position:relative;aspect-ratio:1;max-width:340px;margin:auto;width:100%;touch-action:pan-y;cursor:grab}
+.brush .stage.play{touch-action:none}
+.brush .gp{display:none;position:absolute;left:50%;bottom:.5rem;transform:translateX(-50%);z-index:3;white-space:nowrap;box-shadow:0 10px 24px -8px rgba(0,0,0,.35)}
+@media(pointer:coarse){.brush .stage:not(.play) .gp.go,.brush .stage.play .gp.stop{display:inline-flex}.brush .stage.play{outline:2px solid var(--accent);outline-offset:6px;border-radius:16px}}
 .brush svg{width:100%;height:100%}
 .brush .dirt{fill:#C9A86A;transition:opacity .25s}
 .brush .face{opacity:0;transition:opacity .5s}
@@ -184,12 +187,12 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <li><div><b><span class="l-sq">Anestezi moderne</span><span class="l-en" lang="en">Modern anaesthesia</span></b><p><span class="l-sq">Trajtime pa dhimbje, me kujdes për pacientët që kanë frikë.</span><span class="l-en" lang="en">Pain-free treatment, with extra care for nervous patients.</span></p></div></li>
 <li><div><b><span class="l-sq">Plan i personalizuar</span><span class="l-en" lang="en">A personal plan</span></b><p><span class="l-sq">Ju tregojmë opsionet dhe çmimin para se të fillojmë.</span><span class="l-en" lang="en">We show you the options and the price before we start.</span></p></div></li></ul></div></div></section>
 <section style="padding-top:0"><div class="wrap"><div class="brush">
-<div class="stage" aria-label="Dhëmbi për t’u pastruar / Tooth to brush"><svg viewBox="0 0 220 220" role="img"><g class="tooth">
+<div class="stage" aria-label="Dhëmbi për t’u pastruar / Tooth to brush"><button type="button" class="btn btn-primary btn-sm gp go"><span class="l-sq">▶ Luaj</span><span class="l-en" lang="en">▶ Play</span></button><button type="button" class="btn btn-line btn-sm gp stop" style="background:var(--bg)"><span class="l-sq">✕ Mbaro</span><span class="l-en" lang="en">✕ Done</span></button><svg viewBox="0 0 220 220" role="img"><g class="tooth">
 <path d="M52 62 Q46 22 86 24 Q110 30 134 24 Q174 22 168 62 Q164 112 150 170 Q144 194 130 180 Q122 150 110 150 Q98 150 90 180 Q76 194 70 170 Q56 112 52 62 Z" fill="#fff" stroke="#BAE6FD" stroke-width="4"/>
 <circle class="dirt" cx="84" cy="70" r="9" /><circle class="dirt" cx="118" cy="58" r="7" /><circle class="dirt" cx="140" cy="92" r="10" /><circle class="dirt" cx="96" cy="112" r="8" /><circle class="dirt" cx="128" cy="128" r="9" /><circle class="dirt" cx="70" cy="100" r="6" /><circle class="dirt" cx="150" cy="64" r="6" /><circle class="dirt" cx="108" cy="88" r="7" /><circle class="dirt" cx="82" cy="140" r="6" /><circle class="dirt" cx="138" cy="150" r="7" /><g class="face"><circle cx="92" cy="86" r="6" fill="#1E293B"/><circle cx="128" cy="86" r="6" fill="#1E293B"/><path d="M92 106 Q110 124 128 106" stroke="#1E293B" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="80" cy="102" r="7" fill="#FBCFE8"/><circle cx="140" cy="102" r="7" fill="#FBCFE8"/></g></g></svg></div>
 <div><p class="eyebrow"><span class="l-sq">Lojë për fëmijë</span><span class="l-en" lang="en">A game for kids</span></p>
 <h2 class="todo"><span class="l-sq">Pastroni dhëmbin!</span><span class="l-en" lang="en">Brush the tooth!</span></h2><h2 class="done"><span class="l-sq">Shkëlqen! ✨</span><span class="l-en" lang="en">Sparkling! ✨</span></h2>
-<p class="sub todo"><span class="l-sq">Lëvizni mausin mbi dhëmb, ose në telefon rrëshqitni gishtin anash, derisa të zhduken njollat.</span><span class="l-en" lang="en">Move your mouse over the tooth, or on a phone swipe sideways, until the spots are gone.</span></p>
+<p class="sub todo"><span class="l-sq">Lëvizni mausin mbi dhëmb derisa të zhduken njollat. Në telefon, shtypni «Luaj» fillimisht.</span><span class="l-en" lang="en">Move your mouse over the tooth until the spots are gone. On a phone, tap “Play” first.</span></p>
 <p class="sub done"><span class="l-sq">Dhëmbi i pastër është dhëmb i lumtur. Mos harroni kontrollën çdo 6 muaj.</span><span class="l-en" lang="en">A clean tooth is a happy tooth. Don’t forget a check-up every 6 months.</span></p>
 <div class="meter" aria-hidden="true"><i></i></div>
 <div style="display:flex;gap:.6rem;flex-wrap:wrap"><button class="btn btn-line btn-sm kb" type="button"><span class="l-sq">Pastro me një klikim</span><span class="l-en" lang="en">Brush with a click</span></button><button class="btn btn-line btn-sm again" type="button"><span class="l-sq">Edhe një herë</span><span class="l-en" lang="en">Again</span></button><a class="btn btn-primary btn-sm done" href="#termin"><span class="l-sq">Kërkoni termin</span><span class="l-en" lang="en">Book a visit</span></a></div>
@@ -260,10 +263,12 @@ document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matc
 D.forEach(function(d){d.h=1});
 function scrub(cx,cy){var r=sv.getBoundingClientRect(),x=(cx-r.left)/r.width*220,y=(cy-r.top)/r.height*220,left=0;
 D.forEach(function(d){var dx=x-d.cx.baseVal.value,dy=y-d.cy.baseVal.value;if(d.h>0&&dx*dx+dy*dy<900){d.h=Math.max(0,d.h-.12);d.style.opacity=d.h;if(!window.__rm&&Math.random()<.25)spark(cx-r.left,cy-r.top)}left+=d.h});
-var pct=100-left/D.length*100;bar.style.width=pct+'%';if(left<=.01&&!b.classList.contains('clean')){b.classList.add('clean');for(var i=0;i<14;i++)setTimeout(function(){spark(Math.random()*r.width,Math.random()*r.height)},i*40)}}
+var pct=100-left/D.length*100;bar.style.width=pct+'%';if(left<=.01&&!b.classList.contains('clean')){b.classList.add('clean');setTimeout(function(){st.classList.remove('play');down=false},700);for(var i=0;i<14;i++)setTimeout(function(){spark(Math.random()*r.width,Math.random()*r.height)},i*40)}}
 function spark(x,y){var s=document.createElement('span');s.className='spark';s.style.left=x+'px';s.style.top=y+'px';st.appendChild(s);setTimeout(function(){s.remove()},800)}
-st.addEventListener('pointerdown',function(e){down=true;st.setPointerCapture(e.pointerId);scrub(e.clientX,e.clientY)});
-st.addEventListener('pointermove',function(e){if(down||e.pointerType==='mouse')scrub(e.clientX,e.clientY)});
+function ok(e){return e.pointerType==='mouse'||st.classList.contains('play')}
+st.querySelector('.gp.go').addEventListener('click',function(){st.classList.add('play')});st.querySelector('.gp.stop').addEventListener('click',function(){st.classList.remove('play');down=false});
+st.addEventListener('pointerdown',function(e){if(e.target.closest('.gp')||!ok(e))return;down=true;st.setPointerCapture(e.pointerId);scrub(e.clientX,e.clientY)});
+st.addEventListener('pointermove',function(e){if(!ok(e))return;if(down||e.pointerType==='mouse')scrub(e.clientX,e.clientY)});
 st.addEventListener('pointerup',function(){down=false});st.addEventListener('pointercancel',function(){down=false});
 b.querySelector('.kb').addEventListener('click',function(){D.forEach(function(d){d.h=Math.max(0,d.h-.5);d.style.opacity=d.h});var r=sv.getBoundingClientRect();scrub(r.left-999,r.top-999)});
 b.querySelector('.again').addEventListener('click',function(){D.forEach(function(d){d.h=1;d.style.opacity=1});b.classList.remove('clean');bar.style.width='0'});})();
