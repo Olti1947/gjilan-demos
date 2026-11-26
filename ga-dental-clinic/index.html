@@ -17,7 +17,7 @@ a{color:inherit}
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
-.l-en{display:none}html[data-lang=en] .l-en{display:inline}html[data-lang=en] .l-sq{display:none}
+html:not([data-lang=en]) .l-en{display:none!important}html[data-lang=en] .l-sq{display:none!important}
 .mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
 .demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
 .nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
@@ -170,7 +170,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <form class="form" data-wa="38345815385" data-title="Plan trajtimi – GA Dental Clinic">
 <label><span class="l-sq">Emri</span><span class="l-en" lang="en">Name</span><input name="Emri" data-label="Emri" required></label>
 <label><span class="l-sq">Shteti ku jetoni</span><span class="l-en" lang="en">Country you live in</span><input name="Shteti" data-label="Shteti"></label>
-<label><span class="l-sq">Trajtimi</span><span class="l-en" lang="en">Treatment</span><select name="Trajtimi" data-label="Trajtimi"><option>Implante</option><option>Kurora zirkoni</option><option>Faseta</option><option>Ortodonci</option><option>Kontrollë</option></select></label>
+<label><span class="l-sq">Trajtimi</span><span class="l-en" lang="en">Treatment</span><select name="Trajtimi" data-label="Trajtimi"><option value="Implante" data-sq="Implante" data-en="Implants">Implante</option><option value="Kurora zirkoni" data-sq="Kurora zirkoni" data-en="Zirconia crowns">Kurora zirkoni</option><option value="Faseta" data-sq="Faseta" data-en="Veneers">Faseta</option><option value="Ortodonci" data-sq="Ortodonci" data-en="Orthodontics">Ortodonci</option><option value="Kontrollë" data-sq="Kontrollë" data-en="Check-up">Kontrollë</option></select></label>
 <label><span class="l-sq">Kur vini në Gjilan?</span><span class="l-en" lang="en">When are you visiting?</span><input type="date" name="Data" data-label="Data e ardhjes"></label>
 <button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo në WhatsApp</span><span class="l-en" lang="en">Send on WhatsApp</span></button></form></div></div></section>
 <section class="contact" style="background:var(--surface)"><div class="wrap grid"><div><p class="eyebrow"><span class="l-sq">Terminet</span><span class="l-en" lang="en">Appointments</span></p><h2><span class="l-sq">Na gjeni në Rr. Mulla Idrizi</span><span class="l-en" lang="en">Find us on Mulla Idrizi St.</span></h2>
@@ -184,6 +184,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
   var root=document.documentElement;
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
     try{localStorage.setItem('lang',l)}catch(e){}}
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
   if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
@@ -201,7 +202,8 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
     if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
     var lines=[f.dataset.title||''];
     f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
-      if(el.value){var lab=el.dataset.label||el.name;lines.push(lab+': '+el.value)}});
+      var v=el.value;if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];if(o&&o.dataset.sq)v=o.dataset.sq}
+      if(v){var lab=el.dataset.label||el.name;lines.push(lab+': '+v)}});
     window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
   })});
 })();
