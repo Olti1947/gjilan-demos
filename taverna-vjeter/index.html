@@ -161,6 +161,7 @@ body{font-size:1.1rem}
   function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
     document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
+    document.querySelectorAll('[data-ph-en]').forEach(function(o){o.placeholder=o.dataset[l==='en'?'phEn':'phSq']});
     try{localStorage.setItem('lang',l)}catch(e){}}
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
   if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
