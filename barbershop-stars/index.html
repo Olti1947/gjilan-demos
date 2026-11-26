@@ -170,7 +170,7 @@ h1,h2{text-transform:uppercase}
 .trim .gp.stop{position:absolute;top:.35rem;right:.35rem;width:2.6rem;height:2.6rem;border-radius:50%;place-items:center;background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:0 6px 16px -6px rgba(0,0,0,.45)}
 .trim .gp.stop svg{width:1rem;height:1rem}
 @keyframes gpPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}100%{box-shadow:0 0 0 18px transparent}}
-@media(pointer:coarse){.trim .stage:not(.play) .gp.go{display:flex}.trim .stage.play .gp.stop{display:grid}.trim .stage.play{outline:2px solid var(--accent);outline-offset:6px;border-radius:12px}}
+@media(pointer:coarse){.trim .stage:not(.play):not(.fin) .gp.go{display:flex}.trim .stage.play .gp.stop,.trim .stage.fin .gp.stop{display:grid}.trim .stage.play{outline:2px solid var(--accent);outline-offset:6px;border-radius:12px}}
 @media (prefers-reduced-motion:reduce){.trim .gp .ring{animation:none}}
 .trim .hair{stroke:#2b1d14;stroke-width:4.5;stroke-linecap:round;transition:opacity .2s,transform .5s}
 .trim .hair.cut{opacity:0;transform:translateY(40px)}
@@ -271,18 +271,18 @@ b.addEventListener('click',function(){box.querySelectorAll('.slot').forEach(func
 })();
 
 (function(){var t=document.querySelector('.trim');if(!t)return;var st=t.querySelector('.stage'),sv=st.querySelector(':scope>svg'),H=[].slice.call(t.querySelectorAll('.hair')),p=t.querySelector('.pct'),down=false,total=H.length;
-function upd(){var c=t.querySelectorAll('.hair.cut').length,pc=Math.round(c/total*100);p.textContent=pc+'%';if(pc>=85&&!t.classList.contains('done')){t.classList.add('done');setTimeout(function(){st.classList.remove('play');rest()},700)}}
+function upd(){var c=t.querySelectorAll('.hair.cut').length,pc=Math.round(c/total*100);p.textContent=pc+'%';if(pc>=85&&!t.classList.contains('done')){t.classList.add('done');setTimeout(function(){st.classList.remove('play');st.classList.add('fin');rest()},700)}}
 function cut(cx,cy){var r=sv.getBoundingClientRect(),x=(cx-r.left)/r.width*240,y=(cy-r.top)/r.height*240;
 H.forEach(function(h){if(h.classList.contains('cut'))return;var hx=+h.getAttribute('x1'),hy=(+h.getAttribute('y1')+ +h.getAttribute('y2'))/2;if((x-hx)*(x-hx)+(y-hy)*(y-hy)<420)h.classList.add('cut')});upd()}
 var cl=st.querySelector('.clip'),bt;function mv(e){var r=st.getBoundingClientRect();cl.style.setProperty('--cx',(e.clientX-r.left-29)+'px');cl.style.setProperty('--cy',(e.clientY-r.top-6)+'px');st.classList.add('live','buzz');st.classList.remove('idle');clearTimeout(bt);bt=setTimeout(function(){st.classList.remove('buzz')},120)}
 function rest(){down=false;st.classList.remove('live','buzz');st.classList.add('idle');cl.style.removeProperty('--cx');cl.style.removeProperty('--cy')}
 function ok(e){return e.pointerType==='mouse'||st.classList.contains('play')}
 function play(on){st.classList.toggle('play',on);if(!on)rest()}
-st.querySelector('.gp.go').addEventListener('click',function(){play(true)});st.querySelector('.gp.stop').addEventListener('click',function(){play(false);t.querySelector('.grow').click()});
+st.querySelector('.gp.go').addEventListener('click',function(){play(true)});st.querySelector('.gp.stop').addEventListener('click',function(){play(false);st.classList.remove('fin');t.querySelector('.grow').click()});
 st.addEventListener('pointerdown',function(e){if(e.target.closest('.gp')||!ok(e))return;down=true;st.setPointerCapture(e.pointerId);mv(e);cut(e.clientX,e.clientY)});
 st.addEventListener('pointermove',function(e){if(!ok(e))return;if(down||e.pointerType==='mouse'){mv(e);cut(e.clientX,e.clientY)}});st.addEventListener('pointerup',function(e){down=false;if(e.pointerType!=='mouse')rest()});st.addEventListener('pointercancel',rest);st.addEventListener('pointerleave',function(e){if(!down)rest()});
 t.querySelector('.snip').addEventListener('click',function(){var left=H.filter(function(h){return !h.classList.contains('cut')});left.slice(0,Math.ceil(total/5)).forEach(function(h){h.classList.add('cut')});upd()});
-t.querySelector('.grow').addEventListener('click',function(){H.forEach(function(h){h.classList.remove('cut')});t.classList.remove('done');upd()});})();
+t.querySelector('.grow').addEventListener('click',function(e){if(e.isTrusted&&st.classList.contains('fin')&&matchMedia('(pointer:coarse)').matches)st.classList.add('play');st.classList.remove('fin');H.forEach(function(h){h.classList.remove('cut')});t.classList.remove('done');upd()});})();
 </script>
 </body>
 </html>

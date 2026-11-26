@@ -158,7 +158,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .brush .gp.stop{position:absolute;top:.35rem;right:.35rem;width:2.6rem;height:2.6rem;border-radius:50%;place-items:center;background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:0 6px 16px -6px rgba(0,0,0,.45)}
 .brush .gp.stop svg{width:1rem;height:1rem}
 @keyframes gpPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}100%{box-shadow:0 0 0 18px transparent}}
-@media(pointer:coarse){.brush .stage:not(.play) .gp.go{display:flex}.brush .stage.play .gp.stop{display:grid}.brush .stage.play{outline:2px solid var(--accent);outline-offset:6px;border-radius:16px}}
+@media(pointer:coarse){.brush .stage:not(.play):not(.fin) .gp.go{display:flex}.brush .stage.play .gp.stop,.brush .stage.fin .gp.stop{display:grid}.brush .stage.play{outline:2px solid var(--accent);outline-offset:6px;border-radius:16px}}
 @media (prefers-reduced-motion:reduce){.brush .gp .ring{animation:none}}
 .brush svg{width:100%;height:100%}
 .brush .dirt{fill:#C9A86A;transition:opacity .25s}
@@ -271,15 +271,15 @@ document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matc
 D.forEach(function(d){d.h=1});
 function scrub(cx,cy){var r=sv.getBoundingClientRect(),x=(cx-r.left)/r.width*220,y=(cy-r.top)/r.height*220,left=0;
 D.forEach(function(d){var dx=x-d.cx.baseVal.value,dy=y-d.cy.baseVal.value;if(d.h>0&&dx*dx+dy*dy<900){d.h=Math.max(0,d.h-.12);d.style.opacity=d.h;if(!window.__rm&&Math.random()<.25)spark(cx-r.left,cy-r.top)}left+=d.h});
-var pct=100-left/D.length*100;bar.style.width=pct+'%';if(left<=.01&&!b.classList.contains('clean')){b.classList.add('clean');setTimeout(function(){st.classList.remove('play');down=false},700);for(var i=0;i<14;i++)setTimeout(function(){spark(Math.random()*r.width,Math.random()*r.height)},i*40)}}
+var pct=100-left/D.length*100;bar.style.width=pct+'%';if(left<=.01&&!b.classList.contains('clean')){b.classList.add('clean');setTimeout(function(){st.classList.remove('play');st.classList.add('fin');down=false},700);for(var i=0;i<14;i++)setTimeout(function(){spark(Math.random()*r.width,Math.random()*r.height)},i*40)}}
 function spark(x,y){var s=document.createElement('span');s.className='spark';s.style.left=x+'px';s.style.top=y+'px';st.appendChild(s);setTimeout(function(){s.remove()},800)}
 function ok(e){return e.pointerType==='mouse'||st.classList.contains('play')}
-st.querySelector('.gp.go').addEventListener('click',function(){st.classList.add('play')});st.querySelector('.gp.stop').addEventListener('click',function(){st.classList.remove('play');down=false;b.querySelector('.again').click()});
+st.querySelector('.gp.go').addEventListener('click',function(){st.classList.add('play')});st.querySelector('.gp.stop').addEventListener('click',function(){st.classList.remove('play','fin');down=false;b.querySelector('.again').click()});
 st.addEventListener('pointerdown',function(e){if(e.target.closest('.gp')||!ok(e))return;down=true;st.setPointerCapture(e.pointerId);scrub(e.clientX,e.clientY)});
 st.addEventListener('pointermove',function(e){if(!ok(e))return;if(down||e.pointerType==='mouse')scrub(e.clientX,e.clientY)});
 st.addEventListener('pointerup',function(){down=false});st.addEventListener('pointercancel',function(){down=false});
 b.querySelector('.kb').addEventListener('click',function(){D.forEach(function(d){d.h=Math.max(0,d.h-.5);d.style.opacity=d.h});var r=sv.getBoundingClientRect();scrub(r.left-999,r.top-999)});
-b.querySelector('.again').addEventListener('click',function(){D.forEach(function(d){d.h=1;d.style.opacity=1});b.classList.remove('clean');bar.style.width='0'});})();
+b.querySelector('.again').addEventListener('click',function(e){if(e.isTrusted&&st.classList.contains('fin')&&matchMedia('(pointer:coarse)').matches)st.classList.add('play');st.classList.remove('fin');D.forEach(function(d){d.h=1;d.style.opacity=1});b.classList.remove('clean');bar.style.width='0'});})();
 </script>
 </body>
 </html>
