@@ -118,7 +118,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .proof{border-block:1px solid var(--line);padding:2rem 0}
 .proof .grid{grid-template-columns:repeat(3,1fr)}
 .proof b{display:block;font-family:var(--display);font-size:2.4rem;font-weight:500;color:var(--accent);line-height:1.1}
-.proof span{color:var(--muted);font-size:.95rem}
+.proof span{color:var(--muted);font-size:.95rem}.proof b .mock{color:inherit;font-size:inherit}
 .fleet{--gap:1.25rem}
 .car{background:var(--surface);border:1px solid var(--line)}
 .car .ph{border-radius:0}
@@ -149,7 +149,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 @keyframes sweep{0%{background-position:150% 0}60%,100%{background-position:-60% 0}}
 .car{transform-style:preserve-3d;transition:transform .35s ease,border-color .35s;will-change:transform}
 .car:hover{border-color:var(--accent)}
-.proof b{display:inline-block}
+.proof b{display:block;width:max-content}
 @media (prefers-reduced-motion:reduce){.hero .sweep{display:none}}
 :root{color-scheme:dark}.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
 </head>

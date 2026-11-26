@@ -149,7 +149,7 @@ body{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px
 .rev{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;border:1px solid var(--line-strong);background:var(--surface);padding:clamp(1.5rem,4vw,3rem)}
 .rev svg{width:100%;max-width:340px;display:block;margin:auto}
 
-.hold{user-select:none;-webkit-user-select:none;touch-action:none;font-size:1.05rem;padding:1.1rem 1.6rem}
+.hold{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;font-size:1.05rem;padding:1.1rem 1.6rem}
 .hold:active,.hold.on{transform:scale(.97)}
 .rev .red{color:var(--accent);font-family:var(--display);font-size:1.3rem;opacity:0;transition:opacity .3s}.rev.redline .red{opacity:1}
 .rev.redline svg{animation:vib .08s linear infinite}
@@ -248,7 +248,7 @@ document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matc
 function u(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);n.style.transform='rotate('+(-120+p*240)+'deg)';t.textContent=Math.round(p*8)+'k'}
 addEventListener('scroll',u,{passive:true});u();})();
 
-(function(){var r=document.querySelector('.rev');if(!r)return;var n=r.querySelector('.ndl'),t=r.querySelector('.rpm'),b=r.querySelector('.hold'),v=0,held=false;
+(function(){var r=document.querySelector('.rev');if(!r)return;var n=r.querySelector('.ndl'),t=r.querySelector('.rpm'),b=r.querySelector('.hold'),v=0,held=false;b.addEventListener('contextmenu',function(e){e.preventDefault()});
 function loop(){v+=held?(8200-v)*.045+40:-(v)*.06;v=Math.max(800*(+!!r.dataset.on),Math.min(8200,v));n.setAttribute('transform','rotate('+(-120+v/8000*240)+' 150 150)');t.textContent=Math.round(v/100)*100;r.classList.toggle('redline',v>7000);requestAnimationFrame(loop)}
 function on(e){if(e)e.preventDefault();held=true;r.dataset.on=1;b.classList.add('on')}function off(){held=false;b.classList.remove('on')}
 b.addEventListener('pointerdown',on);addEventListener('pointerup',off);b.addEventListener('pointerleave',off);
