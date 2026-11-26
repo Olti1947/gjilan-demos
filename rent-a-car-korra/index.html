@@ -59,8 +59,14 @@ h3{font-size:1.35rem;line-height:1.2}
 .steps b{display:block;margin-bottom:.25rem}
 .form{display:grid;gap:1rem}
 .form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
-.form input,.form select,.form textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
 .form textarea{min-height:6rem;resize:vertical}
+.form label,.form .two>*{min-width:0}
+select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 17px) 52%,calc(100% - 12px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:2.4rem!important}
+select::-ms-expand{display:none}
+input[type=date],input[type=time]{min-width:0;max-width:100%}
 .form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form .note{font-size:.82rem;color:var(--muted)}
 .faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
@@ -137,7 +143,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 @keyframes fly{0%{offset-distance:0%;opacity:0}10%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
 .vcard{transition:transform .35s,box-shadow .35s}.vcard:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(15,23,42,.35)}
 @media (prefers-reduced-motion:reduce){.plane .jet,.plane .arc{animation:none}}
-</style>
+.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
 </head>
 <body>
 <div class="demo"><span class="l-sq">Demo falas nga [Emri i ekipit] për Rent a Car Korra. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by [Emri i ekipit] for Rent a Car Korra. Prices, offers and photos underlined with dots are examples.</span></div>
