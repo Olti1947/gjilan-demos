@@ -148,7 +148,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 @media (prefers-reduced-motion:reduce){.blob{animation:none}}
 
 .brush{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;background:var(--surface);border-radius:24px;padding:clamp(1.5rem,4vw,3rem)}
-.brush .stage{position:relative;aspect-ratio:1;max-width:340px;margin:auto;width:100%;touch-action:none;cursor:grab}
+.brush .stage{position:relative;aspect-ratio:1;max-width:340px;margin:auto;width:100%;touch-action:pan-y;cursor:grab}
 .brush svg{width:100%;height:100%}
 .brush .dirt{fill:#C9A86A;transition:opacity .25s}
 .brush .face{opacity:0;transition:opacity .5s}
@@ -189,7 +189,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <circle class="dirt" cx="84" cy="70" r="9" /><circle class="dirt" cx="118" cy="58" r="7" /><circle class="dirt" cx="140" cy="92" r="10" /><circle class="dirt" cx="96" cy="112" r="8" /><circle class="dirt" cx="128" cy="128" r="9" /><circle class="dirt" cx="70" cy="100" r="6" /><circle class="dirt" cx="150" cy="64" r="6" /><circle class="dirt" cx="108" cy="88" r="7" /><circle class="dirt" cx="82" cy="140" r="6" /><circle class="dirt" cx="138" cy="150" r="7" /><g class="face"><circle cx="92" cy="86" r="6" fill="#1E293B"/><circle cx="128" cy="86" r="6" fill="#1E293B"/><path d="M92 106 Q110 124 128 106" stroke="#1E293B" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="80" cy="102" r="7" fill="#FBCFE8"/><circle cx="140" cy="102" r="7" fill="#FBCFE8"/></g></g></svg></div>
 <div><p class="eyebrow"><span class="l-sq">Lojë për fëmijë</span><span class="l-en" lang="en">A game for kids</span></p>
 <h2 class="todo"><span class="l-sq">Pastroni dhëmbin!</span><span class="l-en" lang="en">Brush the tooth!</span></h2><h2 class="done"><span class="l-sq">Shkëlqen! ✨</span><span class="l-en" lang="en">Sparkling! ✨</span></h2>
-<p class="sub todo"><span class="l-sq">Lëvizni mausin ose gishtin mbi dhëmb derisa të zhduken njollat.</span><span class="l-en" lang="en">Move your mouse or finger over the tooth until the spots are gone.</span></p>
+<p class="sub todo"><span class="l-sq">Lëvizni mausin mbi dhëmb, ose në telefon rrëshqitni gishtin anash, derisa të zhduken njollat.</span><span class="l-en" lang="en">Move your mouse over the tooth, or on a phone swipe sideways, until the spots are gone.</span></p>
 <p class="sub done"><span class="l-sq">Dhëmbi i pastër është dhëmb i lumtur. Mos harroni kontrollën çdo 6 muaj.</span><span class="l-en" lang="en">A clean tooth is a happy tooth. Don’t forget a check-up every 6 months.</span></p>
 <div class="meter" aria-hidden="true"><i></i></div>
 <div style="display:flex;gap:.6rem;flex-wrap:wrap"><button class="btn btn-line btn-sm kb" type="button"><span class="l-sq">Pastro me një klikim</span><span class="l-en" lang="en">Brush with a click</span></button><button class="btn btn-line btn-sm again" type="button"><span class="l-sq">Edhe një herë</span><span class="l-en" lang="en">Again</span></button><a class="btn btn-primary btn-sm done" href="#termin"><span class="l-sq">Kërkoni termin</span><span class="l-en" lang="en">Book a visit</span></a></div>
@@ -264,7 +264,7 @@ var pct=100-left/D.length*100;bar.style.width=pct+'%';if(left<=.01&&!b.classList
 function spark(x,y){var s=document.createElement('span');s.className='spark';s.style.left=x+'px';s.style.top=y+'px';st.appendChild(s);setTimeout(function(){s.remove()},800)}
 st.addEventListener('pointerdown',function(e){down=true;st.setPointerCapture(e.pointerId);scrub(e.clientX,e.clientY)});
 st.addEventListener('pointermove',function(e){if(down||e.pointerType==='mouse')scrub(e.clientX,e.clientY)});
-st.addEventListener('pointerup',function(){down=false});
+st.addEventListener('pointerup',function(){down=false});st.addEventListener('pointercancel',function(){down=false});
 b.querySelector('.kb').addEventListener('click',function(){D.forEach(function(d){d.h=Math.max(0,d.h-.5);d.style.opacity=d.h});var r=sv.getBoundingClientRect();scrub(r.left-999,r.top-999)});
 b.querySelector('.again').addEventListener('click',function(){D.forEach(function(d){d.h=1;d.style.opacity=1});b.classList.remove('clean');bar.style.width='0'});})();
 </script>
