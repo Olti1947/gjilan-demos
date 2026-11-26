@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="sq" data-lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>R-R Cakes | Prizren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body),system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible,.dbar input:focus-visible,.dbar select:focus-visible,.qbar input:focus-visible,.qbar select:focus-visible{outline-offset:-2px}.dbar input:focus-visible,.dbar select:focus-visible{outline:none}.dbar label:focus-within{outline:2px solid var(--accent);outline-offset:-2px}
+.wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
+html:not([data-lang=en]) .l-en{display:none!important}html[data-lang=en] .l-sq{display:none!important}
+.mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
+.demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
+.nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.nav .brand{font-family:var(--display);font-weight:var(--dw,700);font-size:1.25rem;text-decoration:none;letter-spacing:var(--brand-ls,0)}
+.nav .links{display:flex;gap:1.6rem;align-items:center;flex:none}.nav .brand{min-width:0}.nav .links .btn{white-space:nowrap}.lang{flex:none}.lang button{white-space:nowrap;font:inherit;color:inherit;line-height:1.4}
+.nav .links a{text-decoration:none;opacity:.82;font-size:.95rem}.nav .links a:hover{opacity:1}
+.lang{display:inline-flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;font-size:.8rem;opacity:.9}
+.lang button{background:none;border:0;padding:.25rem .65rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.45rem;border-radius:var(--radius,4px);text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.btn-sm{padding:.6rem 1rem;font-size:.88rem}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.eyebrow{font-size:.92rem;color:var(--accent);margin-bottom:.9rem;font-weight:600}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw,700);line-height:1.04;letter-spacing:var(--h-ls,-.01em)}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h3{font-size:1.35rem;line-height:1.2}
+.sub{color:var(--muted);max-width:38rem;margin-top:1rem;font-size:1.08rem}
+.head{margin-bottom:clamp(2rem,4vw,3.25rem)}
+.grid{display:grid;gap:var(--gap,1.25rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,4px);padding:1.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1px solid var(--line-strong,var(--line));background:transparent;border-radius:999px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-cat].hide{display:none}
+.plist{list-style:none}
+.plist li{display:flex;align-items:baseline;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.plist li .d{flex:1;border-bottom:1px dotted var(--line-strong,var(--line));transform:translateY(-.3em)}
+.plist li .p{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.plist small{display:block;color:var(--muted);font-size:.88rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line-strong,var(--line));padding-top:1.25rem}
+.steps li::before{content:counter(s);display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent);margin-bottom:.75rem}
+.steps b{display:block;margin-bottom:.25rem}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form textarea{min-height:6rem;resize:vertical}
+.form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
+select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+select::-ms-expand{display:none}
+input[type=date],input[type=time]{min-width:0;max-width:100%;-webkit-appearance:none;appearance:none;position:relative;display:block;min-height:1.5em;text-align:left;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;padding:0;opacity:0;cursor:pointer}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .note{font-size:.82rem;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:.6rem;max-width:44rem}
+.ph{position:relative;overflow:hidden;border-radius:var(--radius,4px);background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:.6rem;bottom:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:.15rem .5rem;border-radius:999px}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radius,4px);filter:grayscale(.3)}
+.contact-list{list-style:none}
+.contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.contact-list li>span:first-child{color:var(--muted)}
+footer.foot{padding:2rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.callbar{display:none}
+@media (max-width:860px){
+  .nav .links a{display:none}.nav .links{gap:.6rem}.nav .row{gap:.75rem}
+  .nav .brand{font-size:1.05rem;line-height:1.15}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .form .two{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;inset:auto 0 0 0;gap:.5rem;padding:.65rem;background:var(--bg);border-top:1px solid var(--line);z-index:30}
+  .callbar .btn{flex:1}
+  body{padding-bottom:4.5rem}
+  .contact-list li{grid-template-columns:6rem 1fr}
+}
+
+:root{--bg:#FFF7F5;--surface:#FFFFFF;--ink:#3A2320;--muted:#6E5753;--accent:#B83A64;--on-accent:#fff;--pist:#8FB36A;--line:#F0DCD7;--line-strong:#D9B9B2;
+--display:'DM Serif Display';--body:'Nunito';--dw:400;--radius:16px;--demo-bg:#3A2320}
+.hero{padding:7.5rem 0 2.5rem}
+.hero .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:1}
+.hero .lead{color:var(--muted);max-width:30rem;margin-top:1rem;font-size:1.1rem}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
+.counts{display:flex;gap:2rem;margin-top:1.75rem}.counts b{font-family:var(--display);font-size:2.2rem;display:block;line-height:1}.counts span{color:var(--muted);font-size:.9rem}
+.builder{background:var(--surface);border-radius:24px;padding:clamp(1.25rem,3vw,2rem);border:1px solid var(--line);box-shadow:0 30px 60px -45px rgba(58,35,32,.5)}
+.cake{width:100%;height:auto;display:block}
+.cake .tier{transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s;transform-origin:center bottom}
+.cake .tier.off{opacity:0;transform:translateY(-30px) scale(.9)}
+.opts{display:grid;gap:.9rem;margin-top:1rem}
+.row{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center}.row>span{width:5.5rem;color:var(--muted);font-size:.9rem}
+.row button{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:.4rem .85rem;cursor:pointer;font-size:.9rem}
+.row button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sw{width:2rem;height:2rem;padding:0!important;border-radius:50%!important;border:3px solid #fff!important;box-shadow:0 0 0 1px var(--line-strong)}
+.sw[aria-pressed=true]{box-shadow:0 0 0 2px var(--ink)}
+.order{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+@media(max-width:860px){.hero .g,.order{grid-template-columns:1fr}.row>span{width:100%}}
+[hidden]{display:none!important}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
+</head>
+<body>
+<div class="demo"><span class="l-sq">Demo falas nga Olt Bajrami për R-R Cakes. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by Olt Bajrami for R-R Cakes. Prices, offers and photos underlined with dots are examples.</span></div>
+<header class="nav"><div class="wrap row"><a class="brand" href="#">R-R Cakes</a><nav class="links"><a href="#dizajno"><span class="l-sq">Dizajno</span><span class="l-en" lang="en">Design</span></a><a href="#porosit"><span class="l-sq">Porosit</span><span class="l-en" lang="en">Order</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div></nav></div></header>
+<section class="hero"><div class="wrap g"><div><p class="eyebrow"><span class="l-sq">Torte me porosi · Prizren</span><span class="l-en" lang="en">Custom cakes · Prizren</span></p>
+<h1><span class="l-sq">Torta që e keni në mendje, e bëjmë ne.</span><span class="l-en" lang="en">The cake you have in mind, we bake it.</span></h1>
+<p class="lead"><span class="l-sq">Ditëlindje, fejesa, synet, surpriza. Zgjidhni katet, shijen dhe shkrimin, e na e dërgoni me një mesazh.</span><span class="l-en" lang="en">Birthdays, engagements, celebrations, surprises. Choose the tiers, flavour and lettering, and send it to us in one message.</span></p>
+<div class="cta"><a class="btn btn-primary" href="#dizajno"><span class="l-sq">Dizajno tortën</span><span class="l-en" lang="en">Design your cake</span></a><a class="btn btn-line" href="viber://chat?number=%2B38349273737">Viber</a></div>
+<div class="counts"><div><b data-count="5.4" data-suffix="K">5.4K</b><span><span class="l-sq">ndjekës</span><span class="l-en" lang="en">followers</span></span></div><div><b data-count="3560">3560</b><span><span class="l-sq">postime me torta</span><span class="l-en" lang="en">cake posts</span></span></div></div></div>
+<div id="dizajno" class="builder"><svg class="cake" viewBox="0 0 320 300" role="img" aria-label="Torta juaj / Your cake"><ellipse cx="160" cy="280" rx="140" ry="12" fill="#F0DCD7"/><rect x="20" y="266" width="280" height="10" rx="5" fill="#D9B9B2"/><g class="tier" data-t="1"><rect class="body" x="40.0" y="208" width="240" height="58" rx="8" fill="#5B3A29"/><path d="M40.0 216 q30.0 18 60.0 0 t60.0 0 t60.0 0 t60.0 0 V208 H40.0Z" fill="#FFF7F5" opacity=".92"/></g><g class="tier" data-t="2"><rect class="body" x="70.0" y="150" width="180" height="58" rx="8" fill="#5B3A29"/><path d="M70.0 158 q22.5 18 45.0 0 t45.0 0 t45.0 0 t45.0 0 V150 H70.0Z" fill="#FFF7F5" opacity=".92"/></g><g class="tier" data-t="3"><rect class="body" x="100.0" y="92" width="120" height="58" rx="8" fill="#5B3A29"/><path d="M100.0 100 q15.0 18 30.0 0 t30.0 0 t30.0 0 t30.0 0 V92 H100.0Z" fill="#FFF7F5" opacity=".92"/></g><g class="deco" data-d="Fruta"><circle cx="135" cy="88" r="8" fill="#D62F4B"/><circle cx="160" cy="84" r="8" fill="#D62F4B"/><circle cx="185" cy="88" r="8" fill="#5A2A7A"/></g><g class="deco" data-d="Lule"><circle cx="150" cy="86" r="9" fill="#F3B6C6"/><circle cx="170" cy="86" r="9" fill="#FBE2A8"/><circle cx="160" cy="80" r="6" fill="#8FB36A"/></g><g class="deco" data-d="Shkrim"></g><text class="topper" x="160" y="80" text-anchor="middle" font-family="DM Serif Display, serif" font-size="20" fill="#B83A64"></text></svg><p style="text-align:center;color:var(--muted)"><span class="l-sq">Për rreth</span><span class="l-en" lang="en">Serves about</span> <b class="ppl">18–22</b> <span class="l-sq">persona</span><span class="l-en" lang="en">people</span></p>
+<div class="opts"><div class="row" data-tiers><span><span class="l-sq">Katet</span><span class="l-en" lang="en">Tiers</span></span><button type="button" data-v="1" aria-pressed="false">1</button><button type="button" data-v="2" aria-pressed="true">2</button><button type="button" data-v="3" aria-pressed="false">3</button></div>
+<div class="row"><span><span class="l-sq">Shija</span><span class="l-en" lang="en">Flavour</span></span><button type="button" class="sw" data-f="#5B3A29" data-n="Çokollatë" aria-pressed="true" style="background:#5B3A29" aria-label="Çokollatë / Chocolate"></button><button type="button" class="sw" data-f="#F4E3C4" data-n="Vanilje" aria-pressed="false" style="background:#F4E3C4" aria-label="Vanilje / Vanilla"></button><button type="button" class="sw" data-f="#EFA3B5" data-n="Luleshtrydhe" aria-pressed="false" style="background:#EFA3B5" aria-label="Luleshtrydhe / Strawberry"></button><button type="button" class="sw" data-f="#B5CF8E" data-n="Fistëk" aria-pressed="false" style="background:#B5CF8E" aria-label="Fistëk / Pistachio"></button></div>
+<div class="row" data-deco><span><span class="l-sq">Dekori</span><span class="l-en" lang="en">Decoration</span></span><button type="button" data-v="Fruta" aria-pressed="true"><span class="l-sq">Fruta</span><span class="l-en" lang="en">Fruit</span></button><button type="button" data-v="Lule" aria-pressed="false"><span class="l-sq">Lule</span><span class="l-en" lang="en">Flowers</span></button><button type="button" data-v="Shkrim" aria-pressed="false"><span class="l-sq">Vetëm shkrim</span><span class="l-en" lang="en">Lettering only</span></button></div>
+<div class="row"><span><span class="l-sq">Shkrimi</span><span class="l-en" lang="en">Lettering</span></span><input class="txt" maxlength="14" style="flex:1;min-width:0;padding:.55rem .8rem;border:1px solid var(--line-strong);border-radius:10px" data-ph-sq="P.sh. Gëzuar Ana" data-ph-en="E.g. Happy birthday" placeholder="P.sh. Gëzuar Ana"></div></div></div></div></section>
+<section id="porosit"><div class="wrap order"><div><h2><span class="l-sq">Porosit</span><span class="l-en" lang="en">Order</span></h2><p class="sub"><span class="l-sq">Torta që dizajnuat shkon automatikisht në mesazh. Porositë bëhen <span class="mock" title="Shembull / Example">2 ditë</span> përpara.</span><span class="l-en" lang="en">The cake you designed goes into the message automatically. Orders need <span class="mock" title="Shembull / Example">2 days</span> notice.</span></p>
+<ul class="contact-list"><li><span><span class="l-sq">Telefon / Viber</span><span class="l-en" lang="en">Phone / Viber</span></span><span><a href="tel:+38349273737">049 273 737</a></span></li><li><span>Instagram</span><span><a href="https://www.instagram.com/rr.cakes/">@rr.cakes</a></span></li><li><span><span class="l-sq">Qyteti</span><span class="l-en" lang="en">Town</span></span><span>Prizren</span></li></ul></div>
+<div class="builder"><form class="form" data-wa="38349273737" data-title="Porosi torte – R-R Cakes"><input type="hidden" name="Torta" data-label="Torta"><div class="two"><label><span class="l-sq">Data e marrjes</span><span class="l-en" lang="en">Pick-up date</span><input type="date" name="Data" data-label="Data" required ></label><label><span class="l-sq">Emri</span><span class="l-en" lang="en">Name</span><input type="text" name="Emri" data-label="Emri" required ></label></div><label><span class="l-sq">Shënim</span><span class="l-en" lang="en">Note</span><textarea name="Shënim" data-label="Shënim" data-ph-sq="P.sh. alergji, ngjyra, tema" data-ph-en="E.g. allergies, colours, theme" placeholder="P.sh. alergji, ngjyra, tema"></textarea></label><button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo porosinë në WhatsApp</span><span class="l-en" lang="en">Send the order on WhatsApp</span></button><p class="note"><span class="l-sq">Mesazhi hapet në WhatsApp, gati për ta dërguar.</span><span class="l-en" lang="en">The message opens in WhatsApp, ready to send.</span></p></form></div></div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 R-R Cakes, Prizren</span><span><span class="l-sq">Demo nga Olt Bajrami. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by Olt Bajrami. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38349273737"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38349273737">WhatsApp</a></div>
+<script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
+    document.querySelectorAll('[data-ph-en]').forEach(function(o){o.placeholder=o.dataset[l==='en'?'phEn':'phSq']});
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
+  // filter chips
+  document.querySelectorAll('[data-filter-group]').forEach(function(g){
+    var items=document.querySelectorAll(g.dataset.filterGroup+' [data-cat]');
+    g.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+      items.forEach(function(it){it.classList.toggle('hide',c.dataset.f!=='all'&&it.dataset.cat.split(' ').indexOf(c.dataset.f)<0)});
+    })});
+  });
+  // forms that compose a WhatsApp message
+  document.querySelectorAll('form[data-wa]').forEach(function(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
+    var lines=[f.dataset.title||''];
+    f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
+      var v=el.value;if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];if(o&&o.dataset.sq)v=o.dataset.sq}
+      if(v){var lab=el.dataset.label||el.name;lines.push(lab+': '+v)}});
+    window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  })});
+})();
+window.tn=function(el,v,s,d){if(window.tweenNum)tweenNum(el,v,s,d);else el.textContent=v+(s||'')};
+
+(function(){var b=document.querySelector('.builder');if(!b)return;var st={t:2,f:'#5B3A29',fn:'Çokollatë',d:'Fruta',txt:''};
+function paint(){b.querySelectorAll('.tier').forEach(function(t){t.classList.toggle('off',+t.dataset.t>st.t);t.querySelector('.body').setAttribute('fill',st.f)});
+ b.querySelectorAll('.deco').forEach(function(g){g.style.display=g.dataset.d===st.d?'':'none'});
+ var top=b.querySelector('.topper');top.textContent=st.txt.slice(0,14);top.setAttribute('y',[0,212,152,92][st.t]-12);
+ b.querySelectorAll('.deco').forEach(function(g){g.setAttribute('transform','translate(0,'+([0,120,60,0][st.t])+')')});
+ var ppl={1:'8–10',2:'18–22',3:'35–45'}[st.t];b.querySelector('.ppl').textContent=ppl;
+ var f=document.querySelector('form.form');f.querySelector('[name=Torta]').value=st.t+' kate, '+st.fn+', '+st.d+(st.txt?', shkrimi: '+st.txt:'')+', '+ppl+' persona'}
+b.querySelectorAll('[data-tiers] button').forEach(function(x){x.addEventListener('click',function(){st.t=+x.dataset.v;b.querySelectorAll('[data-tiers] button').forEach(function(y){y.setAttribute('aria-pressed',y===x)});paint()})});
+b.querySelectorAll('.sw').forEach(function(x){x.addEventListener('click',function(){st.f=x.dataset.f;st.fn=x.dataset.n;b.querySelectorAll('.sw').forEach(function(y){y.setAttribute('aria-pressed',y===x)});paint()})});
+b.querySelectorAll('[data-deco] button').forEach(function(x){x.addEventListener('click',function(){st.d=x.dataset.v;b.querySelectorAll('[data-deco] button').forEach(function(y){y.setAttribute('aria-pressed',y===x)});paint()})});
+b.querySelector('input.txt').addEventListener('input',function(e){st.txt=e.target.value;paint()});paint()})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+</script>
+</body>
+</html>

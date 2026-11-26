@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="sq" data-lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hotel &amp; Restorant Te Liqeni | Rugovë</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body),system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible,.dbar input:focus-visible,.dbar select:focus-visible,.qbar input:focus-visible,.qbar select:focus-visible{outline-offset:-2px}.dbar input:focus-visible,.dbar select:focus-visible{outline:none}.dbar label:focus-within{outline:2px solid var(--accent);outline-offset:-2px}
+.wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
+html:not([data-lang=en]) .l-en{display:none!important}html[data-lang=en] .l-sq{display:none!important}
+.mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
+.demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
+.nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.nav .brand{font-family:var(--display);font-weight:var(--dw,700);font-size:1.25rem;text-decoration:none;letter-spacing:var(--brand-ls,0)}
+.nav .links{display:flex;gap:1.6rem;align-items:center;flex:none}.nav .brand{min-width:0}.nav .links .btn{white-space:nowrap}.lang{flex:none}.lang button{white-space:nowrap;font:inherit;color:inherit;line-height:1.4}
+.nav .links a{text-decoration:none;opacity:.82;font-size:.95rem}.nav .links a:hover{opacity:1}
+.lang{display:inline-flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;font-size:.8rem;opacity:.9}
+.lang button{background:none;border:0;padding:.25rem .65rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.45rem;border-radius:var(--radius,4px);text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.btn-sm{padding:.6rem 1rem;font-size:.88rem}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.eyebrow{font-size:.92rem;color:var(--accent);margin-bottom:.9rem;font-weight:600}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw,700);line-height:1.04;letter-spacing:var(--h-ls,-.01em)}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h3{font-size:1.35rem;line-height:1.2}
+.sub{color:var(--muted);max-width:38rem;margin-top:1rem;font-size:1.08rem}
+.head{margin-bottom:clamp(2rem,4vw,3.25rem)}
+.grid{display:grid;gap:var(--gap,1.25rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,4px);padding:1.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1px solid var(--line-strong,var(--line));background:transparent;border-radius:999px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-cat].hide{display:none}
+.plist{list-style:none}
+.plist li{display:flex;align-items:baseline;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.plist li .d{flex:1;border-bottom:1px dotted var(--line-strong,var(--line));transform:translateY(-.3em)}
+.plist li .p{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.plist small{display:block;color:var(--muted);font-size:.88rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line-strong,var(--line));padding-top:1.25rem}
+.steps li::before{content:counter(s);display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent);margin-bottom:.75rem}
+.steps b{display:block;margin-bottom:.25rem}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form textarea{min-height:6rem;resize:vertical}
+.form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
+select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+select::-ms-expand{display:none}
+input[type=date],input[type=time]{min-width:0;max-width:100%;-webkit-appearance:none;appearance:none;position:relative;display:block;min-height:1.5em;text-align:left;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;padding:0;opacity:0;cursor:pointer}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .note{font-size:.82rem;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:.6rem;max-width:44rem}
+.ph{position:relative;overflow:hidden;border-radius:var(--radius,4px);background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:.6rem;bottom:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:.15rem .5rem;border-radius:999px}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radius,4px);filter:grayscale(.3)}
+.contact-list{list-style:none}
+.contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.contact-list li>span:first-child{color:var(--muted)}
+footer.foot{padding:2rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.callbar{display:none}
+@media (max-width:860px){
+  .nav .links a{display:none}.nav .links{gap:.6rem}.nav .row{gap:.75rem}
+  .nav .brand{font-size:1.05rem;line-height:1.15}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .form .two{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;inset:auto 0 0 0;gap:.5rem;padding:.65rem;background:var(--bg);border-top:1px solid var(--line);z-index:30}
+  .callbar .btn{flex:1}
+  body{padding-bottom:4.5rem}
+  .contact-list li{grid-template-columns:6rem 1fr}
+}
+
+:root{--bg:#EEF3F2;--surface:#fff;--ink:#0E2630;--muted:#4E6670;--accent:#0F7C8C;--on-accent:#fff;--line:#D5E0DF;--line-strong:#A9BFC0;
+--display:'Young Serif';--body:'Figtree';--dw:400;--radius:14px;--demo-bg:#0E2630}
+.nav{color:#fff}
+.hero{position:relative;min-height:max(640px,92vh);display:flex;align-items:flex-end;color:#fff;overflow:hidden;padding:0 0 clamp(7rem,16vw,11rem)}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(9,28,34,.88),rgba(9,28,34,.45) 55%,rgba(9,28,34,.35))}
+.hero h1{font-size:clamp(2.9rem,7.5vw,6.2rem);line-height:.98;max-width:13ch}
+.hero .lead{max-width:34rem;margin-top:1.1rem;font-size:1.12rem;opacity:.92}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.8rem}
+.hero .btn-line{color:#fff}
+.ridge{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(90px,14vw,170px);z-index:0;pointer-events:none}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:-3rem;position:relative;z-index:2}
+.facts>div{background:var(--surface);border-radius:14px;padding:1.25rem 1.3rem;box-shadow:0 18px 40px -28px rgba(14,38,48,.5)}
+.facts b{display:block;font-family:var(--display);font-size:2.3rem;line-height:1;color:var(--accent)}
+.facts span{color:var(--muted);font-size:.92rem}
+.room{background:var(--surface);border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.room .ph{border-radius:0}.room .b{padding:1.25rem 1.3rem 1.4rem}.room p{color:var(--muted);font-size:.95rem;margin:.35rem 0 .8rem}
+.room .pr{font-weight:700;color:var(--accent)}
+.trail{background:var(--ink);color:#E8F1F1;border-radius:22px;padding:clamp(1.5rem,4vw,3rem);--line:rgba(255,255,255,.15)}
+.trail h2{color:#fff}.trail .sub{color:#A9C3C7}
+.prof{width:100%;height:auto;display:block;margin:1.5rem 0 1rem;overflow:visible}
+.prof .pt{cursor:pointer}.prof .pt circle{fill:#0E2630;stroke:#5FD0DB;stroke-width:3;transition:r .2s}
+.prof .pt.on circle{fill:#5FD0DB}
+.prof text{fill:#CFE3E5;font-size:13px;font-family:var(--body)}
+.stop{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.25rem;align-items:baseline;min-height:5.5rem}
+.stop b{font-family:var(--display);font-size:1.6rem;color:#fff;font-weight:400}.stop>span{color:#A9C3C7}
+.stops{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.75rem}
+.stops button{border:1px solid rgba(255,255,255,.3);background:none;color:#fff;border-radius:999px;padding:.45rem .9rem;cursor:pointer;font-size:.88rem}
+.stops button[aria-pressed=true]{background:#5FD0DB;color:#0E2630;border-color:#5FD0DB}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.ticks{list-style:none;margin-top:1.25rem;display:grid;gap:.6rem}.ticks li{padding-left:1.6rem;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.55em;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent)}
+.book{background:var(--surface);border-radius:18px;padding:clamp(1.25rem,3vw,2.25rem);border:1px solid var(--line)}
+@media(max-width:860px){.facts{grid-template-columns:1fr 1fr;margin-top:-2rem}.split{grid-template-columns:1fr}.facts b{font-size:1.9rem}}
+[hidden]{display:none!important}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
+</head>
+<body>
+<div class="demo"><span class="l-sq">Demo falas nga Olt Bajrami për Hotel &amp; Restorant Te Liqeni. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by Olt Bajrami for Hotel &amp; Restorant Te Liqeni. Prices, offers and photos underlined with dots are examples.</span></div>
+<header class="nav"><div class="wrap row"><a class="brand" href="#">Hotel &amp; Restorant Te Liqeni</a><nav class="links"><a href="#dhomat"><span class="l-sq">Dhomat</span><span class="l-en" lang="en">Rooms</span></a><a href="#liqenet"><span class="l-sq">Liqenet</span><span class="l-en" lang="en">Lakes</span></a><a href="#rezervo"><span class="l-sq">Rezervo</span><span class="l-en" lang="en">Book</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div></nav></div></header>
+<section class="hero"><img src="https://images.unsplash.com/photo-1777620659283-58b88ac292de?auto=format&fit=crop&w=2200&q=75" alt="Rrugë mes pyllit në Rugovë">
+<div class="wrap"><p class="eyebrow" style="color:#7FDCE6"><span class="l-sq">Kuqishtë, Rugovë · që nga 2006</span><span class="l-en" lang="en">Kuqishtë, Rugova · since 2006</span></p>
+<h1><span class="l-sq">Fle mbi Rugovë, zgjohu te liqeni.</span><span class="l-en" lang="en">Sleep above Rugova, wake up by the lake.</span></h1>
+<p class="lead"><span class="l-sq">Dhoma dhe bungallove prej guri e druri, restorant me kuzhinë tradicionale dhe shtegu për te liqenet që nis te dera jonë.</span><span class="l-en" lang="en">Stone and timber rooms and bungalows, a traditional restaurant, and the trail to the lakes starting at our door.</span></p>
+<div class="cta"><a class="btn btn-primary" href="#rezervo"><span class="l-sq">Rezervo direkt</span><span class="l-en" lang="en">Book direct</span></a><a class="btn btn-line" href="https://wa.me/38344135667">WhatsApp</a></div></div>
+<svg class="ridge" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true"><path fill="#9FBFBF" opacity=".35" d="M0 120 L180 60 L320 110 L520 30 L700 100 L880 40 L1060 105 L1240 50 L1440 95 V170 H0Z"/><path fill="var(--bg)" d="M0 150 L200 95 L380 140 L560 80 L760 135 L960 90 L1150 140 L1320 100 L1440 130 V170 H0Z"/></svg></section>
+<div class="wrap facts">
+<div><b data-count="11">11</b><span><span class="l-sq">dhoma dhe bungallove</span><span class="l-en" lang="en">rooms and bungalows</span></span></div>
+<div><b data-count="55">55</b><span><span class="l-sq">mysafirë njëherësh</span><span class="l-en" lang="en">guests at once</span></span></div>
+<div><b data-count="250">250</b><span><span class="l-sq">ulëse në restorant</span><span class="l-en" lang="en">restaurant seats</span></span></div>
+<div><b data-count="20">20</b><span><span class="l-sq">ulëse në sallën e takimeve</span><span class="l-en" lang="en">seats in the meeting room</span></span></div></div>
+<section id="dhomat"><div class="wrap"><div class="head"><h2><span class="l-sq">Dhomat</span><span class="l-en" lang="en">Rooms</span></h2><p class="sub"><span class="l-sq">Të gjitha me oxhak dhe WiFi falas. Rezervimi direkt te ne, pa komision.</span><span class="l-en" lang="en">Every room has a fireplace and free WiFi. Book direct with us, no commission.</span></p></div>
+<div class="grid g3"><article class="room"><figure class="ph " style="aspect-ratio:4/3"><img src="https://images.unsplash.com/photo-1773423386572-4ad451dc6c26?auto=format&fit=crop&w=900&q=75" alt="Bungallov me xhakuzi" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure><div class="b"><h3><span class="l-sq">Bungallov me xhakuzi</span><span class="l-en" lang="en">Bungalow with hot tub</span></h3><p><span class="l-sq">Druri, oxhaku dhe xhakuzi pas ecjes.</span><span class="l-en" lang="en">Wood, a fireplace and a hot tub after the hike.</span></p><span class="pr"><span class="l-sq">nga</span><span class="l-en" lang="en">from</span> <span class="mock" title="Shembull / Example">85 €</span> / <span class="l-sq">natë</span><span class="l-en" lang="en">night</span></span></div></article><article class="room"><figure class="ph " style="aspect-ratio:4/3"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=75" alt="Dhomë dyshe" loading="lazy"><span class="tag">Foto ilustruese</span></figure><div class="b"><h3><span class="l-sq">Dhomë dyshe</span><span class="l-en" lang="en">Double room</span></h3><p><span class="l-sq">Me oxhak, WiFi dhe pamje nga pishat.</span><span class="l-en" lang="en">Fireplace, WiFi and a view of the pines.</span></p><span class="pr"><span class="l-sq">nga</span><span class="l-en" lang="en">from</span> <span class="mock" title="Shembull / Example">45 €</span> / <span class="l-sq">natë</span><span class="l-en" lang="en">night</span></span></div></article><article class="room"><figure class="ph " style="aspect-ratio:4/3"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=75" alt="Dhomë familjare" loading="lazy"><span class="tag">Foto ilustruese</span></figure><div class="b"><h3><span class="l-sq">Dhomë familjare</span><span class="l-en" lang="en">Family room</span></h3><p><span class="l-sq">Për 4 persona, me banjo brenda.</span><span class="l-en" lang="en">Sleeps 4, with its own bathroom.</span></p><span class="pr"><span class="l-sq">nga</span><span class="l-en" lang="en">from</span> <span class="mock" title="Shembull / Example">70 €</span> / <span class="l-sq">natë</span><span class="l-en" lang="en">night</span></span></div></article></div></div></section>
+<section id="liqenet" style="padding-top:0"><div class="wrap"><div class="trail">
+<h2><span class="l-sq">Shtegu nis te dera</span><span class="l-en" lang="en">The trail starts at the door</span></h2><p class="sub"><span class="l-sq">Prekni një ndalesë për ta parë rrugën.</span><span class="l-en" lang="en">Tap a stop to see the route.</span></p>
+<svg class="prof" viewBox="0 0 760 200" role="img" aria-label="Profili i shtegut / Trail profile">
+<path d="M40 150 C120 140 200 125 270 118 S410 100 470 92 S650 40 720 22" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="4" stroke-linecap="round"/>
+<path class="walked" d="M40 150 C120 140 200 125 270 118 S410 100 470 92 S650 40 720 22" fill="none" stroke="#5FD0DB" stroke-width="4" stroke-linecap="round" style="transition:stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1)"/><g class="pt on" data-i="0"><circle cx="40" cy="150" r="9"/></g><g class="pt" data-i="1"><circle cx="270" cy="118" r="9"/></g><g class="pt" data-i="2"><circle cx="470" cy="92" r="9"/></g><g class="pt" data-i="3"><circle cx="720" cy="22" r="9"/></g></svg>
+<div class="stops"><button type="button" data-i="0" aria-pressed="true"><span class="l-sq">Te Liqeni</span><span class="l-en" lang="en">Te Liqeni</span></button><button type="button" data-i="1" aria-pressed="false"><span class="l-sq">Liqeni i Kuqishtës</span><span class="l-en" lang="en">Kuqishta Lake</span></button><button type="button" data-i="2" aria-pressed="false"><span class="l-sq">Liqeni i Drelajve</span><span class="l-en" lang="en">Drelaj Lake</span></button><button type="button" data-i="3" aria-pressed="false"><span class="l-sq">Guri i Kuq</span><span class="l-en" lang="en">Guri i Kuq</span></button></div><div style="margin-top:1.25rem"><div class="stop" data-s="0"><b><span class="mock" title="Shembull / Example">1 600 m</span></b><span><span class="l-sq">Nisja. Kafe, mëngjes dhe çanta e ushqimit për rrugë.</span><span class="l-en" lang="en">Start. Coffee, breakfast and a packed lunch for the trail.</span></span></div><div class="stop" data-s="1" hidden><b><span class="mock" title="Shembull / Example">1 800 m</span></b><span><span class="l-sq">Liqeni i madh, rreth <span class="mock" title="Shembull / Example">45 min</span> ecje nëpër pyll.</span><span class="l-en" lang="en">The big lake, about <span class="mock" title="Shembull / Example">45 min</span> through the forest.</span></span></div><div class="stop" data-s="2" hidden><b><span class="mock" title="Shembull / Example">1 900 m</span></b><span><span class="l-sq">Liqeni i vogël, edhe <span class="mock" title="Shembull / Example">40 min</span> më lart.</span><span class="l-en" lang="en">The small lake, another <span class="mock" title="Shembull / Example">40 min</span> uphill.</span></span></div><div class="stop" data-s="3" hidden><b><span class="mock" title="Shembull / Example">2 522 m</span></b><span><span class="l-sq">Maja. Ditë e plotë, vetëm me mot të mirë dhe me udhërrëfyes.</span><span class="l-en" lang="en">The summit. A full day, only in good weather and with a guide.</span></span></div></div></div></div></section>
+<section style="padding-top:0"><div class="wrap split"><figure class="ph " style="aspect-ratio:5/4"><img src="https://images.unsplash.com/photo-1486334970519-2e153db3cc16?auto=format&fit=crop&w=1100&q=75" alt="Gatim në zjarr druri" loading="lazy"><span class="tag">Foto ilustruese</span></figure>
+<div><h2><span class="l-sq">Restoranti</span><span class="l-en" lang="en">The restaurant</span></h2><p class="sub"><span class="l-sq">Ushqim tradicional, verandë me pamje nga bjeshkët dhe bar me oxhak për mbrëmjet e ftohta.</span><span class="l-en" lang="en">Traditional food, a veranda facing the peaks and a bar with a fireplace for cold evenings.</span></p>
+<ul class="ticks"><li><span class="l-sq">250 ulëse, edhe për dasma e grupe</span><span class="l-en" lang="en">250 seats, also for weddings and groups</span></li><li><span class="l-sq">Sallë takimesh për 20 persona</span><span class="l-en" lang="en">Meeting room for 20</span></li><li><span class="l-sq">Piknik dhe skarë pranë liqenit</span><span class="l-en" lang="en">Picnics and barbecue by the lake</span></li></ul></div></div></section>
+<section id="rezervo" style="padding-top:0"><div class="wrap split"><div><h2><span class="l-sq">Rezervo direkt</span><span class="l-en" lang="en">Book direct</span></h2>
+<p class="sub"><span class="l-sq">Na shkruani datat dhe ju konfirmojmë dhomën në WhatsApp.</span><span class="l-en" lang="en">Send us your dates and we confirm the room on WhatsApp.</span></p>
+<ul class="contact-list"><li><span><span class="l-sq">Telefon</span><span class="l-en" lang="en">Phone</span></span><span><a href="tel:+38344135667">044 135 667</a></span></li><li><span>Email</span><span><a href="mailto:teliqeni@gmail.com">teliqeni@gmail.com</a></span></li><li><span><span class="l-sq">Adresa</span><span class="l-en" lang="en">Address</span></span><span><span class="l-sq">Kuqishtë, Rugovë, Pejë</span><span class="l-en" lang="en">Kuqishtë, Rugova, Peja</span></span></li></ul></div>
+<div class="book"><form class="form" data-wa="38344135667" data-title="Rezervim – Te Liqeni"><div class="two"><label><span class="l-sq">Mbërritja</span><span class="l-en" lang="en">Arrival</span><input type="date" name="Mbërritja" data-label="Mbërritja" required ></label><label><span class="l-sq">Netë</span><span class="l-en" lang="en">Nights</span><input type="number" name="Netë" data-label="Netë" min="1" value="2"></label></div><div class="two"><label><span class="l-sq">Mysafirë</span><span class="l-en" lang="en">Guests</span><input type="number" name="Mysafirë" data-label="Mysafirë" min="1" value="2"></label><label><span class="l-sq">Dhoma</span><span class="l-en" lang="en">Room</span><select name="Dhoma" data-label="Dhoma"><option value="Dhomë dyshe" data-sq="Dhomë dyshe" data-en="Double room" selected>Dhomë dyshe</option><option value="Dhomë familjare" data-sq="Dhomë familjare" data-en="Family room">Dhomë familjare</option><option value="Bungallov me xhakuzi" data-sq="Bungallov me xhakuzi" data-en="Bungalow with hot tub">Bungallov me xhakuzi</option></select></label></div><label><span class="l-sq">Emri</span><span class="l-en" lang="en">Name</span><input type="text" name="Emri" data-label="Emri" required ></label><button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo në WhatsApp</span><span class="l-en" lang="en">Send on WhatsApp</span></button><p class="note"><span class="l-sq">Mesazhi hapet në WhatsApp, gati për ta dërguar.</span><span class="l-en" lang="en">The message opens in WhatsApp, ready to send.</span></p></form></div></div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 Hotel &amp; Restorant Te Liqeni, Rugovë, Pejë</span><span><span class="l-sq">Demo nga Olt Bajrami. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by Olt Bajrami. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38344135667"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38344135667">WhatsApp</a></div>
+<script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
+    document.querySelectorAll('[data-ph-en]').forEach(function(o){o.placeholder=o.dataset[l==='en'?'phEn':'phSq']});
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
+  // filter chips
+  document.querySelectorAll('[data-filter-group]').forEach(function(g){
+    var items=document.querySelectorAll(g.dataset.filterGroup+' [data-cat]');
+    g.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+      items.forEach(function(it){it.classList.toggle('hide',c.dataset.f!=='all'&&it.dataset.cat.split(' ').indexOf(c.dataset.f)<0)});
+    })});
+  });
+  // forms that compose a WhatsApp message
+  document.querySelectorAll('form[data-wa]').forEach(function(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
+    var lines=[f.dataset.title||''];
+    f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
+      var v=el.value;if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];if(o&&o.dataset.sq)v=o.dataset.sq}
+      if(v){var lab=el.dataset.label||el.name;lines.push(lab+': '+v)}});
+    window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  })});
+})();
+window.tn=function(el,v,s,d){if(window.tweenNum)tweenNum(el,v,s,d);else el.textContent=v+(s||'')};
+
+(function(){var t=document.querySelector('.trail');if(!t)return;function go(i){t.querySelectorAll('.pt').forEach(function(p){p.classList.toggle('on',+p.dataset.i<=i)});
+ t.querySelectorAll('.stops button').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.i===i)});t.querySelectorAll('.stop').forEach(function(s){s.hidden=+s.dataset.s!==i});
+ var path=t.querySelector('.walked');if(path){var L=path.getTotalLength();path.style.strokeDasharray=L;path.style.strokeDashoffset=L*(1-[0,.33,.6,1][i])}}
+ t.querySelectorAll('.pt,.stops button').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.i)})});go(0)})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+</script>
+</body>
+</html>

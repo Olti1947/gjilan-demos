@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="sq" data-lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Restorant Art Design | Pejë</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,400&family=Karla:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body),system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible,.dbar input:focus-visible,.dbar select:focus-visible,.qbar input:focus-visible,.qbar select:focus-visible{outline-offset:-2px}.dbar input:focus-visible,.dbar select:focus-visible{outline:none}.dbar label:focus-within{outline:2px solid var(--accent);outline-offset:-2px}
+.wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
+html:not([data-lang=en]) .l-en{display:none!important}html[data-lang=en] .l-sq{display:none!important}
+.mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
+.demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
+.nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.nav .brand{font-family:var(--display);font-weight:var(--dw,700);font-size:1.25rem;text-decoration:none;letter-spacing:var(--brand-ls,0)}
+.nav .links{display:flex;gap:1.6rem;align-items:center;flex:none}.nav .brand{min-width:0}.nav .links .btn{white-space:nowrap}.lang{flex:none}.lang button{white-space:nowrap;font:inherit;color:inherit;line-height:1.4}
+.nav .links a{text-decoration:none;opacity:.82;font-size:.95rem}.nav .links a:hover{opacity:1}
+.lang{display:inline-flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;font-size:.8rem;opacity:.9}
+.lang button{background:none;border:0;padding:.25rem .65rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.45rem;border-radius:var(--radius,4px);text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.btn-sm{padding:.6rem 1rem;font-size:.88rem}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.eyebrow{font-size:.92rem;color:var(--accent);margin-bottom:.9rem;font-weight:600}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw,700);line-height:1.04;letter-spacing:var(--h-ls,-.01em)}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h3{font-size:1.35rem;line-height:1.2}
+.sub{color:var(--muted);max-width:38rem;margin-top:1rem;font-size:1.08rem}
+.head{margin-bottom:clamp(2rem,4vw,3.25rem)}
+.grid{display:grid;gap:var(--gap,1.25rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,4px);padding:1.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1px solid var(--line-strong,var(--line));background:transparent;border-radius:999px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-cat].hide{display:none}
+.plist{list-style:none}
+.plist li{display:flex;align-items:baseline;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.plist li .d{flex:1;border-bottom:1px dotted var(--line-strong,var(--line));transform:translateY(-.3em)}
+.plist li .p{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.plist small{display:block;color:var(--muted);font-size:.88rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line-strong,var(--line));padding-top:1.25rem}
+.steps li::before{content:counter(s);display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent);margin-bottom:.75rem}
+.steps b{display:block;margin-bottom:.25rem}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form textarea{min-height:6rem;resize:vertical}
+.form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
+select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+select::-ms-expand{display:none}
+input[type=date],input[type=time]{min-width:0;max-width:100%;-webkit-appearance:none;appearance:none;position:relative;display:block;min-height:1.5em;text-align:left;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;padding:0;opacity:0;cursor:pointer}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .note{font-size:.82rem;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:.6rem;max-width:44rem}
+.ph{position:relative;overflow:hidden;border-radius:var(--radius,4px);background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:.6rem;bottom:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:.15rem .5rem;border-radius:999px}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radius,4px);filter:grayscale(.3)}
+.contact-list{list-style:none}
+.contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.contact-list li>span:first-child{color:var(--muted)}
+footer.foot{padding:2rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.callbar{display:none}
+@media (max-width:860px){
+  .nav .links a{display:none}.nav .links{gap:.6rem}.nav .row{gap:.75rem}
+  .nav .brand{font-size:1.05rem;line-height:1.15}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .form .two{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;inset:auto 0 0 0;gap:.5rem;padding:.65rem;background:var(--bg);border-top:1px solid var(--line);z-index:30}
+  .callbar .btn{flex:1}
+  body{padding-bottom:4.5rem}
+  .contact-list li{grid-template-columns:6rem 1fr}
+}
+
+:root{--bg:#F4F5F1;--surface:#FFFFFF;--ink:#1D2822;--muted:#56625B;--accent:#2E6B58;--on-accent:#fff;--ochre:#B9822B;--line:#D9DED7;--line-strong:#AFB8AF;
+--display:'Fraunces';--body:'Karla';--dw:600;--radius:10px;--demo-bg:#1D2822}
+.hero{padding:7.5rem 0 3rem}
+.hero .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.hero h1{font-size:clamp(2.8rem,6.5vw,5.4rem);line-height:1;font-optical-sizing:auto}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
+.hero .lead{color:var(--muted);max-width:30rem;margin-top:1.1rem;font-size:1.1rem}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
+.frame{position:relative;padding:12px;background:var(--surface);border-radius:14px;box-shadow:0 30px 60px -40px rgba(29,40,34,.6);transform:rotate(1.5deg)}
+.frame .ph{border-radius:6px}
+.stream{position:relative;overflow:hidden}
+.stream svg{position:absolute;left:0;right:0;bottom:0;width:200%;height:70px;pointer-events:none}
+.stream svg path{fill:none;stroke:var(--accent);stroke-width:2;opacity:.35}
+@media (prefers-reduced-motion:no-preference){.stream svg{animation:flow 14s linear infinite}.stream svg path:nth-child(2){opacity:.2}}
+@keyframes flow{to{transform:translateX(-50%)}}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
+.dish{display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.dish b{font-family:var(--display);font-weight:600;font-size:1.2rem}.dish small{grid-column:1/-1;color:var(--muted)}
+.dish .p{font-weight:700;color:var(--accent)}
+.dish .real{font-size:.72rem;background:var(--accent);color:#fff;border-radius:999px;padding:.05rem .5rem;margin-left:.4rem;vertical-align:middle;font-family:var(--body)}
+.verandah{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1.5rem,4vw,3rem);align-items:center;padding-bottom:5rem}
+.book{background:var(--surface);border-radius:14px;padding:clamp(1.25rem,3vw,2rem);border:1px solid var(--line)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.seg label{position:relative;display:block;cursor:pointer;color:var(--ink)}
+.seg input{position:absolute;opacity:0;width:1px;height:1px;left:0;top:0;margin:0}
+.seg label>span{display:block;border:1px solid var(--line-strong);border-radius:10px;padding:.8rem 1rem;font-size:.95rem}
+.seg input:checked+span{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);font-weight:600}
+@media(max-width:860px){.hero .g,.verandah{grid-template-columns:1fr}.menu{grid-template-columns:1fr}.frame{transform:none}}
+[hidden]{display:none!important}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
+</head>
+<body>
+<div class="demo"><span class="l-sq">Demo falas nga Olt Bajrami për Restorant Art Design. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by Olt Bajrami for Restorant Art Design. Prices, offers and photos underlined with dots are examples.</span></div>
+<header class="nav"><div class="wrap row"><a class="brand" href="#">Restorant Art Design</a><nav class="links"><a href="#menyja"><span class="l-sq">Menyja</span><span class="l-en" lang="en">Menu</span></a><a href="#rezervo"><span class="l-sq">Rezervo</span><span class="l-en" lang="en">Book</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div></nav></div></header>
+<section class="hero"><div class="wrap g"><div><p class="eyebrow"><span class="l-sq">Pejë · afër qendrës</span><span class="l-en" lang="en">Peja · near the centre</span></p>
+<h1><span class="l-sq">Shtëpi e vjetër, <em>art në mure</em>, përrua nën verandë.</span><span class="l-en" lang="en">An old house, <em>art on the walls</em>, a stream under the veranda.</span></h1>
+<p class="lead"><span class="l-sq">Kuzhinë tradicionale dhe ndërkombëtare në një shtëpi të vjetër plot zeje e art. Hani jashtë pranë përroit ose në njërën nga dy sallat.</span><span class="l-en" lang="en">Traditional and international food in an old house full of crafts and art. Eat outside by the stream or in one of two dining rooms.</span></p>
+<div class="cta"><a class="btn btn-primary" href="#rezervo"><span class="l-sq">Rezervo tavolinë</span><span class="l-en" lang="en">Book a table</span></a><a class="btn btn-line" href="#menyja"><span class="l-sq">Shiko menynë</span><span class="l-en" lang="en">See the menu</span></a></div></div>
+<div class="frame"><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1486334970519-2e153db3cc16?auto=format&fit=crop&w=1100&q=75" alt="Gatim në zjarr druri" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure></div></div></section>
+<section id="menyja" class="stream"><div class="wrap"><div class="head"><h2><span class="l-sq">Nga kuzhina</span><span class="l-en" lang="en">From the kitchen</span></h2><p class="sub"><span class="l-sq">Sarmat dhe specat dollma janë nga menyja e vërtetë. Pjesa tjetër dhe çmimet janë shembuj.</span><span class="l-en" lang="en">The sarma and stuffed peppers are from the real menu. The rest and the prices are examples.</span></p></div>
+<div class="menu"><div class="dish"><b><span class="l-sq">Sarma</span><span class="l-en" lang="en">Sarma</span><span class=real><span class="l-sq">nga menyja</span><span class="l-en" lang="en">on the menu</span></span></b><span class="p"><span class="mock" title="Shembull / Example">5 €</span></span><small><span class="l-sq">Mish dhe oriz të mbështjellë në gjethe rrushi.</span><span class="l-en" lang="en">Meat and rice rolled in grape leaves.</span></small></div><div class="dish"><b><span class="l-sq">Speca dollma</span><span class="l-en" lang="en">Speca dollma</span><span class=real><span class="l-sq">nga menyja</span><span class="l-en" lang="en">on the menu</span></span></b><span class="p"><span class="mock" title="Shembull / Example">5 €</span></span><small><span class="l-sq">Speca të mbushur me mish e oriz.</span><span class="l-en" lang="en">Peppers stuffed with meat and rice.</span></small></div><div class="dish"><b><span class="l-sq">Tavë kosi</span><span class="l-en" lang="en">Tavë kosi</span></b><span class="p"><span class="mock" title="Shembull / Example">7 €</span></span><small><span class="l-sq">Mish qengji i pjekur me kos.</span><span class="l-en" lang="en">Lamb baked with yoghurt.</span></small></div><div class="dish"><b><span class="l-sq">Flija</span><span class="l-en" lang="en">Flija</span></b><span class="p"><span class="mock" title="Shembull / Example">6 €</span></span><small><span class="l-sq">Shtresë pas shtrese, në saç.</span><span class="l-en" lang="en">Layered, baked under the lid.</span></small></div><div class="dish"><b><span class="l-sq">Pastrmë Peje</span><span class="l-en" lang="en">Peja trout</span></b><span class="p"><span class="mock" title="Shembull / Example">8 €</span></span><small><span class="l-sq">Peshk i freskët nga lumi, në skarë.</span><span class="l-en" lang="en">Fresh river fish, grilled.</span></small></div><div class="dish"><b><span class="l-sq">Trileçe</span><span class="l-en" lang="en">Trileçe</span></b><span class="p"><span class="mock" title="Shembull / Example">2.5 €</span></span><small><span class="l-sq">Ëmbëlsira me tre lloje qumështi.</span><span class="l-en" lang="en">Three-milk cake.</span></small></div></div></div>
+<svg viewBox="0 0 2880 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 Q120 10 240 40 T480 40 T720 40 T960 40 T1200 40 T1440 40 T1680 40 T1920 40 T2160 40 T2400 40 T2640 40 T2880 40"/><path d="M0 55 Q120 30 240 55 T480 55 T720 55 T960 55 T1200 55 T1440 55 T1680 55 T1920 55 T2160 55 T2400 55 T2640 55 T2880 55"/></svg></section>
+<section id="rezervo"><div class="wrap verandah"><div><figure class="ph " style="aspect-ratio:4/3"><img src="https://images.unsplash.com/photo-1608816042754-d69cb2271bea?auto=format&fit=crop&w=1100&q=75" alt="Tavolina prej druri" loading="lazy"><span class="tag">Foto ilustruese</span></figure></div>
+<div class="book"><h2 style="font-size:2rem;margin-bottom:1rem"><span class="l-sq">Rezervo tavolinë</span><span class="l-en" lang="en">Book a table</span></h2><form class="form" data-wa="38344659292" data-title="Rezervim – Art Design"><div class="seg" role="radiogroup"><label><input type="radio" name="Vendi" data-label="Vendi" value="Verandë mbi përrua" checked><span><span class="l-sq">Verandë mbi përrua</span><span class="l-en" lang="en">Veranda over the stream</span></span></label><label><input type="radio" name="Vendi" data-label="Vendi" value="Brenda, salla e artit"><span><span class="l-sq">Brenda, salla e artit</span><span class="l-en" lang="en">Inside, the art room</span></span></label></div><div class="two"><label><span class="l-sq">Data</span><span class="l-en" lang="en">Date</span><input type="date" name="Data" data-label="Data" required ></label><label><span class="l-sq">Ora</span><span class="l-en" lang="en">Time</span><input type="time" name="Ora" data-label="Ora" value="19:30"></label></div><div class="two"><label><span class="l-sq">Persona</span><span class="l-en" lang="en">People</span><input type="number" name="Persona" data-label="Persona" min="1" value="2"></label><label><span class="l-sq">Emri</span><span class="l-en" lang="en">Name</span><input type="text" name="Emri" data-label="Emri" required ></label></div><button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo në WhatsApp</span><span class="l-en" lang="en">Send on WhatsApp</span></button><p class="note"><span class="l-sq">Mesazhi hapet në WhatsApp, gati për ta dërguar.</span><span class="l-en" lang="en">The message opens in WhatsApp, ready to send.</span></p></form>
+<div style="margin-top:1.25rem"><ul class="contact-list"><li><span><span class="l-sq">Telefon</span><span class="l-en" lang="en">Phone</span></span><span><a href="tel:+38344659292">044 659 292</a> · <a href="tel:+38349662444">049 662 444</a></span></li><li><span>Facebook</span><span><a href="https://www.facebook.com/artdesignrestaurant">artdesignrestaurant</a></span></li><li><span><span class="l-sq">Orari</span><span class="l-en" lang="en">Hours</span></span><span><span class="mock" title="Shembull / Example">12:00–23:00</span></span></li></ul></div></div></div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 Restorant Art Design, Pejë</span><span><span class="l-sq">Demo nga Olt Bajrami. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by Olt Bajrami. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38344659292"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38344659292">WhatsApp</a></div>
+<script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
+    document.querySelectorAll('[data-ph-en]').forEach(function(o){o.placeholder=o.dataset[l==='en'?'phEn':'phSq']});
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
+  // filter chips
+  document.querySelectorAll('[data-filter-group]').forEach(function(g){
+    var items=document.querySelectorAll(g.dataset.filterGroup+' [data-cat]');
+    g.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+      items.forEach(function(it){it.classList.toggle('hide',c.dataset.f!=='all'&&it.dataset.cat.split(' ').indexOf(c.dataset.f)<0)});
+    })});
+  });
+  // forms that compose a WhatsApp message
+  document.querySelectorAll('form[data-wa]').forEach(function(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
+    var lines=[f.dataset.title||''];
+    f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
+      var v=el.value;if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];if(o&&o.dataset.sq)v=o.dataset.sq}
+      if(v){var lab=el.dataset.label||el.name;lines.push(lab+': '+v)}});
+    window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  })});
+})();
+window.tn=function(el,v,s,d){if(window.tweenNum)tweenNum(el,v,s,d);else el.textContent=v+(s||'')};
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+</script>
+</body>
+</html>

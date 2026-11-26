@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="sq" data-lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Auto Teknik Vllahiu | Podujevë</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@700&family=Saira:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body),system-ui,sans-serif;font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.form input:focus-visible,.form select:focus-visible,.form textarea:focus-visible,.dbar input:focus-visible,.dbar select:focus-visible,.qbar input:focus-visible,.qbar select:focus-visible{outline-offset:-2px}.dbar input:focus-visible,.dbar select:focus-visible{outline:none}.dbar label:focus-within{outline:2px solid var(--accent);outline-offset:-2px}
+.wrap{width:min(var(--max,1200px),100% - 3rem);margin-inline:auto}
+html:not([data-lang=en]) .l-en{display:none!important}html[data-lang=en] .l-sq{display:none!important}
+.mock{text-decoration:underline dotted;text-decoration-color:var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;cursor:help}
+.demo{background:var(--demo-bg,#000);color:#fff;font-size:.8rem;text-align:center;padding:.5rem 1rem;position:relative;z-index:20}
+.nav{position:absolute;inset:auto 0 auto 0;z-index:10;padding:1.4rem 0}
+.nav .row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.nav .brand{font-family:var(--display);font-weight:var(--dw,700);font-size:1.25rem;text-decoration:none;letter-spacing:var(--brand-ls,0)}
+.nav .links{display:flex;gap:1.6rem;align-items:center;flex:none}.nav .brand{min-width:0}.nav .links .btn{white-space:nowrap}.lang{flex:none}.lang button{white-space:nowrap;font:inherit;color:inherit;line-height:1.4}
+.nav .links a{text-decoration:none;opacity:.82;font-size:.95rem}.nav .links a:hover{opacity:1}
+.lang{display:inline-flex;border:1px solid currentColor;border-radius:999px;overflow:hidden;font-size:.8rem;opacity:.9}
+.lang button{background:none;border:0;padding:.25rem .65rem;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.45rem;border-radius:var(--radius,4px);text-decoration:none;font-weight:600;font-size:.97rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s;line-height:1.2}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-line{border-color:currentColor;background:transparent}
+.btn-line:hover{background:color-mix(in srgb,currentColor 10%,transparent)}
+.btn-sm{padding:.6rem 1rem;font-size:.88rem}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.eyebrow{font-size:.92rem;color:var(--accent);margin-bottom:.9rem;font-weight:600}
+h1,h2,h3{font-family:var(--display);font-weight:var(--dw,700);line-height:1.04;letter-spacing:var(--h-ls,-.01em)}
+h2{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h3{font-size:1.35rem;line-height:1.2}
+.sub{color:var(--muted);max-width:38rem;margin-top:1rem;font-size:1.08rem}
+.head{margin-bottom:clamp(2rem,4vw,3.25rem)}
+.grid{display:grid;gap:var(--gap,1.25rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius,4px);padding:1.75rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.chip{border:1px solid var(--line-strong,var(--line));background:transparent;border-radius:999px;padding:.5rem 1rem;cursor:pointer;font-size:.9rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+[data-cat].hide{display:none}
+.plist{list-style:none}
+.plist li{display:flex;align-items:baseline;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.plist li .d{flex:1;border-bottom:1px dotted var(--line-strong,var(--line));transform:translateY(-.3em)}
+.plist li .p{white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:600}
+.plist small{display:block;color:var(--muted);font-size:.88rem}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line-strong,var(--line));padding-top:1.25rem}
+.steps li::before{content:counter(s);display:block;font-family:var(--display);font-size:2.2rem;line-height:1;color:var(--accent);margin-bottom:.75rem}
+.steps b{display:block;margin-bottom:.25rem}
+.form{display:grid;gap:1rem}
+.form label{display:grid;gap:.35rem;font-size:.9rem;color:var(--muted)}
+.form input,.form select,.form textarea{width:100%;min-width:0;padding:.85rem 1rem;border:1px solid var(--line-strong,var(--line));background-color:var(--field,transparent);border-radius:var(--radius,4px);color:var(--ink)}
+.form textarea{min-height:6rem;resize:vertical}
+.form label,.form .two>*{min-width:0}
+.form input[type=radio],.form input[type=checkbox]{width:auto;padding:0;flex:none}
+html,body{overflow-x:clip}
+select{-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;text-overflow:ellipsis;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+select::-ms-expand{display:none}
+input[type=date],input[type=time]{min-width:0;max-width:100%;-webkit-appearance:none;appearance:none;position:relative;display:block;min-height:1.5em;text-align:left;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%)!important;
+  background-position:calc(100% - 15px) 52%,calc(100% - 10px) 52%!important;background-size:5px 5px,5px 5px!important;background-repeat:no-repeat!important;padding-right:1.9rem!important}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:auto;height:auto;margin:0;padding:0;opacity:0;cursor:pointer}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form .note{font-size:.82rem;color:var(--muted)}
+.faq details{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:.6rem;max-width:44rem}
+.ph{position:relative;overflow:hidden;border-radius:var(--radius,4px);background:var(--line)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .tag{position:absolute;left:.6rem;bottom:.6rem;background:rgba(0,0,0,.55);color:#fff;font-size:.7rem;padding:.15rem .5rem;border-radius:999px}
+.map{width:100%;aspect-ratio:4/3;border:0;border-radius:var(--radius,4px);filter:grayscale(.3)}
+.contact-list{list-style:none}
+.contact-list li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.contact-list li>span:first-child{color:var(--muted)}
+footer.foot{padding:2rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.callbar{display:none}
+@media (max-width:860px){
+  .nav .links a{display:none}.nav .links{gap:.6rem}.nav .row{gap:.75rem}
+  .nav .brand{font-size:1.05rem;line-height:1.15}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .form .two{grid-template-columns:1fr}
+  .callbar{display:flex;position:fixed;inset:auto 0 0 0;gap:.5rem;padding:.65rem;background:var(--bg);border-top:1px solid var(--line);z-index:30}
+  .callbar .btn{flex:1}
+  body{padding-bottom:4.5rem}
+  .contact-list li{grid-template-columns:6rem 1fr}
+}
+
+:root{--bg:#ECEFF1;--surface:#FFFFFF;--ink:#12171C;--muted:#53606B;--accent:#F2542D;--on-accent:#fff;--line:#D2D8DD;--line-strong:#9AA6B0;
+--display:'Saira Condensed';--body:'Saira';--dw:700;--radius:6px;--h-ls:0;--demo-bg:#12171C}
+.hero{padding:7.5rem 0 3rem}
+.hero .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:.92}
+.hero .lead{color:var(--muted);max-width:30rem;margin-top:1rem;font-size:1.1rem}
+.hero .cta{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
+.dash{background:#0D1114;color:#E7ECEF;border-radius:20px;padding:clamp(1.25rem,4vw,2.5rem);--line:rgba(255,255,255,.12)}
+.dash h2{color:#fff}.dash .sub{color:#93A1AC}
+.lights{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin:1.5rem 0;max-width:520px}
+.lights button{aspect-ratio:1;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:#161C21;cursor:pointer;display:grid;place-items:center;padding:.3rem}
+.lights svg{width:92%;height:auto;opacity:.55;transition:opacity .2s,filter .2s}
+.lights button[aria-pressed=true] svg{opacity:1;filter:drop-shadow(0 0 10px currentColor)}
+.lights .r{color:#FF4D3D}.lights .y{color:#FFB321}
+.info{min-height:7rem;border-top:1px solid rgba(255,255,255,.12);padding-top:1.25rem}
+.info b{font-family:var(--display);font-size:1.7rem;color:#fff;display:block}
+.info .lvl{display:inline-block;font-size:.8rem;font-weight:700;border-radius:999px;padding:.15rem .6rem;margin:.4rem 0}
+.lvl.r{background:#FF4D3D;color:#fff}.lvl.y{background:#FFB321;color:#111}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.book{background:var(--surface);border-radius:12px;padding:clamp(1.25rem,3vw,2rem);border:1px solid var(--line)}
+@media(max-width:860px){.hero .g,.split{grid-template-columns:1fr}.lights{grid-template-columns:repeat(5,1fr);gap:.4rem}}
+[hidden]{display:none!important}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+.plan,.inq,dialog{color-scheme:dark}.qbar label,.dbar label{min-width:0}</style>
+</head>
+<body>
+<div class="demo"><span class="l-sq">Demo falas nga Olt Bajrami për Auto Teknik Vllahiu. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by Olt Bajrami for Auto Teknik Vllahiu. Prices, offers and photos underlined with dots are examples.</span></div>
+<header class="nav"><div class="wrap row"><a class="brand" href="#">Auto Teknik Vllahiu</a><nav class="links"><a href="#dritat"><span class="l-sq">Dritat</span><span class="l-en" lang="en">Warning lights</span></a><a href="#termin"><span class="l-sq">Termin</span><span class="l-en" lang="en">Book</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div></nav></div></header>
+<section class="hero"><div class="wrap g"><div><p class="eyebrow"><span class="l-sq">Magjistralja Podujevë–Prishtinë</span><span class="l-en" lang="en">Podujeva–Prishtina main road</span></p>
+<h1><span class="l-sq">Diagnostikë, motor, elektrikë.</span><span class="l-en" lang="en">Diagnostics, engines, electrics.</span></h1>
+<p class="lead"><span class="l-sq">Servis për të gjitha llojet e veturave, në rrugën kryesore Podujevë–Prishtinë.</span><span class="l-en" lang="en">Repairs for every kind of car, on the main Podujeva–Prishtina road.</span></p>
+<div class="cta"><a class="btn btn-primary" href="tel:+38345690069"><span class="l-sq">Thirr</span><span class="l-en" lang="en">Call</span> 045 690 069</a><a class="btn btn-line" href="#dritat"><span class="l-sq">Çka po ndizet?</span><span class="l-en" lang="en">What&#x27;s lit up?</span></a></div></div>
+<figure class="ph " style="aspect-ratio:4/3"><img src="https://images.unsplash.com/photo-1727893119356-1702fe921cf9?auto=format&fit=crop&w=1100&q=75" alt="Punëtori servisi" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure></div></section>
+<section id="dritat" style="padding-top:0"><div class="wrap"><div class="dash"><h2><span class="l-sq">Çka po ndizet në panel?</span><span class="l-en" lang="en">What&#x27;s lit up on your dashboard?</span></h2><p class="sub"><span class="l-sq">Prekni dritën dhe shihni sa urgjente është.</span><span class="l-en" lang="en">Tap the light to see how urgent it is.</span></p>
+<div class="lights"><button type="button" class="y" data-k="motor" aria-label="Check engine" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M5 9h3l2-2h5l2 2h2v3h2v-2h1v6h-1v-2h-2v3h-3l-2 2H9l-2-2H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button><button type="button" class="r" data-k="vaj" aria-label="Presioni i vajit" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M3 14h10l5-4 3 1-5 6H6l-3-3zM18 6l1 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="20" cy="11" r="1" fill="currentColor"/></svg></button><button type="button" class="r" data-k="bateri" aria-label="Bateria / alternatori" aria-pressed="false"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5h3v2M14 7V5h3v2M6.5 13h4M15 13h4M17 11v4" stroke="currentColor" stroke-width="1.6"/></svg></button><button type="button" class="r" data-k="temp" aria-label="Temperatura e motorit" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 3v11" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="17" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 6h3M12 9h3M4 21q2-2 4 0t4 0 4 0 4 0" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button type="button" class="y" data-k="abs" aria-label="ABS" aria-pressed="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 6q-2 6 0 12M20 6q2 6 0 12" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="14.2" font-size="5.5" text-anchor="middle" fill="currentColor" font-family="sans-serif" font-weight="700">ABS</text></svg></button></div><div class="info"><div data-k="motor"><b><span class="l-sq">Check engine</span><span class="l-en" lang="en">Check engine</span></b><span class="lvl y"><span class="l-sq">Kontrolloni motorin</span><span class="l-en" lang="en">Check the engine</span></span><p><span class="l-sq">Diçka në motor ose në emisione. Vetura zakonisht ecën, por eja sa më shpejt për diagnostikë me kompjuter.</span><span class="l-en" lang="en">Something in the engine or emissions. The car usually still runs, but come in soon for a computer diagnosis.</span></p></div><div data-k="vaj" hidden><b><span class="l-sq">Presioni i vajit</span><span class="l-en" lang="en">Oil pressure</span></b><span class="lvl r"><span class="l-sq">Ndaleni veturën</span><span class="l-en" lang="en">Stop the car</span></span><p><span class="l-sq">Presion i ulët i vajit. Ndaleni motorin sa më shpejt që është e sigurt dhe na thirrni.</span><span class="l-en" lang="en">Low oil pressure. Turn the engine off as soon as it is safe and call us.</span></p></div><div data-k="bateri" hidden><b><span class="l-sq">Bateria / alternatori</span><span class="l-en" lang="en">Battery / alternator</span></b><span class="lvl r"><span class="l-sq">Kontroll i shpejtë</span><span class="l-en" lang="en">Quick check</span></span><p><span class="l-sq">Bateria nuk po mbushet. Mund të ngecni pa rrymë, ejani direkt te servisi.</span><span class="l-en" lang="en">The battery is not charging. You may lose power, drive straight to the workshop.</span></p></div><div data-k="temp" hidden><b><span class="l-sq">Temperatura e motorit</span><span class="l-en" lang="en">Engine temperature</span></b><span class="lvl r"><span class="l-sq">Ndaleni veturën</span><span class="l-en" lang="en">Stop the car</span></span><p><span class="l-sq">Motori po nxehet. Ndaleni dhe mos e hapni kapakun e radiatorit kur është nxehtë.</span><span class="l-en" lang="en">The engine is overheating. Stop, and never open the radiator cap while hot.</span></p></div><div data-k="abs" hidden><b><span class="l-sq">ABS</span><span class="l-en" lang="en">ABS</span></b><span class="lvl y"><span class="l-sq">Kujdes në frenim</span><span class="l-en" lang="en">Brake with care</span></span><p><span class="l-sq">Frenat punojnë, por pa ABS. Vozitni më ngadalë dhe ejani për kontroll.</span><span class="l-en" lang="en">Brakes still work, but without ABS. Drive gently and come in for a check.</span></p></div></div></div></div></section>
+<section id="termin" style="padding-top:0"><div class="wrap split"><div><h2><span class="l-sq">Caktoni termin</span><span class="l-en" lang="en">Book a slot</span></h2><p class="sub"><span class="l-sq">Drita që zgjodhët kalon në mesazh.</span><span class="l-en" lang="en">The light you picked goes into the message.</span></p>
+<ul class="contact-list"><li><span><span class="l-sq">Telefon</span><span class="l-en" lang="en">Phone</span></span><span><a href="tel:+38345690069">045 690 069</a></span></li><li><span><span class="l-sq">Vendi</span><span class="l-en" lang="en">Where</span></span><span><span class="l-sq">Magjistralja Podujevë–Prishtinë</span><span class="l-en" lang="en">Podujeva–Prishtina main road</span></span></li><li><span><span class="l-sq">Orari</span><span class="l-en" lang="en">Hours</span></span><span><span class="mock" title="Shembull / Example">08:00–18:00</span></span></li></ul></div>
+<div class="book"><form class="form" data-wa="38345690069" data-title="Termin – Auto Teknik Vllahiu"><label><span class="l-sq">Problemi</span><span class="l-en" lang="en">Issue</span><select name="Problemi" data-label="Problemi"><option value="Drita: Check engine" data-sq="Drita: Check engine" data-en="Light: Check engine" data-k="motor">Drita: Check engine</option><option value="Drita: Presioni i vajit" data-sq="Drita: Presioni i vajit" data-en="Light: Oil pressure" data-k="vaj">Drita: Presioni i vajit</option><option value="Drita: Bateria / alternatori" data-sq="Drita: Bateria / alternatori" data-en="Light: Battery / alternator" data-k="bateri">Drita: Bateria / alternatori</option><option value="Drita: Temperatura e motorit" data-sq="Drita: Temperatura e motorit" data-en="Light: Engine temperature" data-k="temp">Drita: Temperatura e motorit</option><option value="Drita: ABS" data-sq="Drita: ABS" data-en="Light: ABS" data-k="abs">Drita: ABS</option><option value="Servis i rregullt / vaj" data-sq="Servis i rregullt / vaj" data-en="Regular service / oil">Servis i rregullt / vaj</option><option value="Tjetër" data-sq="Tjetër" data-en="Other">Tjetër</option></select></label><div class="two"><label><span class="l-sq">Vetura</span><span class="l-en" lang="en">Car</span><input name="Vetura" data-label="Vetura" data-ph-sq="P.sh. Golf 6, 2010" data-ph-en="E.g. Golf 6, 2010" placeholder="P.sh. Golf 6, 2010"></label><label><span class="l-sq">Emri</span><span class="l-en" lang="en">Name</span><input type="text" name="Emri" data-label="Emri" required ></label></div><button class="btn btn-primary" type="submit"><span class="l-sq">Dërgo në WhatsApp</span><span class="l-en" lang="en">Send on WhatsApp</span></button><p class="note"><span class="l-sq">Mesazhi hapet në WhatsApp, gati për ta dërguar.</span><span class="l-en" lang="en">The message opens in WhatsApp, ready to send.</span></p></form></div></div></section>
+<footer class="foot"><div class="wrap"><span>© 2026 Auto Teknik Vllahiu, Podujevë</span><span><span class="l-sq">Demo nga Olt Bajrami. Fotot: Unsplash.</span><span class="l-en" lang="en">Demo by Olt Bajrami. Photos: Unsplash.</span></span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38345690069"><span class="l-sq">Telefononi</span><span class="l-en" lang="en">Call</span></a><a class="btn btn-line" href="https://wa.me/38345690069">WhatsApp</a></div>
+<script>
+(function(){function fix(el,sel){var mn=el.min!==''?+el.min:1;if(el.value===''||isNaN(+el.value)||+el.value<mn){el.value=mn;if(sel)try{el.select()}catch(e){}return true}}
+document.addEventListener('input',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]'))fix(t,true)},true);
+document.addEventListener('blur',function(e){var t=e.target;if(t.matches&&t.matches('input[type=number]')&&fix(t)){t.dispatchEvent(new Event('input',{bubbles:true}));t.dispatchEvent(new Event('change',{bubbles:true}))}},true)})();
+
+(function(){
+  var root=document.documentElement;
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+    document.querySelectorAll('[data-sq][data-en]').forEach(function(o){o.textContent=o.dataset[l]});
+    document.querySelectorAll('[data-ph-en]').forEach(function(o){o.placeholder=o.dataset[l==='en'?'phEn':'phSq']});
+    try{localStorage.setItem('lang',l)}catch(e){}}
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l)})});
+  if(document.querySelector('.lang')){var s=null;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||'sq')}
+  // filter chips
+  document.querySelectorAll('[data-filter-group]').forEach(function(g){
+    var items=document.querySelectorAll(g.dataset.filterGroup+' [data-cat]');
+    g.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){
+      g.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+      items.forEach(function(it){it.classList.toggle('hide',c.dataset.f!=='all'&&it.dataset.cat.split(' ').indexOf(c.dataset.f)<0)});
+    })});
+  });
+  // forms that compose a WhatsApp message
+  document.querySelectorAll('form[data-wa]').forEach(function(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.dataset.wa){var n=f.querySelector('.note');if(n){n.textContent='Demo: këtu lidhet numri i WhatsApp-it të klinikës.';n.style.color='var(--accent)'}return}
+    var lines=[f.dataset.title||''];
+    f.querySelectorAll('[name]').forEach(function(el){if(el.type==='radio'&&!el.checked)return;
+      var v=el.value;if(el.tagName==='SELECT'){var o=el.options[el.selectedIndex];if(o&&o.dataset.sq)v=o.dataset.sq}
+      if(v){var lab=el.dataset.label||el.name;lines.push(lab+': '+v)}});
+    window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
+  })});
+})();
+window.tn=function(el,v,s,d){if(window.tweenNum)tweenNum(el,v,s,d);else el.textContent=v+(s||'')};
+
+(function(){var d=document.querySelector('.dash');if(!d)return;var sel=document.querySelector('select[name=Problemi]');
+d.querySelectorAll('.lights button').forEach(function(b){b.addEventListener('click',function(){d.querySelectorAll('.lights button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+ d.querySelectorAll('.info>div').forEach(function(x){x.hidden=x.dataset.k!==b.dataset.k});if(sel){for(var i=0;i<sel.options.length;i++)if(sel.options[i].dataset.k===b.dataset.k)sel.selectedIndex=i}})})})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+</script>
+</body>
+</html>
