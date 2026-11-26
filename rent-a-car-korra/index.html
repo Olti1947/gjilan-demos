@@ -115,6 +115,28 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .contact .grid{grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .contact .btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
 @media(max-width:860px){.hero .grid,.airport,.contact .grid{grid-template-columns:1fr}.hero .ph{aspect-ratio:4/3}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.plane{position:relative;height:110px;margin-top:1rem}
+.plane svg{width:100%;height:100%;overflow:visible}
+.plane .arc{stroke-dasharray:6 8;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.plane .jet{offset-path:path('M10,95 C120,-10 300,-10 420,60');offset-rotate:auto;animation:fly 5s cubic-bezier(.45,0,.3,1) infinite}
+@keyframes fly{0%{offset-distance:0%;opacity:0}10%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.vcard{transition:transform .35s,box-shadow .35s}.vcard:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(15,23,42,.35)}
+@media (prefers-reduced-motion:reduce){.plane .jet,.plane .arc{animation:none}}
 </style>
 </head>
 <body>
@@ -156,7 +178,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <p class="rate"><span class="l-sq">nga</span><span class="l-en" lang="en">from</span> <b><span class="mock" title="Shembull / Example">35 €</span></b> <span class="l-sq">/ ditë</span><span class="l-en" lang="en">/ day</span> <span><span class="l-sq">Javore: </span><span class="l-en" lang="en">Weekly: </span><span class="mock" title="Shembull / Example">220 €</span></span></p>
 <a class="btn btn-primary btn-sm" href="https://wa.me/38344778833?text=P%C3%ABrsh%C3%ABndetje%2C%20dua%20t%C3%AB%20rezervoj%20%C5%A0koda%20Octavia."><span class="l-sq">Rezervo</span><span class="l-en" lang="en">Book</span></a></div></article></div></div></section>
 <section id="aeroporti"><div class="wrap"><div class="airport">
-<div><p class="eyebrow" style="color:#5EEAD4"><span class="l-sq">Marrje në aeroport</span><span class="l-en" lang="en">Airport pick-up</span></p><h2><span class="l-sq">Ju presim kur zbritni nga aeroplani.</span><span class="l-en" lang="en">We meet you when you land.</span></h2>
+<div><div class="plane" aria-hidden="true"><svg viewBox="0 0 430 110"><path class="arc" d="M10,95 C120,-10 300,-10 420,60" fill="none" stroke="#5EEAD4" stroke-width="2" opacity=".6"/><g class="jet"><path d="M-14,0 L14,0 M2,-9 L8,0 L2,9 M-12,-4 L-9,0 L-12,4" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><p class="eyebrow" style="color:#5EEAD4"><span class="l-sq">Marrje në aeroport</span><span class="l-en" lang="en">Airport pick-up</span></p><h2><span class="l-sq">Ju presim kur zbritni nga aeroplani.</span><span class="l-en" lang="en">We meet you when you land.</span></h2>
 <p style="opacity:.8;margin-top:1rem"><span class="l-sq">Na tregoni numrin e fluturimit dhe vetura ju pret te dalja.</span><span class="l-en" lang="en">Send us your flight number and the car is waiting at arrivals.</span> <span class="mock" title="Shembull"><span class="l-sq"><span class="mock" title="Shembull / Example">Pa pagesë shtesë për Prishtinën</span></span><span class="l-en" lang="en"><span class="mock" title="Shembull / Example">No extra charge for Prishtina</span></span></span></p></div>
 <div class="codes"><div><b>PRN</b><span class="l-sq">Prishtinë</span><span class="l-en" lang="en">Prishtina</span></div><div><b>SKP</b><span class="l-sq">Shkup</span><span class="l-en" lang="en">Skopje</span></div></div></div></div></section>
 <section class="contact" id="kontakti" style="padding-top:0"><div class="wrap grid">
@@ -195,6 +217,32 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 
 (function(){var s=document.getElementById('car'),d=document.getElementById('days'),o=document.getElementById('total');
 function u(){var r=+s.value,n=Math.max(1,+d.value||1),t=r*n;if(n>=7)t=t*0.9;o.textContent=Math.round(t)+' €';}
-s.addEventListener('change',u);d.addEventListener('input',u);u();})();</script>
+s.addEventListener('change',u);d.addEventListener('input',u);u();})();
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){var s=document.getElementById('car'),d=document.getElementById('days'),o=document.getElementById('total');if(!o)return;
+function u(){var r=+s.value,n=Math.max(1,+d.value||1),t=r*n;if(n>=7)t=t*0.9;window.tweenNum(o,Math.round(t),' €');}
+function pv(){o.dataset.prev=o.textContent}s.addEventListener('change',pv,true);d.addEventListener('input',pv,true);s.addEventListener('change',u);d.addEventListener('input',u);})();
+</script>
 </body>
 </html>

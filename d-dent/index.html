@@ -111,12 +111,34 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .std p{color:#B8C4D3}
 .info .grid{grid-template-columns:1fr 1fr;gap:3rem}
 @media(max-width:860px){.hero .grid,.svcs,.std,.info .grid{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:-1;animation:float 14s ease-in-out infinite alternate}
+.b1{width:420px;height:420px;background:#BAE6FD;top:-120px;right:-80px}
+.b2{width:320px;height:320px;background:#E0F2FE;bottom:-100px;left:10%;animation-duration:18s}
+@keyframes float{to{transform:translate(-60px,50px) scale(1.15)}}
+.svc{transition:transform .35s,box-shadow .35s,border-color .35s}.svc:hover{transform:translateY(-5px);border-color:#7DD3FC;box-shadow:0 20px 40px -28px rgba(2,132,199,.6)}
+.std li::before{transition:transform .4s}.std li:hover::before{transform:scale(1.2) rotate(-10deg)}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}}
 </style>
 </head>
 <body>
 <div class="demo">Demo falas nga [Emri i ekipit] për D-Dent. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</div>
 <header class="nav"><div class="wrap row"><a class="brand" href="#">D-Dent</a><nav class="links"><a href="#sherbimet">Shërbimet</a><a href="#pyetje">Pyetje</a><a href="#kontakti">Kontakti</a></nav></div></header>
-<section class="hero"><div class="wrap grid"><div>
+<section class="hero"><span class="blob b1"></span><span class="blob b2"></span><div class="wrap grid"><div>
 <p class="eyebrow">Klinikë dentare në Gjilan</p><h1>Kujdes i butë për dhëmbët e gjithë familjes.</h1>
 <p class="lead">Nga kontrolla e rregullt deri te buzëqeshja që dëshironi, gjithçka nën një çati, me shpjegime të qarta në çdo hap.</p>
 <figure class="ph " style="aspect-ratio:5/4"><img src="https://images.unsplash.com/photo-1777331903190-341a3dd0441b?auto=format&fit=crop&w=1200&q=75" alt="Dentistja duke folur me pacientin" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure></div>
@@ -163,6 +185,28 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
       if(el.value){var lab=el.dataset.label||el.name;lines.push(lab+': '+el.value)}});
     window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
   })});
+})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
 })();
 </script>
 </body>

@@ -110,6 +110,28 @@ body{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px
 .vin .grid{grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 .vin .box{background:var(--surface);border:1px solid var(--line-strong);padding:2rem}
 @media(max-width:860px){.hero .grid,.vin .grid{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.stripe{background-size:200% 100%;animation:strp 6s linear infinite;background-image:linear-gradient(90deg,#1C69D4 0 16.6%,#7A1FA2 16.6% 33.3%,#DC2626 33.3% 50%,#1C69D4 50% 66.6%,#7A1FA2 66.6% 83.3%,#DC2626 83.3%)}
+@keyframes strp{to{background-position:-200% 0}}
+.tach{position:fixed;right:1.25rem;bottom:1.25rem;width:92px;height:92px;z-index:25;background:rgba(18,20,23,.85);border:1px solid var(--line-strong);border-radius:50%;backdrop-filter:blur(6px)}
+.tach svg{width:100%;height:100%}
+.tach .needle{transform-origin:50px 50px;transition:transform .15s linear}
+.svc{transition:transform .3s,border-color .3s}.svc:hover{transform:translateX(4px);border-left-color:var(--accent)}
+@media(max-width:860px){.tach{bottom:5.2rem;width:70px;height:70px}}
+@media (prefers-reduced-motion:reduce){.stripe{animation:none}.tach{display:none}}
 </style>
 </head>
 <body>
@@ -133,7 +155,7 @@ body{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px
 <label>VIN (opsional)<input name="VIN" data-label="VIN" maxlength="17"></label>
 <label>Çfarë problemi keni?<textarea name="Problemi" data-label="Problemi"></textarea></label>
 <button class="btn btn-primary" type="submit">Dërgo në WhatsApp</button><p class="note">Foton e panelit e shtoni në WhatsApp pas mesazhit.</p></form></div></div></section>
-<footer class="foot"><div class="wrap"><span>© 2026 Auto Service MUFA, Gjilan</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38344761559">Telefononi</a><a class="btn btn-line" href="https://wa.me/38344761559">WhatsApp</a></div>
+<div class="tach" aria-hidden="true"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="3"/><path d="M73 77 A38 38 0 0 0 88 50" fill="none" stroke="#DC2626" stroke-width="4"/><g class="needle"><line x1="50" y1="50" x2="50" y2="18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></g><circle cx="50" cy="50" r="4" fill="#DC2626"/><text x="50" y="72" text-anchor="middle" font-size="11" fill="#9aa0a6" font-family="Chakra Petch">0k</text></svg></div><footer class="foot"><div class="wrap"><span>© 2026 Auto Service MUFA, Gjilan</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38344761559">Telefononi</a><a class="btn btn-line" href="https://wa.me/38344761559">WhatsApp</a></div>
 <script>
 (function(){
   var root=document.documentElement;
@@ -160,6 +182,32 @@ body{background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px
     window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
   })});
 })();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){if(window.__rm)return;var n=document.querySelector('.tach .needle'),t=document.querySelector('.tach text');if(!n)return;
+function u(){var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);n.style.transform='rotate('+(-120+p*240)+'deg)';t.textContent=Math.round(p*8)+'k'}
+addEventListener('scroll',u,{passive:true});u();})();
 </script>
 </body>
 </html>

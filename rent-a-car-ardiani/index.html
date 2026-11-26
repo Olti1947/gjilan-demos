@@ -118,13 +118,34 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .contact .grid{grid-template-columns:1fr 1fr;align-items:start;gap:3rem}
 .bigtel{font-family:var(--display);font-size:clamp(2rem,4.5vw,3.2rem);text-decoration:none;display:block;line-height:1.15}
 @media(max-width:860px){.qbar{grid-template-columns:1fr}.qbar label{border-right:0;border-bottom:1px solid var(--line)}.qbar .btn{padding:1rem}.proof .grid{grid-template-columns:1fr}.contact .grid{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.hero .sweep{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(100deg,transparent 40%,rgba(201,168,76,.18) 50%,transparent 60%);background-size:250% 100%;animation:sweep 6s ease-in-out 1.2s infinite}
+@keyframes sweep{0%{background-position:150% 0}60%,100%{background-position:-60% 0}}
+.hero h1 .l-sq,.hero h1 .l-en{display:inline-block}
+.car{transform-style:preserve-3d;transition:transform .35s ease,border-color .35s;will-change:transform}
+.car:hover{border-color:var(--accent)}
+.proof b{display:inline-block}
+@media (prefers-reduced-motion:reduce){.hero .sweep{display:none}}
 </style>
 </head>
 <body>
 <div class="demo"><span class="l-sq">Demo falas nga [Emri i ekipit] për Rent a Car Ardiani. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by [Emri i ekipit] for Rent a Car Ardiani. Prices, offers and photos underlined with dots are examples.</span></div>
 <header class="nav"><div class="wrap row"><a class="brand" href="#">Rent a Car Ardiani</a><nav class="links"><a href="#flota"><span class="l-sq">Flota</span><span class="l-en" lang="en">Fleet</span></a><a href="#kontakti"><span class="l-sq">Kontakti</span><span class="l-en" lang="en">Contact</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div><a class="btn btn-primary btn-sm" href="tel:+38349999994">049 999 994</a></nav></div></header>
 <section class="hero" style="padding:0"><img src="https://images.unsplash.com/photo-1764605206511-7a649d9df63b?auto=format&fit=crop&w=2200&q=75" alt="Veturë luksoze natën">
-<div class="wrap"><div class="copy">
+<div class="sweep"></div><div class="wrap"><div class="copy">
 <p class="eyebrow"><span class="l-sq">Rent a Car në Gjilan</span><span class="l-en" lang="en">Car rental in Gjilan</span></p>
 <h1><span class="l-sq">Luks, komoditet dhe <em>siguri</em> në çdo udhëtim.</span><span class="l-en" lang="en">Luxury, comfort and <em>safety</em> on every journey.</span></h1>
 <p class="lead"><span class="l-sq">Zgjidhni veturën, ne kujdesemi për pjesën tjetër. Rezervimi bëhet në pak sekonda përmes WhatsApp.</span><span class="l-en" lang="en">Pick your car and we take care of the rest. Booking takes seconds on WhatsApp.</span></p>
@@ -136,7 +157,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <button class="btn btn-primary" type="submit"><span class="l-sq">Kontrollo</span><span class="l-en" lang="en">Check</span></button>
 </form></div></section>
 <div class="proof"><div class="wrap grid">
-<div><b>10K+</b><span><span class="l-sq">ndjekës në Instagram @rentacarardiani</span><span class="l-en" lang="en">Instagram followers @rentacarardiani</span></span></div>
+<div><b data-count="10" data-suffix="K+">10K+</b><span><span class="l-sq">ndjekës në Instagram @rentacarardiani</span><span class="l-en" lang="en">Instagram followers @rentacarardiani</span></span></div>
 <div><b><span class="mock" title="Shembull / Example">24/7</span></b><span><span class="l-sq">Dorëzim në aeroportin e Prishtinës dhe Shkupit</span><span class="l-en" lang="en">Delivery to Prishtina and Skopje airports</span></span></div>
 <div><b><span class="mock" title="Shembull / Example">100%</span></b><span><span class="l-sq">Vetura të kontrolluara para çdo qiraje</span><span class="l-en" lang="en">Cars inspected before every rental</span></span></div>
 </div></div>
@@ -211,6 +232,30 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
     window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
   })});
 })();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){if(window.__rm)return;document.querySelectorAll('.car').forEach(function(c){c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateY('+x*7+'deg) rotateX('+(-y*7)+'deg) translateY(-4px)'});c.addEventListener('mouseleave',function(){c.style.transform=''})})})();
 </script>
 </body>
 </html>

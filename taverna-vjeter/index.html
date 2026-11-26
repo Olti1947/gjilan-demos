@@ -110,12 +110,32 @@ body{font-size:1.1rem}
 .story .facts{display:flex;gap:2.5rem;margin-top:2rem}.story .facts b{display:block;font-family:var(--display);font-size:2.2rem;color:#E9A27F}
 .res .grid{grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 @media(max-width:860px){.menu .grid,.story .grid,.res .grid{grid-template-columns:1fr}.menu aside{position:static}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+#embers{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero h1{animation:fadeup 1.4s cubic-bezier(.2,.7,.2,1) .2s both}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+#ml li{transition:opacity .35s,transform .35s}
+#ml li.enter{opacity:0;transform:translateX(-10px)}
+@media (prefers-reduced-motion:reduce){#embers{display:none}.hero h1{animation:none}}
 </style>
 </head>
 <body>
 <div class="demo"><span class="l-sq">Demo falas nga [Emri i ekipit] për Taverna Vjetër. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</span><span class="l-en" lang="en">Free demo by [Emri i ekipit] for Taverna Vjetër. Prices, offers and photos underlined with dots are examples.</span></div>
 <header class="nav"><div class="wrap row"><a class="brand" href="#">Taverna Vjetër</a><nav class="links"><a href="#menuja"><span class="l-sq">Menuja</span><span class="l-en" lang="en">Menu</span></a><a href="#rezervo"><span class="l-sq">Rezervo</span><span class="l-en" lang="en">Book</span></a><div class="lang" role="group" aria-label="Gjuha / Language"><button data-l="sq" aria-pressed="true">SQ</button><button data-l="en" aria-pressed="false">EN</button></div></nav></div></header>
-<section class="hero"><img src="https://images.unsplash.com/photo-1486334970519-2e153db3cc16?auto=format&fit=crop&w=2200&q=75" alt="Gatim në zjarr druri">
+<section class="hero"><img src="https://images.unsplash.com/photo-1486334970519-2e153db3cc16?auto=format&fit=crop&w=2200&q=75" alt="Gatim në zjarr druri"><canvas id="embers" aria-hidden="true"></canvas>
 <div class="wrap"><p class="eyebrow" style="color:#E9A27F"><span class="l-sq">Restorant tradicional në Gjilan</span><span class="l-en" lang="en">Traditional restaurant in Gjilan</span></p>
 <h1><span class="l-sq">Shija e vjetër, e gatuar ngadalë.</span><span class="l-en" lang="en">Old flavours, slowly cooked.</span></h1>
 <p class="lead"><span class="l-sq">Gatime shqiptare në saç dhe në skarë, në një ambient të ngrohtë tradicional.</span><span class="l-en" lang="en">Albanian clay-pot and grill dishes, in a warm traditional room.</span></p>
@@ -161,6 +181,34 @@ body{font-size:1.1rem}
     window.open('https://wa.me/'+f.dataset.wa+'?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');
   })});
 })();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){if(window.__rm)return;var c=document.getElementById('embers');if(c){var x=c.getContext('2d'),P=[],w,h;function rs(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}rs();addEventListener('resize',rs);
+function sp(){return{x:Math.random()*w,y:h+10,vy:Math.random()*.9+.4,vx:(Math.random()-.5)*.4,r:Math.random()*2.2+.6,l:1}}
+for(var i=0;i<45;i++){var q=sp();q.y=Math.random()*h;P.push(q)}
+(function f(){x.clearRect(0,0,w,h);P.forEach(function(q,i){q.y-=q.vy;q.x+=q.vx+Math.sin(q.y/40)*.3;q.l-=.0025;if(q.l<=0||q.y<-10)P[i]=sp();x.beginPath();x.arc(q.x,q.y,q.r,0,6.28);x.fillStyle='rgba(255,'+(120+Math.random()*60|0)+',40,'+Math.max(0,q.l)*.8+')';x.fill()});requestAnimationFrame(f)})()}
+document.querySelectorAll('[data-filter-group="#ml"] .chip').forEach(function(b){b.addEventListener('click',function(){var v=[].slice.call(document.querySelectorAll('#ml li:not(.hide)'));v.forEach(function(li,i){li.classList.add('enter');setTimeout(function(){li.classList.remove('enter')},40+i*45)})})});})();
 </script>
 </body>
 </html>

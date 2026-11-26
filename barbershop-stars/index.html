@@ -113,6 +113,29 @@ h1,h2{text-transform:uppercase}
 .slots{display:flex;flex-wrap:wrap;gap:.4rem}.slot{border:1px solid var(--line-strong);background:transparent;padding:.45rem .7rem;border-radius:var(--radius);cursor:pointer;font-size:.88rem;font-variant-numeric:tabular-nums}
 .slot[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 @media(max-width:860px){.book{grid-template-columns:1fr}.book .st{border-right:0;border-bottom:1px solid var(--line)}.look{grid-template-columns:1fr 1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.chrome{background-size:100% 220%;animation:chrome 5s ease-in-out infinite alternate}
+@keyframes chrome{from{background-position:0 0}to{background-position:0 100%}}
+.marq{overflow:hidden;border-block:1px solid var(--line-strong);padding:1rem 0;white-space:nowrap}
+.marq div{display:inline-flex;gap:3rem;animation:mq 26s linear infinite;font-family:var(--display);font-size:1.6rem;text-transform:uppercase}
+.marq span::after{content:"✦";margin-left:3rem;color:var(--muted)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.pole{display:inline-block;width:10px;height:1.1em;border-radius:6px;margin-right:.6rem;vertical-align:-2px;background:repeating-linear-gradient(135deg,#fff 0 4px,#B91C1C 4px 8px,#1D4ED8 8px 12px);background-size:100% 34px;animation:pole 1s linear infinite}
+@keyframes pole{to{background-position:0 34px}}
+@media (prefers-reduced-motion:reduce){.chrome,.marq div,.pole{animation:none}}
 </style>
 </head>
 <body>
@@ -120,8 +143,8 @@ h1,h2{text-transform:uppercase}
 <header class="nav"><div class="wrap row"><a class="brand" href="#">Barbershop Stars</a><nav class="links"><a href="#rezervo">Rezervo</a><a href="#cmimet">Çmimet</a><a href="#ekipi">Ekipi</a><a class="btn btn-primary btn-sm" href="#rezervo">Book your chair</a></nav></div></header>
 <section class="hero"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=2200&q=75" alt="Karrige berberi">
 <div class="wrap"><p class="eyebrow" style="color:#fff">Sheshi i Ri, Gjilan</p><div class="row"><h1 class="chrome">Barbershop<br>Stars</h1>
-<div><div class="yr"><b>6</b>vite në Sheshin e Ri</div><a class="btn btn-primary" style="margin-top:1rem;width:100%" href="#rezervo">Rezervo karrigen</a></div></div></div></section>
-<section id="rezervo"><div class="wrap"><div class="head"><h2>Rezervo pa pritur</h2><p class="sub">Zgjidh berberin, shërbimin dhe orën. Konfirmimi vjen në WhatsApp.</p></div>
+<div><div class="yr"><b data-count="6">6</b>vite në Sheshin e Ri</div><a class="btn btn-primary" style="margin-top:1rem;width:100%" href="#rezervo"><span class="pole"></span>Rezervo karrigen</a></div></div></div></section>
+<div class="marq" aria-hidden="true"><div><span>Skin fade</span><span>Prerje klasike</span><span>Mjekër</span><span>Rrojë me peshqir</span><span>VIP</span><span>Sheshi i Ri</span><span>Skin fade</span><span>Prerje klasike</span><span>Mjekër</span><span>Rrojë me peshqir</span><span>VIP</span><span>Sheshi i Ri</span></div></div><section id="rezervo"><div class="wrap"><div class="head"><h2>Rezervo pa pritur</h2><p class="sub">Zgjidh berberin, shërbimin dhe orën. Konfirmimi vjen në WhatsApp.</p></div>
 <form data-wa="38348689602" data-title="Rezervim – Barbershop Stars"><input type="hidden" id="ora" name="Ora" data-label="Ora"><div class="book form">
 <div class="st"><p class="k">1. Berberi</p><label class="bar"><input type="radio" name="Berberi" data-label="Berberi" value="Rinor" checked><span>Rinor<small>@rinorjasharii_</small></span></label><label class="bar"><input type="radio" name="Berberi" data-label="Berberi" value="Lindi"><span>Lindi<small>@lindi_jasharii</small></span></label></div>
 <div class="st"><p class="k">2. Shërbimi</p><select name="Shërbimi" data-label="Shërbimi"><option>Skin fade – 6 €</option><option>Prerje klasike – 5 €</option><option>Prerje + mjekër – 8 €</option><option>Rregullim mjekre – 3 €</option><option>Rrojë me peshqir të nxehtë – 5 €</option><option>Paketa VIP: prerje, mjekër, larje, maskë – 15 €</option></select></div>
@@ -166,6 +189,28 @@ h1,h2{text-transform:uppercase}
 var h=box.dataset.from|0,e=box.dataset.to|0,st=+box.dataset.step||30;for(var t=h*60;t<e*60;t+=st){var s=('0'+(t/60|0)).slice(-2)+':'+('0'+t%60).slice(-2);
 var b=document.createElement('button');b.type='button';b.className='slot';b.textContent=s;b.setAttribute('aria-pressed','false');
 b.addEventListener('click',function(){box.querySelectorAll('.slot').forEach(function(x){x.setAttribute('aria-pressed','false')});this.setAttribute('aria-pressed','true');inp.value=this.textContent});box.appendChild(b);}});})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
 </script>
 </body>
 </html>

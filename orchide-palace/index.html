@@ -117,19 +117,40 @@ output{font-family:var(--display);font-size:2rem;color:#E3C88F}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}.rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 @media(max-width:860px){.hall .grid,.pks,.inq .grid{grid-template-columns:1fr}.pk{border-right:0;border-bottom:1px solid var(--line-strong)}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+#sparkle{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero h1{animation:fadeup 1.6s cubic-bezier(.2,.7,.2,1) .3s both}.hero .lead{animation:fadeup 1.6s cubic-bezier(.2,.7,.2,1) .6s both}
+.hero .orn{animation:grow 1.4s cubic-bezier(.7,0,.2,1) both}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes grow{from{width:0}to{width:90px}}
+.pk{transition:transform .4s}.pk:hover{transform:translateY(-6px)}
+@media (prefers-reduced-motion:reduce){#sparkle{display:none}.hero h1,.hero .lead,.hero .orn{animation:none}}
 </style>
 </head>
 <body>
 <div class="demo">Demo falas nga [Emri i ekipit] për Orchide Palace. Çmimet, ofertat dhe fotot me nënvizim me pika janë shembuj.</div>
 <header class="nav"><div class="wrap row"><a class="brand" href="#">Orchide Palace</a><nav class="links"><a href="#salla">Salla</a><a href="#paketat">Paketat</a><a href="#data">Data e lirë</a></nav></div></header>
-<section class="hero"><img src="https://images.unsplash.com/photo-1780337092772-d85ad9dc562c?auto=format&fit=crop&w=2400&q=75" alt="Salla e dasmave me llambadarë">
+<section class="hero"><img src="https://images.unsplash.com/photo-1780337092772-d85ad9dc562c?auto=format&fit=crop&w=2400&q=75" alt="Salla e dasmave me llambadarë"><canvas id="sparkle" aria-hidden="true"></canvas>
 <div class="wrap"><p class="kick">Kingdom Hall · Kmetoc, Gjilan</p><div class="orn"></div>
 <h1>Mbretëria juaj <em>ju pret.</em></h1>
 <p class="lead">Dasma madhështore, fejesa dhe festa që mbahen mend gjatë.</p>
 <a class="btn btn-primary" href="#data">Kontrolloni datat për 2026 dhe 2027</a></div></section>
 <section class="hall" id="salla"><div class="wrap grid"><figure class="ph rv" style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1783314867628-220ab03cac99?auto=format&fit=crop&w=1300&q=75" alt="Salla e shtruar për ngjarje" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure>
 <div class="rv"><p class="eyebrow">Salla</p><h2>Një sallë e ndërtuar për ditën tuaj</h2><p class="sub">Llambadarë kristali, ndriçim i personalizuar dhe pistë e gjerë vallëzimi.</p>
-<div class="feat"><div><b class="mock" title="Shembull">500</b><span>mysafirë kapacitet</span></div><div><b>7.4K</b><span>ndjekës në Facebook</span></div>
+<div class="feat"><div><b class="mock" title="Shembull">500</b><span>mysafirë kapacitet</span></div><div><b data-count="7.4" data-suffix="K">7.4K</b><span>ndjekës në Facebook</span></div>
 <div><b class="mock" title="Shembull">150</b><span>vende parkimi</span></div><div><b>Dasmino</b><span>e listuar si sallë dasmash</span></div></div></div></div></section>
 <section id="paketat" style="padding-top:0"><div class="wrap"><div class="head" style="text-align:center"><p class="eyebrow">Paketat</p><h2>Dasma dhe catering</h2><p class="sub" style="margin-inline:auto">Menu tradicionale dhe ndërkombëtare, dekor dhe koordinim.</p></div><div class="pks rv"><div class="pk"><h3>Classic Gala</h3><p class="pp"><span class="l-sq">nga</span><span class="l-en" lang="en"></span> <span class="mock" title="Shembull / Example">18 €</span> <small>/ person</small></p><ul><li>Menu me 4 gjellë</li><li>Dekor bazë me lule</li><li>Ndriçim i sallës</li></ul></div><div class="pk mid"><h3>Royal Kingdom</h3><p class="pp"><span class="l-sq">nga</span><span class="l-en" lang="en"></span> <span class="mock" title="Shembull / Example">28 €</span> <small>/ person</small></p><ul><li>Menu me 6 gjellë</li><li>Dekor i plotë dhe hark me lule</li><li>Tortë dhe pije freskuese</li><li>Dhomë për nusen</li></ul></div><div class="pk"><h3>Diaspora Summer</h3><p class="pp"><span class="l-sq">nga</span><span class="l-en" lang="en"></span> <span class="mock" title="Shembull / Example">24 €</span> <small>/ person</small></p><ul><li>Data korrik–gusht të rezervuara herët</li><li>Koordinim me WhatsApp nga jashtë</li><li>Menu tradicionale dhe ndërkombëtare</li></ul></div></div></div></section>
 <section class="inq" id="data"><div class="wrap grid"><div><p class="eyebrow">Data e lirë</p><h2>Kontrolloni datën tuaj</h2><p class="sub">Na tregoni datën, numrin e mysafirëve dhe llojin e festës. Ju kthejmë përgjigje në WhatsApp.</p>
@@ -173,6 +194,33 @@ output{font-family:var(--display);font-size:2rem;color:#E3C88F}
 (function(){var r=document.getElementById('guests'),o=document.getElementById('gout');if(r){r.addEventListener('input',function(){o.textContent=r.value})}
 if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return}
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});})();</script>
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});})();
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){if(window.__rm)return;var c=document.getElementById('sparkle');if(!c)return;var x=c.getContext('2d'),P=[],w,h;
+function rs(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}rs();addEventListener('resize',rs);
+for(var i=0;i<70;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*1.8+.4,s:Math.random()*.0006+.0002,p:Math.random()*6.28});
+(function f(){x.clearRect(0,0,w,h);P.forEach(function(q){q.y-=q.s;if(q.y<0)q.y=1;q.p+=.03;var a=.35+.35*Math.sin(q.p);x.beginPath();x.arc(q.x*w,q.y*h,q.r,0,6.28);x.fillStyle='rgba(227,200,143,'+a+')';x.fill()});requestAnimationFrame(f)})();})();
+</script>
 </body>
 </html>

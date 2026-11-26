@@ -109,6 +109,27 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .slots{display:flex;flex-wrap:wrap;gap:.4rem}.slot{border:1px solid var(--line-strong);background:transparent;padding:.45rem .7rem;border-radius:var(--radius);cursor:pointer;font-size:.88rem;font-variant-numeric:tabular-nums}
 .slot[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 @media(max-width:860px){.hero .grid,.express .box,.mgrid,.exp .grid{grid-template-columns:1fr}.hero .ph{margin-bottom:0}.express{margin-top:3rem}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.tick{background:var(--accent);color:#1C1917;overflow:hidden;white-space:nowrap;padding:.9rem 0}
+.tick div{display:inline-flex;gap:2.5rem;animation:mq 30s linear infinite;font-family:var(--display);font-size:1.5rem;font-style:italic}
+@keyframes mq{to{transform:translateX(-50%)}}
+.hero h1 em{display:inline-block;animation:sway 3.5s ease-in-out 1s infinite alternate;transform-origin:left bottom}
+@keyframes sway{to{transform:skewX(-6deg)}}
+.slot{transition:transform .2s,background .2s}.slot[aria-pressed=true]{transform:scale(1.08)}
+@media (prefers-reduced-motion:reduce){.tick div,.hero h1 em{animation:none}}
 </style>
 </head>
 <body>
@@ -117,14 +138,14 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <section class="hero"><div class="wrap grid"><div class="copy"><p class="eyebrow">Berber në Gjilan</p>
 <h1>More than a <em>haircut.</em></h1><p class="lead">Gjashtë vite zanat në Gjilan. Rezervoni karrigen tuaj në 30 sekonda.</p>
 <a class="btn btn-primary" href="#rezervo">Rezervo tani</a></div><figure class="ph " style="aspect-ratio:4/5"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=75" alt="Klient në karrigen e berberit" loading="eager" fetchpriority="high"><span class="tag">Foto ilustruese</span></figure></div></section>
-<section class="express" id="rezervo" style="padding-top:0"><div class="wrap"><div class="box">
+<div class="tick" aria-hidden="true"><div><span>More than a haircut</span><span>Gjilan</span><span>6 vite zanat</span><span>More than a haircut</span><span>Gjilan</span><span>6 vite zanat</span><span>More than a haircut</span><span>Gjilan</span><span>6 vite zanat</span><span>More than a haircut</span><span>Gjilan</span><span>6 vite zanat</span></div></div><section class="express" id="rezervo" style="padding-top:0"><div class="wrap"><div class="box">
 <div><h2>Rezervim i shpejtë</h2><p class="sub">Zgjidhni shërbimin dhe orën. Ju konfirmojmë në WhatsApp, në 045 470 065.</p></div>
 <form class="form" data-wa="38345470065" data-title="Rezervim – Popi Barbershop"><input type="hidden" id="ora2" name="Ora" data-label="Ora">
 <div class="two"><label>Shërbimi<select name="Shërbimi" data-label="Shërbimi"><option>Prerje klasike</option><option>Fade</option><option>Prerje për fëmijë</option><option>Rregullim mjekre</option><option>Lineup me brisk</option><option>Rrojë klasike</option><option>Peshqir i nxehtë dhe avull</option><option>Maskë për fytyrën</option><option>Paketa e dhëndrit</option><option>Grup (3+ persona)</option></select></label><label>Data<input type="date" name="Data" data-label="Data" required></label></div>
 <label>Ora</label><div class="slots" data-target="ora2" data-from="9" data-to="20" data-step="30"></div>
 <label>Emri<input name="Emri" data-label="Emri" required></label><button class="btn btn-primary" type="submit">Konfirmo në WhatsApp</button></form></div></div></section>
 <section id="menuja"><div class="wrap"><div class="head"><h2>Menuja</h2><p class="sub">Çmimet janë orientuese.</p></div><div class="mgrid"><div class="mcat"><h3>Prerje precize</h3><ul class="plist"><li><span>Prerje klasike</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">5 €</span></span></li><li><span>Fade</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">6 €</span></span></li><li><span>Prerje për fëmijë</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">4 €</span></span></li></ul></div><div class="mcat"><h3>Mjekra dhe brisku</h3><ul class="plist"><li><span>Rregullim mjekre</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">3 €</span></span></li><li><span>Lineup me brisk</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">2 €</span></span></li><li><span>Rrojë klasike</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">5 €</span></span></li></ul></div><div class="mcat"><h3>Fytyra</h3><ul class="plist"><li><span>Peshqir i nxehtë dhe avull</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">4 €</span></span></li><li><span>Maskë për fytyrën</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">5 €</span></span></li></ul></div><div class="mcat"><h3>Dasma dhe ngjarje</h3><ul class="plist"><li><span>Paketa e dhëndrit</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">25 €</span></span></li><li><span>Grup (3+ persona)</span><span class=d></span><span class=p><span class="mock" title="Shembull / Example">15 € / person</span></span></li></ul></div></div></div></section>
-<section class="exp"><div class="wrap grid"><div><p class="big">6 vite</p><p class="sub">“Sot 6 vite me ju, faleminderit shumë.” Popi Barbershop</p></div>
+<section class="exp"><div class="wrap grid"><div><p class="big"><span data-count="6">6</span> vite</p><p class="sub">“Sot 6 vite me ju, faleminderit shumë.” Popi Barbershop</p></div>
 <div><h2>Më shumë se një prerje</h2><p class="sub">Shikoni prerjet tona të fundit në Instagram dhe TikTok.</p><div style="display:flex;gap:.6rem;margin-top:1.5rem;flex-wrap:wrap"><a class="btn btn-line" href="https://www.instagram.com/popi_barbershop/">@popi_barbershop</a><a class="btn btn-line" href="https://www.tiktok.com/@popiibarbershop">TikTok</a></div></div></div></section>
 <section><div class="wrap grid g2" style="gap:3rem"><div><h2>Kontakti dhe orari</h2><ul class="contact-list" style="margin-top:1.5rem"><li><span>Telefon</span><a href="tel:+38345470065">045 470 065</a></li><li><span>Orari</span><span>E hënë – e shtunë, <span class="mock" title="Shembull">09:00–20:00</span></span></li><li><span>Adresa</span><span>Gjilan</span></li></ul></div><iframe class="map" title="Harta" loading="lazy" src="https://www.google.com/maps?q=Popi%20Barbershop%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe></div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 Popi Barbershop, Gjilan</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></div></footer><div class="callbar"><a class="btn btn-primary" href="tel:+38345470065">Telefononi</a><a class="btn btn-line" href="https://wa.me/38345470065">WhatsApp</a></div>
@@ -159,6 +180,28 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 var h=box.dataset.from|0,e=box.dataset.to|0,st=+box.dataset.step||30;for(var t=h*60;t<e*60;t+=st){var s=('0'+(t/60|0)).slice(-2)+':'+('0'+t%60).slice(-2);
 var b=document.createElement('button');b.type='button';b.className='slot';b.textContent=s;b.setAttribute('aria-pressed','false');
 b.addEventListener('click',function(){box.querySelectorAll('.slot').forEach(function(x){x.setAttribute('aria-pressed','false')});this.setAttribute('aria-pressed','true');inp.value=this.textContent});box.appendChild(b);}});})();
+
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
 </script>
 </body>
 </html>

@@ -114,6 +114,26 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .calc{background:var(--surface);padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
 .calc output{font-family:var(--display);font-size:3rem;color:var(--accent);display:block;line-height:1}
 @media(max-width:860px){.dbar{grid-template-columns:1fr 1fr}.dbar label{border-bottom:1px solid var(--line)}.dbar .btn{grid-column:span 2;padding:1rem}.amen .grid,.calc{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.hero .save{animation:fadeup 1s cubic-bezier(.2,.7,.2,1) .2s both}.hero h1{animation:fadeup 1.2s cubic-bezier(.2,.7,.2,1) .35s both}.dbar{animation:fadeup 1.2s cubic-bezier(.2,.7,.2,1) .6s both}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.room{transition:transform .4s,box-shadow .4s}.room:hover{transform:translateY(-6px);box-shadow:0 26px 50px -30px rgba(44,62,53,.5)}
+.amen .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 80%,rgba(255,255,255,.18),transparent 60%);animation:steam 5s ease-in-out infinite alternate;pointer-events:none}
+@keyframes steam{from{opacity:.2;transform:translateY(10px)}to{opacity:.7;transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.hero .save,.hero h1,.dbar,.amen .ph::after{animation:none}}
 </style>
 </head>
 <body>
@@ -169,6 +189,32 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 
 (function(){var r=document.getElementById('rt'),n=document.getElementById('nn'),o=document.getElementById('sv');
 function u(){var nights=Math.max(1,+n.value||1),rate=+r.value,ota=Math.round(rate*1.15),save=(ota-rate)*nights;o.textContent=save+' €';}
-r.addEventListener('change',u);n.addEventListener('input',u);u();})();</script>
+r.addEventListener('change',u);n.addEventListener('input',u);u();})();
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){var r=document.getElementById('rt'),n=document.getElementById('nn'),o=document.getElementById('sv');if(!o)return;
+function u(){var nights=Math.max(1,+n.value||1),rate=+r.value,ota=Math.round(rate*1.15);window.tweenNum(o,(ota-rate)*nights,' €')}
+function pv(){o.dataset.prev=o.textContent}r.addEventListener('change',pv,true);n.addEventListener('input',pv,true);r.addEventListener('change',u);n.addEventListener('input',u);})();
+</script>
 </body>
 </html>

@@ -111,6 +111,31 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 .tt{background:#0F1E45;color:#fff;border-radius:22px;padding:2.5rem;display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
 .tt b{font-size:clamp(3rem,7vw,5rem);font-weight:900;color:var(--accent);line-height:1}
 @media(max-width:860px){.hero .grid,.offers .grid,.sel{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.reveal.shown{opacity:1;transform:none}
+.ph img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.ph:hover img{transform:scale(1.045)}
+.btn{position:relative;overflow:hidden}
+.btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(120%)}
+.hero>img{animation:kb 18s ease-out both}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+.bump{animation:bump .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero>img{animation:none}.ph:hover img{transform:none}}
+
+.hero{padding-bottom:6.5rem}
+.road{position:absolute;left:0;right:0;bottom:0;height:46px;background:#16295f;overflow:hidden}
+.road::before{content:"";position:absolute;left:0;top:50%;width:200%;height:4px;margin-top:-2px;background:repeating-linear-gradient(90deg,#F59E0B 0 46px,transparent 46px 92px);animation:road 1.6s linear infinite}
+@keyframes road{to{transform:translateX(-92px)}}
+.road .car{position:absolute;bottom:9px;left:0;font-size:0;animation:drive 9s cubic-bezier(.45,0,.55,1) infinite}
+.road .car svg{width:58px;height:26px}
+@keyframes drive{0%{transform:translateX(-80px)}100%{transform:translateX(110vw)}}
+.out .pr{display:inline-block}
+.steps{position:relative}
+.steps li{transition:border-color .6s}.steps li.shown{border-top-color:var(--blue)}
+@media (prefers-reduced-motion:reduce){.road::before,.road .car{animation:none}}
 </style>
 </head>
 <body>
@@ -123,7 +148,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <label>Emri dhe mbiemri<input name="Emri" data-label="Emri" required></label>
 <label>Kategoria<select id="regcat" name="Kategoria" data-label="Kategoria"><option>Kategoria B</option><option>Kategoria B, automatik</option><option>Kategoria C</option><option>Kategoria B-E</option></select></label>
 <label>Telefon<input name="Telefon" data-label="Telefon" required></label>
-<button class="btn btn-primary" type="submit">Regjistrohu në WhatsApp</button></form></div></div></section>
+<button class="btn btn-primary" type="submit">Regjistrohu në WhatsApp</button></form></div></div><div class="road" aria-hidden="true"><div class="car"><svg viewBox="0 0 58 26"><rect x="4" y="9" width="50" height="11" rx="4" fill="#fff"/><path d="M14 9 L20 2 H38 L45 9 Z" fill="#fff"/><rect x="24" y="12" width="12" height="5" fill="#F59E0B"/><circle cx="16" cy="21" r="4.5" fill="#0F1E45"/><circle cx="43" cy="21" r="4.5" fill="#0F1E45"/></svg></div></div></section>
 <section class="offers" id="ofertat"><div class="wrap"><div class="head"><h2>Ofertat</h2></div><div class="grid">
 <div class="offer main"><span>Regjistrimi për kategorinë B</span><b class="mock" title="Shembull">100 €</b><p>Ofertë e kufizuar. Pyesni për datat.</p></div>
 <div class="offer"><span>7 dhe 8 Marsi</span><b class="mock" title="Shembull">50%</b><p>Zbritje në regjistrim për kategorinë B.</p></div>
@@ -135,7 +160,7 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 <li><b>Mësimi teorik</b><span style="color:var(--muted)">Klasa dhe përgatitje me pyetjet e testit.</span></li>
 <li><b>Orët e vozitjes</b><span style="color:var(--muted)">Me instruktor, në rrugët ku mbahet provimi.</span></li>
 <li><b>Provimi dhe patenta</b><span style="color:var(--muted)">Ju shoqërojmë deri në ditën e provimit.</span></li></ol></div></section>
-<section style="padding-top:0"><div class="wrap"><div class="tt"><div><b>19.9K</b><p>ndjekës në TikTok. Këshilla për vozitje dhe kandidatët tanë me patentë.</p></div><a class="btn btn-primary" href="https://www.tiktok.com/@autoshkollabujari">@autoshkollabujari</a></div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="tt"><div><b data-count="19.9" data-suffix="K">19.9K</b><p>ndjekës në TikTok. Këshilla për vozitje dhe kandidatët tanë me patentë.</p></div><a class="btn btn-primary" href="https://www.tiktok.com/@autoshkollabujari">@autoshkollabujari</a></div></div></section>
 <section style="padding-top:0"><div class="wrap grid g2" style="gap:3rem"><div><h2>Na vizitoni</h2><ul class="contact-list" style="margin-top:1.5rem"><li><span>Adresa</span><span>Rr. Adem Jashari, kati i 3-të, Gjilan</span></li><li><span>Telefon</span><a href="tel:+38344859289">044 859 289</a></li><li><span>Instagram</span><a href="https://www.instagram.com/autoshkollabujari/">@autoshkollabujari</a></li></ul></div><iframe class="map" title="Harta" loading="eager" fetchpriority="high" src="https://www.google.com/maps?q=Autoshkolla%20Bujari%2C%20Adem%20Jashari%2C%20Gjilan%2C%20Kosovo&output=embed"></iframe></div></section>
 <footer class="foot"><div class="wrap"><span>© 2026 Autoshkolla Bujari, Gjilan</span><span>Demo nga [Emri i ekipit]. Fotot: Unsplash.</span></div></footer><div class="callbar"><a class="btn btn-primary" href="#regjistrohu">Regjistrohu</a><a class="btn btn-line" href="tel:+38344859289">Telefononi</a></div>
 <script>
@@ -168,6 +193,30 @@ footer.foot .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:
 (function(){var D={"B": ["Kategoria B", "Vetura deri në 3.5 t", "<span class=\"mock\" title=\"Shembull / Example\">350 €</span>", "<span class=\"mock\" title=\"Shembull / Example\">20 orë vozitje</span>"], "BA": ["Kategoria B, automatik", "Vetura me ndërrues automatik", "<span class=\"mock\" title=\"Shembull / Example\">400 €</span>", "<span class=\"mock\" title=\"Shembull / Example\">20 orë vozitje</span>"], "C": ["Kategoria C", "Kamionë", "<span class=\"mock\" title=\"Shembull / Example\">450 €</span>", "<span class=\"mock\" title=\"Shembull / Example\">25 orë vozitje</span>"], "BE": ["Kategoria B-E", "Veturë me rimorkio", "<span class=\"mock\" title=\"Shembull / Example\">250 €</span>", "<span class=\"mock\" title=\"Shembull / Example\">10 orë vozitje</span>"]};var o=document.getElementById('catout');document.querySelectorAll('[data-k]').forEach(function(b){b.addEventListener('click',function(){
 document.querySelectorAll('[data-k]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});var d=D[b.dataset.k];
 o.innerHTML='<h3>'+d[0]+'</h3><p style="color:var(--muted)">'+d[1]+'</p><p class="pr">'+d[2]+'</p><p>'+d[3]+'</p>';
-var s=document.getElementById('regcat');if(s)s.value=d[0];})});})();</script>
+var s=document.getElementById('regcat');if(s)s.value=d[0];})});})();
+(function(){
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__rm=RM;
+  // tween a number inside an element, keeping any suffix text
+  window.tweenNum=function(el,to,suffix,dur){suffix=suffix||'';if(RM){el.textContent=to+suffix;return}
+    var src=el.dataset.prev!=null?el.dataset.prev:el.textContent;var from=parseFloat((src||'0').replace(/[^0-9.]/g,''))||0,t0=null;dur=dur||700;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=Math.round(from+(to-from)*e)+suffix;if(k<1)requestAnimationFrame(f)}
+    requestAnimationFrame(f);el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')};
+  if(RM||!('IntersectionObserver' in window))return;
+  // scroll reveals with a small stagger inside each group
+  var sel='section .head, section h2, .card, .car, .vcard, .fc, .pl, .svc, .job, .room, .dish, .offer, .pk, .mcat, .steps li, .plist li, .contact-list, .map, figure.ph, .tt, .sales, .dispatch, .airport, .std, .calc, .plan, .resv, .iftar, .why>div, .flow, table';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.hero')&&!e.closest('dialog')&&!e.classList.contains('rv')&&!e.closest('.reveal')});
+  els.forEach(function(e){var sib=e.parentElement?[].indexOf.call(e.parentElement.children,e):0;e.style.setProperty('--d',Math.min(sib,6)*70+'ms');e.classList.add('reveal')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('shown');io.unobserve(t);setTimeout(function(){t.classList.remove('reveal','shown');t.style.removeProperty('--d')},1400)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+  // count-ups: <b data-count="19.9" data-suffix="K">
+  var co=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;var el=x.target,to=parseFloat(el.dataset.count),dec=(el.dataset.count.split('.')[1]||'').length,suf=el.dataset.suffix||'',t0=null;
+    function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,4);el.textContent=(to*e).toFixed(dec)+suf;if(k<1)requestAnimationFrame(f)}
+    el.textContent='0'+suf;requestAnimationFrame(f);co.unobserve(el)})},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
+})();
+
+(function(){var o=document.getElementById('catout');if(!o)return;new MutationObserver(function(){if(window.__rm)return;o.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],{duration:400,easing:'cubic-bezier(.2,.7,.2,1)'})}).observe(o,{childList:true});})();
+</script>
 </body>
 </html>
