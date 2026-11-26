@@ -262,7 +262,7 @@ b.addEventListener('click',function(){box.querySelectorAll('.slot').forEach(func
   document.querySelectorAll('[data-count]').forEach(function(e){co.observe(e)});
 })();
 
-(function(){var t=document.querySelector('.trim');if(!t)return;var st=t.querySelector('.stage'),sv=st.querySelector('svg'),H=[].slice.call(t.querySelectorAll('.hair')),p=t.querySelector('.pct'),down=false,total=H.length;
+(function(){var t=document.querySelector('.trim');if(!t)return;var st=t.querySelector('.stage'),sv=st.querySelector(':scope>svg'),H=[].slice.call(t.querySelectorAll('.hair')),p=t.querySelector('.pct'),down=false,total=H.length;
 function upd(){var c=t.querySelectorAll('.hair.cut').length,pc=Math.round(c/total*100);p.textContent=pc+'%';if(pc>=85&&!t.classList.contains('done')){t.classList.add('done');setTimeout(function(){st.classList.remove('play');rest()},700)}}
 function cut(cx,cy){var r=sv.getBoundingClientRect(),x=(cx-r.left)/r.width*240,y=(cy-r.top)/r.height*240;
 H.forEach(function(h){if(h.classList.contains('cut'))return;var hx=+h.getAttribute('x1'),hy=(+h.getAttribute('y1')+ +h.getAttribute('y2'))/2;if((x-hx)*(x-hx)+(y-hy)*(y-hy)<420)h.classList.add('cut')});upd()}
